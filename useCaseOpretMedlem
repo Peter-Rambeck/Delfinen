@@ -1,0 +1,38 @@
+
+Use Case: Opret Medlem .
+
+Opret medlem:
+
+Primary actors:     Formand
+Secondary actors:   Kasserer, Træner
+
+Preconditioning:    PC with internet access
+                    New Member data:
+                    Person:     Name, age, address, phone,
+                    Activity:   Active or Passive,
+                                Junior or Senior,
+                                Leisure or Competetive.
+
+
+Basic flow of events:
+1.  A person(swimmer) makes a member request.
+2.  Candidate submits all required data.
+3.  Primary actor register new member in the system.
+4.  System create the new member and store all data in a DataBase
+5.  Validate data
+6.  Secure data so only Primary Actor has edit access
+7.  System confirms the new member with a Unique member ID.
+
+Alternative flows:
+1.  Required data is not available.
+    1.a.    System prompt: Missing data, can't create new member.
+2.  Data is not correct, e.g: age = 120, or address does not exist.
+    2.a.    System catch and prompt: Data (specific) can't be validated.
+3.  Altered data
+    3.a.    Security breach: Others than Primary actor edit data
+    3.b.    Data is deleted
+
+
+
+
+
