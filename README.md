@@ -3,6 +3,14 @@
 Delfinen projekt.
 
 Mandag:
+1.  Domain Model Diagram
+2.  Use Case Diagram
+3.  Use Case: Opret medlem.
 
+Tirsdag: 
 
-Tirsdag
+Presenter til Tess. \
+Rette til \
+Strategi og opgave-deling
+
+ 
