@@ -1,0 +1,127 @@
+Use Case: Opret Medlem.
+
+Primary actors:     Formand
+Secondary actors:   Kasserer, Træner
+
+Preconditioning:    PC with internet access
+                    New Member data:
+                    Person:     Name, age, address, phone, Email.
+                    Activity:   Active or Passive,
+                                Junior or Senior,
+                                Leisure or Competetive.
+
+
+Basic flow of events:
+1.  A person(swimmer) makes a member request.
+2.  Candidate submits all required data.
+3.  Validate data.
+4.  Primary Actor register new member in the system.
+5.  System create the new member and store all data in a DataBase
+6.  System confirms the new member with a Unique member ID.
+
+Alternative flows:
+1.  Required data is not available.
+        1.a.    System prompt: Missing data, can't create new member.
+2.  Data is not correct, e.g: age = 120, or address does not exist.
+        2.a.    System catch and prompt: Data (specific) can't be validated.
+3.  Altered data
+        3.a.    Security breach: Others than Primary actor edit data
+        3.b.    Data is deleted
+
+        _____________________________________________
+
+Use Case: Opret Medlem.
+
+Opret medlem:
+
+Primary actors:     Formand
+Secondary actors:   Kasserer, Træner
+
+Preconditioning:    PC with internet access
+                    Member data:
+                    Name, MemberID, updates.
+
+
+Basic flow of events:
+1.  A member makes a change/update request.
+2.  Member supply change/update data.
+3.  Primary Actor lookup Member on matching MemberID == Name.
+4.  Primary Actor update data.
+5.  System update data in the DataBase with TimeStamp.
+6.  System confirms updates with updated MemberID String.
+
+Alternative flows:
+1.  Required data is not available.
+2.  Data is not correct, Name != MemberID.
+        2.a.    System catch and prompt: Name & MemberID can't be validated.
+3.  AMember doesn't exist.
+        3.a.    if Member is deleted, system require new 'Opret Medlem'
+
+        _____________________________________________
+
+Use Case: Kontingent betaling.
+
+Primary actors:     Kasserer
+Secondary actors:   None / Formand.
+
+Preconditioning:    PC with internet access
+                    Member paymentdata:
+                    Name, MemberID, amountPaid.
+
+
+Basic flow of events:
+1.  Primary Actor receives paymentData.
+2.  Primary Actor lookup MemberID Account
+3.  Primary Actor Key in amountPaid.
+4.  System store and update in DataBase.
+4.  // System register new balance with TimeStamp of transaction.
+
+Alternative flows:
+1.  Required data is not available.
+2.  Data is not correct, Name != MemberID.
+    2.a.    System catch and prompt: Name & MemberID can't be validated.
+3.  // Member doesn't exist.
+    // 3.a.    if Member is deleted, or exited the club, park the payment on refund account.
+
+    _______________________________________________________
+
+registrer Konkurrenceresultat:
+
+Primary actors:     Træner
+
+Basic flow of events:
+1.  træneren vælger stævne på liste
+2 	træneren vælger svømmetype på liste
+3	træneren indtaster medlemsID
+4	hvis medlemsID ikke er et Konkurrencemedlem gå til 3 igen
+5	træneren indtaster tid.
+6 	alle data vises og træneren trykker J ellen N for om data er korrekt, hvis N går til 1.
+7	data gemmes i resultatListen og DB.
+
+ 	_______________________________________________________
+
+registrer Træningsresultat:
+
+Primary actors:     Træner
+
+Basic flow of events:
+1	træneren vælger svømmetype på liste
+2	træneren indtaster medlemsID
+3	hvis medlemsID ikke er et Konkurrencemedlem gå til 2 igen
+4 	træneren indtaster tid.
+5 	alle data vises og træneren trykker J ellen N for om data er korrekt, hvis N går til 1.
+6	hvis resultat er bedre end tidligere resultat, gemmes resultat på medlem og medlem opdateres i DB
+
+
+
+vis top5Liste:
+
+Primary actors:     Træner
+
+Basic flow of events:
+
+1	træneren vælger svømmetype fra liste
+2	der oprettes sorteret (på tid)liste med tid ,medlemsID og dato.
+3 	listen af konkurrence resultater løbes igennem, hvis svømmetype er korrekt tilføjes resultat til listen
+4	listen af konkurrencemedlemmer løbes igennem og deres tid for svømmetypen gemmes i listen.
+5 	de 5 første på listen udskrives
