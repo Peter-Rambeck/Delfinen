@@ -1,4 +1,3 @@
-
 Use Case: Kontingent betaling.
 
 Primary actors:     Kasserer
@@ -11,17 +10,17 @@ Preconditioning:    PC with internet access
 
 Basic flow of events:
 1.  Primary Actor receives paymentData.
-2.  Primary Actor lookup Member Account
+2.  Primary Actor lookup MemberID Account
 3.  Primary Actor Key in amountPaid.
 4.  System store and update in DataBase.
-4.  System register new balance with TimeStamp of transaction.
+4.  // System register new balance with TimeStamp of transaction.
 
 Alternative flows:
 1.  Required data is not available.
 2.  Data is not correct, Name != MemberID.
     2.a.    System catch and prompt: Name & MemberID can't be validated.
-3.  Member doesn't exist.
-    3.a.    if Member is deleted, or exited the club, park the payment on refund account.
+3.  // Member doesn't exist.
+    // 3.a.    if Member is deleted, or exited the club, park the payment on refund account.
 
 
 
