@@ -1,0 +1,33 @@
+
+Use Case: Opret Medlem.
+
+Opret medlem:
+
+Primary actors:     Formand
+Secondary actors:   Kasserer, Træner
+
+Preconditioning:    PC with internet access
+                    Member data:
+                    Name, MemberID, updates.
+
+
+Basic flow of events:
+1.  A member makes a change/update request.
+2.  Member supply change/update data.
+3.  Primary Actor lookup Member on matching MemberID == Name.
+4.  Primary Actor update data.
+5.  System update data in the DataBase with TimeStamp.
+6.  System confirms updates with updated MemberID String.
+
+Alternative flows:
+1.  Required data is not available.
+2.  Data is not correct, Name != MemberID.
+       2.a.    System catch and prompt: Name & MemberID can't be validated.
+3.  AMember doesn't exist.
+         3.a.    if Member is deleted, system require new 'Opret Medlem'
+
+
+
+
+
+
