@@ -24,12 +24,12 @@ Basic flow of events:
 
 Alternative flows:
 1.  Required data is not available.
-    1.a.    System prompt: Missing data, can't create new member.
+        1.a.    System prompt: Missing data, can't create new member.
 2.  Data is not correct, e.g: age = 120, or address does not exist.
-    2.a.    System catch and prompt: Data (specific) can't be validated.
+        2.a.    System catch and prompt: Data (specific) can't be validated.
 3.  Altered data
-    3.a.    Security breach: Others than Primary actor edit data
-    3.b.    Data is deleted
+        3.a.    Security breach: Others than Primary actor edit data
+        3.b.    Data is deleted
 
 
 
