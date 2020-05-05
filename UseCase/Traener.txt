@@ -1,0 +1,43 @@
+registrer Konkurrenceresultat:
+
+Primary actors:     Træner
+
+Basic flow of events:
+1.  træneren vælger stævne på liste
+2 	træneren vælger svømmetype på liste
+3	træneren indtaster medlemsID
+4	hvis medlemsID ikke er et Konkurrencemedlem gå til 3 igen
+5	træneren indtaster tid.
+6 	alle data vises og træneren trykker J ellen N for om data er korrekt, hvis N går til 1.
+7	data gemmes i resultatListen og DB.
+ 	
+
+
+registrer Træningsresultat:
+
+Primary actors:     Træner
+
+Basic flow of events:
+1	træneren vælger svømmetype på liste
+2	træneren indtaster medlemsID
+3	hvis medlemsID ikke er et Konkurrencemedlem gå til 2 igen 
+4 	træneren indtaster tid.
+5 	alle data vises og træneren trykker J ellen N for om data er korrekt, hvis N går til 1.
+6	hvis resultat er bedre end tidligere resultat, gemmes resultat på medlem og medlem opdateres i DB
+
+
+
+vis top5Liste:
+
+Primary actors:     Træner
+
+Basic flow of events:
+
+1	træneren vælger svømmetype fra liste
+2	der oprettes sorteret (på tid)liste med tid ,medlemsID og dato.
+3 	listen af konkurrence resultater løbes igennem, hvis svømmetype er korrekt tilføjes resultat til listen
+4	listen af konkurrencemedlemmer løbes igennem og deres tid for svømmetypen gemmes i listen.
+5 	de 5 første på listen udskrives
+
+
+
