@@ -1,0 +1,5 @@
+model\Konkurrence.class
+Menu.class
+model\KonkurrenceResultat.class
+model\KonkurrrenceMedlem.class
+model\Medlem.class
