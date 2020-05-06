@@ -28,6 +28,11 @@ public class Medlem {
     public void setMedlemID(int medlemID) {
         this.medlemID = medlemID;
     }
+
+    public void opretMedlem(boolean aktiv, boolean mand, boolean senior, String forNavn, String efterNavn, int alder, String email, String tlfNr) {
+
+    }
+
 }
 
 

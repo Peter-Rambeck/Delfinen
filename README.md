@@ -17,7 +17,7 @@ Jens: \
 Oprette Klasse: Medlem 
 
 Peter: \
-Oprette Klasse: Menu \
+Oprette Klasse: IOMenu.Menu \
     1. Hovedmenu aktører, \
     2. Undermenu punkter / aktører - UseCase. 
 

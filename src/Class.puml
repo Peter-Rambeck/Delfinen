@@ -2,12 +2,12 @@
 
 namespace Controller {
 
-Class Menu {
+Class IOMenu.Menu {
 String[] hovedMenu {aktører}
 hovedMenu()
 }
 
-Class UnderMenu {
+Class IOMenu.UnderMenu {
 String[] formandUnderMenu {Menupunkter}
 String[] kassererUnderMenu {Menupunkter}
 String[] trænerUnderMenu {Menupunkter}
@@ -16,7 +16,7 @@ kassererUnderMenu()
 trænerUnderMenu()
 }
 
-Menu <|-- UnderMenu
+IOMenu.Menu <|-- IOMenu.UnderMenu
 
 }
 
@@ -104,6 +104,7 @@ hentResultater()
 nytResultatTræning()
 nytResultatKonkurrence()
 }
+
 
 }
 

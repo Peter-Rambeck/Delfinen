@@ -1,10 +1,10 @@
 package model;
 
-public class KonkurrrenceMedlem extends Medlem {
+// public class KonkurrrenceMedlem extends Medlem {
 
-    String Traener;
+   // String Traener;
     //svømmedicipliner
     //træningsresultater
 
 
-}
+//}
