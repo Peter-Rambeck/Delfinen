@@ -4,7 +4,7 @@ public class Menu {
 
     String[] hovedMenu = {"Formand", "Kasserer", "Træner"};
     String[] formandUnderMenu = {"Opret medlem", "Rediger medlem"};
-    String[] kassrerUnderMenu = {"Kontingentbetaling", "Restanceliste"};
+    String[] kassererUnderMenu = {"Kontingentbetaling", "Restanceliste"};
     String[] trænerUnderMenu = {"Registrer resultat", "Vis Top 5 liste", "Udtag til konkurrence"};
 
 
@@ -138,8 +138,8 @@ public class Menu {
         Scanner input = new Scanner(System.in);
 
         System.out.println("Vælg ");
-        System.out.println("1.\t"+kassrerUnderMenu[0]);
-        System.out.println("2.\t" +kassrerUnderMenu[1]);
+        System.out.println("1.\t"+kassererUnderMenu[0]);
+        System.out.println("2.\t" +kassererUnderMenu[1]);
 
         if (input.hasNextInt()) {
             int menuLogin = input.nextInt();
@@ -147,7 +147,7 @@ public class Menu {
                 switch (menuLogin) {
 
                     case 1:
-                        System.out.println(kassrerUnderMenu[0]);
+                        System.out.println(kassererUnderMenu[0]);
                         // TODO call Kontingentbetaling method
                         break;
 
