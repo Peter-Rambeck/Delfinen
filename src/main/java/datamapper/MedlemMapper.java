@@ -1,8 +1,6 @@
 package datamapper;
 import Util.DBConnector;
 import model.Medlem;
-
-
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -26,10 +24,9 @@ public class MedlemMapper {
                 medlem.getAlder()+"\",\"" +
                 medlem.getEmail()+"\",\"" +
                 medlem.getTlfNr()+"\",\"" +
-                medlem.getBalance()+"\",\"" +
-                medlem.isAktiv()+"\",\"" +
-                medlem.isMand()+"\",\"" +
-                medlem.isSenior()+"\",\"";
+                medlem.getBalance()+"\"," +
+                "1,1,1);";
+
 
 
         // lave statement
