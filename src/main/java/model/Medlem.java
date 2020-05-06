@@ -25,6 +25,46 @@ public class Medlem {
         this.balance = 0;
     }
 
+    public boolean isMand() {
+        return mand;
+    }
+
+    public boolean isSenior() {
+        return senior;
+    }
+
+    public int getMedlemID() {
+        return medlemID;
+    }
+
+    public String getForNavn() {
+        return forNavn;
+    }
+
+    public String getEfterNavn() {
+        return efterNavn;
+    }
+
+    public int getAlder() {
+        return alder;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getTlfNr() {
+        return tlfNr;
+    }
+
+    public int getBalance() {
+        return balance;
+    }
+
+    public boolean isAktiv() {
+        return aktiv;
+    }
+
     public void setMedlemID(int medlemID) {
         this.medlemID = medlemID;
     }
