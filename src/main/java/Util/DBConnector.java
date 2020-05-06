@@ -11,7 +11,7 @@ public class DBConnector {
     private DBConnector() {
         try {
             String baseurl = "jdbc:mysql://localhost:3306/";
-            String db = "Mario";
+            String db = "Delfin";
             String timeZ = "serverTimezone=Europe/Copenhagen&allowPublicKeyRetrieval=true";
             String totalUrl = baseurl+db+"?"+timeZ;
             String user = "root";
