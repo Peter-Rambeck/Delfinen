@@ -14,8 +14,6 @@ public class MedlemMapper {
         String sqlQuery = "";
         Connection conn = DBConnector.getInstance().getConnection();
 
-
-
         //laver ny ordre..
         sqlQuery = "Insert into medlem (forNavn,efterNavn,alder,email,tlfnr,balance,statu,koen,aldersklasse) " +
                 "Values(\"" +
@@ -26,8 +24,6 @@ public class MedlemMapper {
                 medlem.getTlfNr()+"\",\"" +
                 medlem.getBalance()+"\"," +
                 "\"aktiv\",\"mand\",\"senior\");";
-
-
 
         // lave statement
         try {

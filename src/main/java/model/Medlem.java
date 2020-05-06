@@ -69,10 +69,25 @@ public class Medlem {
         this.medlemID = medlemID;
     }
 
-    public void opretMedlem(boolean aktiv, boolean mand, boolean senior, String forNavn, String efterNavn, int alder, String email, String tlfNr) {
+    //public void opretMedlem(boolean aktiv, boolean mand, boolean senior, String forNavn, String efterNavn, int alder, String email, String tlfNr) {
+    // }
 
+
+    @Override
+    public String toString() {
+        return "Medlem{" +
+                "aktiv=" + aktiv +
+                ", mand=" + mand +
+                ", senior=" + senior +
+                ", medlemID=" + medlemID +
+                ", forNavn='" + forNavn + '\'' +
+                ", efterNavn='" + efterNavn + '\'' +
+                ", alder=" + alder +
+                ", email='" + email + '\'' +
+                ", tlfNr='" + tlfNr + '\'' +
+                ", balance=" + balance +
+                '}';
     }
-
 }
 
 
