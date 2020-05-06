@@ -1,0 +1,111 @@
+@startuml
+
+namespace Controller {
+
+Class Menu {
+String[] hovedMenu {aktører}
+hovedMenu()
+}
+
+Class UnderMenu {
+String[] formandUnderMenu {Menupunkter}
+String[] kassererUnderMenu {Menupunkter}
+String[] trænerUnderMenu {Menupunkter}
+formandUnderMenu()
+kassererUnderMenu()
+trænerUnderMenu()
+}
+
+Menu <|-- UnderMenu
+
+}
+
+namespace Model {
+
+Class Medlem {
+boolean aktiv;
+boolean mand;
+boolean senior;
+private int medlemID; (fra DB)
+private String forNavn;
+private String efterNavn;
+private int alder;
+private String email;
+private String tlfNr;
+private int balance;
+medlem()
+opretMedlem()
+redigerMedlem()
+udregnKontingent()
+}
+
+Class KonkurrenceResultat {
+private int konkurrenceResultatID;
+private KonkurrrenceMedlem Medlem;
+private Konkurrence konkurrence;
+String svømmedisiplin
+private LocalTime tid;
+
+konkurrenceResultat() {
+}
+
+
+Class TræningsResultat {
+private KonkurrrenceMedlem Medlem;
+String svømmedisiplin;
+private double tid;
+træningsResultat()
+}
+
+Class Konkurrence {
+String Navn;
+Dato dato;
+konkurrence()
+}
+
+KonkurrenceResultat <|-- Konkurrence
+KonkurrenceResultat <|-- Medlem
+TræningsResultat <|-- Medlem
+
+
+
+}
+
+
+namespace View {
+
+interface List {
+ArrayList<double> træningsResultat;
+ArrayList<double> konkurrenceResultat;
+ArrayList<double> balance;
+ArrayList<String    > medlemmer;
+
+visTræningsResultat()
+visKonkurrenceResultat()
+visTop5resultater()
+visRestancer()
+
+}
+
+}
+
+namespace DataMapper {
+
+Class KonkurrenceMapper {
+hentKonurrence()
+nyKonkurrence()
+}
+Class MemberMapper {
+hentMedlemer()
+nytMedlem()
+}
+Class ResultatMapper {
+hentResultater()
+nytResultatTræning()
+nytResultatKonkurrence()
+}
+
+}
+
+
+@enduml
