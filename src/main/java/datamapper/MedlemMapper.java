@@ -17,7 +17,7 @@ public class MedlemMapper {
 
 
         //laver ny ordre..
-        sqlQuery = "Insert into medlem (forNavn,efterNavn,alder,email,tlfnr,balance,aktiv,mand,senior) " +
+        sqlQuery = "Insert into medlem (forNavn,efterNavn,alder,email,tlfnr,balance,statu,koen,aldersklasse) " +
                 "Values(\"" +
                 medlem.getForNavn()+"\",\"" +
                 medlem.getEfterNavn()+"\",\"" +
@@ -25,7 +25,7 @@ public class MedlemMapper {
                 medlem.getEmail()+"\",\"" +
                 medlem.getTlfNr()+"\",\"" +
                 medlem.getBalance()+"\"," +
-                "1,1,1);";
+                "\"aktiv\",\"mand\",\"senior\");";
 
 
 
