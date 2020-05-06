@@ -99,7 +99,6 @@ Class MemberMapper {
 hentMedlemer()
 nytMedlem()
 }
-
 Class ResultatMapper {
 hentResultater()
 nytResultatTræning()
