@@ -3,15 +3,15 @@ package model;
 import datamapper.MedlemMapper;
 
 public class Medlem {
-    public static enum Status {
+    public enum Status {
         aktiv,
         passiv
     }
-    public static enum Koen {
+    public enum Koen {
         mand,
         kvinde
     }
-    public static enum AldersKlasse {
+    public enum AldersKlasse {
         junior,
         senior
     }
@@ -40,7 +40,8 @@ public class Medlem {
     }
     public void gemIDB(){
         MedlemMapper medlemMapper = new MedlemMapper();
-        this.setMedlemID(medlemMapper.createNewmedlem(this));
+        int medlemID=medlemMapper.createNewmedlem(this);
+        this.setMedlemID(medlemID);
     }
 
 
