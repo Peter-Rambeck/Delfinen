@@ -87,7 +87,7 @@ public class IOOpretMedlem {
             Medlem medlem = new Medlem(status, koen, aldersKlasse, forNavn, efterNavn, alder, email, tlfNr);
             medlem.gemIDB();
 
-            //Medlem medlem = new Medlem(aktiv, mand, senior, forNavn, efterNavn, alder, email, tlfNr);
+
             System.out.println(medlem);
 
 

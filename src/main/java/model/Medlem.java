@@ -38,6 +38,7 @@ public class Medlem {
         this.tlfNr = tlfNr;
         this.balance = 0;
     }
+
     public void gemIDB(){
         MedlemMapper medlemMapper = new MedlemMapper();
         int medlemID=medlemMapper.createNewmedlem(this);

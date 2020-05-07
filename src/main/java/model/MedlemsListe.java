@@ -9,4 +9,7 @@ public class MedlemsListe {
 
     }
 
+    public ArrayList<Medlem> getMedlemmer() {
+        return medlemmer;
+    }
 }
