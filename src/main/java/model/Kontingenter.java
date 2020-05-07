@@ -8,9 +8,10 @@ public class Kontingenter {
     private String forNavn;
     private int indbetaling;
 
+    // Medlemsliste
     ArrayList<Medlem> x = new ArrayList<>();
 
-
+    // Finder medlem og updaterer balancen med 'indbetaling'
     public int kontingent(ArrayList x, int medlemID, String forNavn, int indbetaling) {
         int balance = 0;
 
@@ -34,7 +35,7 @@ public class Kontingenter {
 
     public void udskrivRestance(ArrayList x) {
 
-        for ( Object y : x) {
+        for ( Object y : x ) {
             if ( x.balance < 0 ) {
                 System.out.println(x);
             }
