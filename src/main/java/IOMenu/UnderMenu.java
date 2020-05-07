@@ -1,6 +1,10 @@
 package IOMenu;
 
+import model.Kontingenter;
+
 import java.util.Scanner;
+
+import static model.Kontingenter.*;
 
 public class UnderMenu {
 
@@ -66,11 +70,18 @@ public class UnderMenu {
                     case 1:
                         System.out.println(kassererUnderMenu[0]);
                         // TODO call Kontingentbetaling method
+                        Scanner in = new Scanner(System.in);
+                        System.out.println("Indtast medlems ID");
+                        int medlemID = in.nextInt();
+                        System.out.println("Indtast indbetaling");
+                        int indbetaling = in.nextInt();
+                        Kontingenter.indbetalKontingent(medlemID, indbetaling);
+
                         break;
 
                     case 2:
                         System.out.println("Vis restance medlemmer");
-                        // TODO call Restanceliste method
+                        Kontingenter.udskrivRestanceListe();
                         break;
 
                     default:
