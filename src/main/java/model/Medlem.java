@@ -1,10 +1,22 @@
 package model;
 
 public class Medlem {
+    public enum Status {
+        aktiv,
+        passiv
+    }
+    public enum Koen {
+        mand,
+        kvinde
+    }
+    public enum AldersKlasse {
+        junior,
+        senior
+    }
 
-    private boolean aktiv;
-    private boolean mand;
-    private boolean senior;
+    private Status status;
+    private Koen koen;
+    private AldersKlasse AldersKlasse;
     private int medlemID; // (fra DB)
     private String forNavn;
     private String efterNavn;
@@ -13,10 +25,10 @@ public class Medlem {
     private String tlfNr;
     private int balance;
 
-    public Medlem(boolean aktiv, boolean mand, boolean senior, String forNavn, String efterNavn, int alder, String email, String tlfNr) {
-        this.aktiv = aktiv;
-        this.mand = mand;
-        this.senior = senior;
+    public Medlem(Status status, Koen koen, AldersKlasse aldersKlasse, String forNavn, String efterNavn, int alder, String email, String tlfNr) {
+        this.status = status;
+        this.koen = koen;
+        this.AldersKlasse = aldersKlasse;
         this.forNavn = forNavn;
         this.efterNavn = efterNavn;
         this.alder = alder;
@@ -25,13 +37,7 @@ public class Medlem {
         this.balance = 0;
     }
 
-    public boolean isMand() {
-        return mand;
-    }
 
-    public boolean isSenior() {
-        return senior;
-    }
 
     public int getMedlemID() {
         return medlemID;
@@ -61,9 +67,6 @@ public class Medlem {
         return balance;
     }
 
-    public boolean isAktiv() {
-        return aktiv;
-    }
 
     public void setMedlemID(int medlemID) {
         this.medlemID = medlemID;
@@ -76,9 +79,9 @@ public class Medlem {
     @Override
     public String toString() {
         return "Medlem{" +
-                "aktiv=" + aktiv +
-                ", mand=" + mand +
-                ", senior=" + senior +
+                "status=" + status +
+                ", koen=" + koen +
+                ", AldersKlasse=" + AldersKlasse +
                 ", medlemID=" + medlemID +
                 ", forNavn='" + forNavn + '\'' +
                 ", efterNavn='" + efterNavn + '\'' +
