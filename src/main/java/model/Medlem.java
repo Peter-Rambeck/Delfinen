@@ -1,5 +1,7 @@
 package model;
 
+import datamapper.MedlemMapper;
+
 public class Medlem {
     public static enum Status {
         aktiv,
@@ -36,7 +38,10 @@ public class Medlem {
         this.tlfNr = tlfNr;
         this.balance = 0;
     }
-
+    public void gemIDB(){
+        MedlemMapper medlemMapper = new MedlemMapper();
+        this.setMedlemID(medlemMapper.createNewmedlem(this));
+    }
 
 
     public int getMedlemID() {
@@ -57,6 +62,18 @@ public class Medlem {
 
     public String getEmail() {
         return email;
+    }
+
+    public Status getStatus() {
+        return status;
+    }
+
+    public Koen getKoen() {
+        return koen;
+    }
+
+    public Medlem.AldersKlasse getAldersKlasse() {
+        return AldersKlasse;
     }
 
     public String getTlfNr() {

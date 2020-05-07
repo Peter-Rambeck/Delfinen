@@ -85,8 +85,7 @@ public class IOOpretMedlem {
             String tlfNr = opretMedlemInput.nextLine();
 
             Medlem medlem = new Medlem(status, koen, aldersKlasse, forNavn, efterNavn, alder, email, tlfNr);
-            MedlemMapper medlemMapper = new MedlemMapper();
-            medlem.setMedlemID(medlemMapper.createNewmedlem(medlem));
+            medlem.gemIDB();
 
             //Medlem medlem = new Medlem(aktiv, mand, senior, forNavn, efterNavn, alder, email, tlfNr);
             System.out.println(medlem);
