@@ -22,8 +22,10 @@ public class MedlemMapper {
                 medlem.getAlder()+"\",\"" +
                 medlem.getEmail()+"\",\"" +
                 medlem.getTlfNr()+"\",\"" +
-                medlem.getBalance()+"\"," +
-                "\"aktiv\",\"mand\",\"senior\");";
+                medlem.getBalance()+"\",\"" +
+                medlem.getStatus()+"\",\"" +
+                medlem.getKoen()+"\",\"" +
+                medlem.getAldersKlasse()+"\"" +");";
 
         // lave statement
         try {

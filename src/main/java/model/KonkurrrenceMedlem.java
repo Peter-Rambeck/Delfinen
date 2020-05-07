@@ -2,11 +2,13 @@ package model;
 
 public class KonkurrrenceMedlem extends Medlem {
 
-    String Traener;
+    private String Traener;
 
-    public KonkurrrenceMedlem(boolean aktiv, boolean mand, boolean senior, String forNavn, String efterNavn, int alder, String email, String tlfNr) {
-        super(aktiv, mand, senior, forNavn, efterNavn, alder, email, tlfNr);
+    public KonkurrrenceMedlem(Status status, Koen koen, Medlem.AldersKlasse aldersKlasse, String forNavn, String efterNavn, int alder, String email, String tlfNr) {
+        super(status, koen, aldersKlasse, forNavn, efterNavn, alder, email, tlfNr);
     }
+
+
     //svømmedicipliner
     //træningsresultater
 
