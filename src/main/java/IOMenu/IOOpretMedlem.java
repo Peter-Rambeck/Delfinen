@@ -60,7 +60,7 @@ public class IOOpretMedlem {
             MedlemMapper medlemMapper = new MedlemMapper();
             medlemMapper.createNewmedlem(medlem);
 
-            //Medlem medlem = new Medlem(aktiv, mand, senior, forNavn, efterNavn, alder, email, tlfNr);
+
             System.out.println(medlem);
 
 
