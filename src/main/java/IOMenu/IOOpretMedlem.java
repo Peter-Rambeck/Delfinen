@@ -2,8 +2,16 @@ package IOMenu;
 
 import datamapper.MedlemMapper;
 import model.Medlem;
+import model.Medlem.*;
 
 import java.util.Scanner;
+
+import static model.Medlem.AldersKlasse.junior;
+import static model.Medlem.AldersKlasse.senior;
+import static model.Medlem.Koen.kvinde;
+import static model.Medlem.Koen.mand;
+import static model.Medlem.Status.aktiv;
+import static model.Medlem.Status.passiv;
 
 public class IOOpretMedlem {
 
@@ -19,10 +27,10 @@ public class IOOpretMedlem {
             System.out.println("passiv: 2 ");
             // Aktiv eller passiv
             int tmp = opretMedlemInput.nextInt();
-            Medlem.Status status;
+            Status status;
             if(tmp==2){
-                    status= Medlem.Status.passiv;
-            }else {status=Medlem.Status.aktiv;};
+                    status= passiv;
+            }else {status=aktiv;};
             System.out.println();
 
             // Køn
@@ -31,10 +39,10 @@ public class IOOpretMedlem {
             System.out.println("kvinde: 2 ");
             // Aktiv eller passiv
             tmp = opretMedlemInput.nextInt();
-            Medlem.Koen koen;
+            Koen koen;
             if(tmp==2){
-                    koen= Medlem.Koen.kvinde;
-            }else {koen=Medlem.Koen.mand;};
+                    koen= kvinde;
+            }else {koen=mand;};
             System.out.println();
 
             // Aldersklasse
@@ -43,10 +51,10 @@ public class IOOpretMedlem {
             System.out.println("senior: 2 ");
             // Aktiv eller passiv
              tmp = opretMedlemInput.nextInt();
-            Medlem.AldersKlasse aldersKlasse;
+            AldersKlasse aldersKlasse;
             if(tmp==2){
-                    aldersKlasse= Medlem.AldersKlasse.senior;
-            }else {aldersKlasse=Medlem.AldersKlasse.junior;};
+                    aldersKlasse= senior;
+            }else {aldersKlasse=junior;};
             System.out.println();
 
 

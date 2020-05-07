@@ -1,15 +1,15 @@
 package model;
 
 public class Medlem {
-    public enum Status {
+    public static enum Status {
         aktiv,
         passiv
     }
-    public enum Koen {
+    public static enum Koen {
         mand,
         kvinde
     }
-    public enum AldersKlasse {
+    public static enum AldersKlasse {
         junior,
         senior
     }
