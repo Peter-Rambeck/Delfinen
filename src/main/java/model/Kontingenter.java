@@ -4,44 +4,58 @@ import java.util.ArrayList;
 
 public class Kontingenter {
 
-    private int medlemID;
-    private String forNavn;
-    private int indbetaling;
+    final int juniorKontingent = 1000;
+    final int seniorKontingent = 1600;
+    final int over60Kontingent = 1200;
+    final int passivKontingent = 500;
 
-    // Medlemsliste
-    ArrayList<Medlem> x = new ArrayList<>();
+
+    public int udregnKontingent(Medlem medlem) {
+        int kontingent = 0;
+        if (medlem.getAldersKlasse() == Medlem.AldersKlasse.junior) {
+            kontingent = juniorKontingent;
+        }
+        if (medlem.getAldersKlasse() == Medlem.AldersKlasse.senior) {
+            kontingent = seniorKontingent;
+        }
+        if (medlem.getAlder() > 60) {
+            kontingent = over60Kontingent;
+        }
+        if (medlem.getStatus() == Medlem.Status.passiv) {
+            kontingent = passivKontingent;
+        }
+        return kontingent;
+    }
 
     // Finder medlem og updaterer balancen med 'indbetaling'
-    public int kontingent(ArrayList x, int medlemID, String forNavn, int indbetaling) {
+    public void indbetalKontingent(ArrayList<Medlem> medlemmer, int medlemID, int indbetaling) {
         int balance = 0;
 
-        for ( Object mm : x) {
-            if ( x.contains(medlemID) ) {
-                Object o = x;
-                System.out.println(o);
+        for ( Medlem mm : medlemmer) {
+            if (mm.getMedlemID() == medlemID)  {
+                balance = mm.getBalance();
+                mm.setBalance(balance + indbetaling);
+                System.out.println(mm);
             }
-
-            int curentBalance = o.balance;
-            balance = curentBalance + indbetaling;
-
         }
-        System.out.println();
-        return balance;
     }
 
-    public void nyBalance() {
-
-    }
-
-    public void udskrivRestance(ArrayList x) {
-
-        for ( Object y : x ) {
-            if ( x.balance < 0 ) {
-                System.out.println(x);
+    public void udskrivRestanceListe(ArrayList<Medlem> medlemmer) {
+        for ( Medlem rm : medlemmer ) {
+            if ( rm.getBalance() < 0 ) {
+                System.out.println(rm);
             }
         }
 
     }
 
+    public void udskrivKontingent(ArrayList<Medlem> medlemmer) {
+        int kontingent;
+        for ( Medlem km : medlemmer ) {
+            kontingent = udregnKontingent(km);
+            km.setBalance(km.getBalance()-kontingent);
+            }
+        }
 
-}
+    }
+

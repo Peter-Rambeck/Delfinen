@@ -86,6 +86,9 @@ public class Medlem {
         return balance;
     }
 
+    public void setBalance(int balance) {
+        this.balance = balance;
+    }
 
     public void setMedlemID(int medlemID) {
         this.medlemID = medlemID;
