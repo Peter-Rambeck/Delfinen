@@ -2,6 +2,8 @@ package model;
 
 import java.util.ArrayList;
 
+import static model.MedlemsListe.medlemmer;
+
 public class Kontingenter {
 
     final int juniorKontingent = 1000;
@@ -28,7 +30,7 @@ public class Kontingenter {
     }
 
     // Finder medlem og updaterer balancen med 'indbetaling'
-    public void indbetalKontingent(ArrayList<Medlem> medlemmer, int medlemID, int indbetaling) {
+    public static void indbetalKontingent(int medlemID, int indbetaling) {
         int balance = 0;
 
         for ( Medlem mm : medlemmer) {
@@ -40,7 +42,7 @@ public class Kontingenter {
         }
     }
 
-    public void udskrivRestanceListe(ArrayList<Medlem> medlemmer) {
+    public static void udskrivRestanceListe() {
         for ( Medlem rm : medlemmer ) {
             if ( rm.getBalance() < 0 ) {
                 System.out.println(rm);
@@ -49,7 +51,7 @@ public class Kontingenter {
 
     }
 
-    public void udskrivKontingent(ArrayList<Medlem> medlemmer) {
+    public void udskrivKontingent() {
         int kontingent;
         for ( Medlem km : medlemmer ) {
             kontingent = udregnKontingent(km);
