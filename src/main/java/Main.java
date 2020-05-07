@@ -18,7 +18,7 @@ public class Main {
       mm.getMedlemmerFraDB(ml.medlemmer);
 
        Menu menu = new Menu();
-      menu.hovedMenu();
+         menu.hovedMenu();
 
 
     }

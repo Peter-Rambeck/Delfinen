@@ -64,13 +64,14 @@ public class MedlemMapper {
                 int balance=res.getInt("balance");
                 String ststatus=res.getString("statu");
                 Medlem.Status status;
-                if(ststatus=="passiv"){status= Medlem.Status.passiv;}else{status= Medlem.Status.aktiv;}
+                if(ststatus.equals("passiv")){status= Medlem.Status.passiv;}else{status= Medlem.Status.aktiv;}
+                System.out.println(ststatus);
                 String stkoen=res.getString("koen");
                 Medlem.Koen koen;
-                if(stkoen=="mand"){koen= Medlem.Koen.mand;}else{koen= Medlem.Koen.kvinde;};
+                if(stkoen.equalsIgnoreCase("mand")){koen= Medlem.Koen.mand;}else{koen= Medlem.Koen.kvinde;};
                 String staldersKlasse=res.getString("aldersKlasse");
                 Medlem.AldersKlasse aldersKlasse;
-                if(staldersKlasse== "junior"){aldersKlasse= Medlem.AldersKlasse.junior;}else {aldersKlasse= Medlem.AldersKlasse.senior;};
+                if(staldersKlasse.equalsIgnoreCase( "junior")){aldersKlasse= Medlem.AldersKlasse.junior;}else {aldersKlasse= Medlem.AldersKlasse.senior;};
 
 
 
@@ -92,6 +93,21 @@ public class MedlemMapper {
             System.out.println(e.getMessage());
         }
 
+    }
+    public void updateBalanceIDB(Medlem medlem){
+        String sqlQuery = "";
+        Connection conn = DBConnector.getInstance().getConnection();
+        int nyBalance=medlem.getBalance();
+        int medlemID=medlem.getMedlemID();
+        sqlQuery = "UPDATE medlem SET balance ="+nyBalance+" WHERE medlemID="+medlemID+";";
+
+        // lave statement
+        try {
+            Statement stmt = conn.createStatement();
+            stmt.executeUpdate(sqlQuery);
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
     }
 
 }

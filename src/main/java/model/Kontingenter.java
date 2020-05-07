@@ -1,5 +1,7 @@
 package model;
 
+import datamapper.MedlemMapper;
+
 import java.util.ArrayList;
 
 public class Kontingenter {
@@ -30,11 +32,13 @@ public class Kontingenter {
     // Finder medlem og updaterer balancen med 'indbetaling'
     public void indbetalKontingent(ArrayList<Medlem> medlemmer, int medlemID, int indbetaling) {
         int balance = 0;
+        MedlemMapper medlemMapper=new MedlemMapper();
 
         for ( Medlem mm : medlemmer) {
             if (mm.getMedlemID() == medlemID)  {
                 balance = mm.getBalance();
                 mm.setBalance(balance + indbetaling);
+                medlemMapper.updateBalanceIDB(mm);
                 System.out.println(mm);
             }
         }
@@ -51,9 +55,11 @@ public class Kontingenter {
 
     public void udskrivKontingent(ArrayList<Medlem> medlemmer) {
         int kontingent;
+        MedlemMapper medlemMapper=new MedlemMapper();
         for ( Medlem km : medlemmer ) {
             kontingent = udregnKontingent(km);
             km.setBalance(km.getBalance()-kontingent);
+            medlemMapper.updateBalanceIDB(km);
             }
         }
 
