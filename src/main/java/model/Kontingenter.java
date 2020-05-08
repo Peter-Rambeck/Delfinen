@@ -11,7 +11,6 @@ public class Kontingenter {
     final int over60Kontingent = 1200;
     final int passivKontingent = 500;
 
-
     public int udregnKontingent(Medlem medlem) {
         int kontingent = 0;
         if (medlem.getAldersKlasse() == Medlem.AldersKlasse.junior) {
@@ -32,7 +31,6 @@ public class Kontingenter {
     // Finder medlem og updaterer balancen med 'indbetaling'
     public static void indbetalKontingent(int medlemID, int indbetaling) {
         int balance = 0;
-
         for ( Medlem mm : medlemmer) {
             if (mm.getMedlemID() == medlemID)  {
                 balance = mm.getBalance();
