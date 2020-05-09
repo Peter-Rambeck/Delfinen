@@ -24,8 +24,7 @@ public class Main {
 
         km.createKonkurrence(k);
         km.getKonkurrenceFraDB(konkurrencer.liste);
-        for(Konkurrence ko:konkurrencer.liste){
-            System.out.println(ko);
+        System.out.println(konkurrencer);
         }
 
         //Start hovedmenu I/O
@@ -34,4 +33,4 @@ public class Main {
 */
 
     }
-}
+

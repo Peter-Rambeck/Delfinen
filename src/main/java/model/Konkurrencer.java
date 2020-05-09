@@ -8,4 +8,12 @@ public class Konkurrencer {
     public Konkurrencer() {
     }
 
+    @Override
+    public String toString() {
+        String retVal="";
+        for (Konkurrence k:liste) {
+            retVal=retVal+k.toString()+"\n";
+        }
+        return retVal;
+    }
 }

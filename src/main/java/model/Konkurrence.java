@@ -20,7 +20,7 @@ public class Konkurrence {
         return konkurrenceID;
     }
 
-    public void setKonkurrenceID(int medlemID) {
+    public void setKonkurrenceID(int konkurrenceID) {
         this.konkurrenceID = konkurrenceID;
     }
 
@@ -34,9 +34,9 @@ public class Konkurrence {
 
     @Override
     public String toString() {
-        return  "konkurrenceID=" + konkurrenceID +
-                ", Navn='" + konkurrenceNavn + '\'' +
-                ", Dato=" + konkurrenceDato;
+        return  "nr:" + konkurrenceID +" "+
+                konkurrenceNavn +
+                konkurrenceDato;
     }
 
     public void setKonkurrenceNavn(String konkurrenceNavn) {
