@@ -14,6 +14,8 @@ public class Konkurrence {
     public Konkurrence(String konkurrenceNavn, LocalDate konkurrenceDato) {
         this.konkurrenceNavn = konkurrenceNavn;
         this.konkurrenceDato = konkurrenceDato;
+        this.gemIDB();
+        Konkurrencer.liste.add(this);
     }
 
     public int getKonkurrenceID() {
@@ -52,12 +54,5 @@ public class Konkurrence {
         int konkurrenceID=konkurrenceMapper.createKonkurrence(this);
         this.setKonkurrenceID(konkurrenceID);
     }
-/*
-    public void gemIDB(){
-        KonkurrenceMapper konkurrenceMapper = new KonkurrenceMapper();
-        int konkurrenceID = konkurrenceMapper.opretKonkurrence(this);
-        this.setKonkurrenceID(konkurrenceID);
-
-     */
 
 }
