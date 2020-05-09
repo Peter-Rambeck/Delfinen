@@ -1,7 +1,6 @@
 package model;
 
 import datamapper.KonkurrenceMapper;
-import datamapper.MedlemMapper;
 
 import java.time.LocalDate;
 
