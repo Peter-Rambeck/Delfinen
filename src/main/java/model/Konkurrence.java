@@ -14,13 +14,14 @@ public class Konkurrence {
     public Konkurrence(String konkurrenceNavn, LocalDate konkurrenceDato) {
         this.konkurrenceNavn = konkurrenceNavn;
         this.konkurrenceDato = konkurrenceDato;
+
     }
 
     public int getKonkurrenceID() {
         return konkurrenceID;
     }
 
-    public void setKonkurrenceID(int medlemID) {
+    public void setKonkurrenceID(int konkurrenceID) {
         this.konkurrenceID = konkurrenceID;
     }
 
@@ -34,11 +35,9 @@ public class Konkurrence {
 
     @Override
     public String toString() {
-        return "Konkurrence{" +
-                "konkurrenceID=" + konkurrenceID +
-                ", konkurrenceNavn='" + konkurrenceNavn + '\'' +
-                ", konkurrenceDato=" + konkurrenceDato +
-                '}';
+        return  "nr:" + konkurrenceID +" "+
+                konkurrenceNavn +" "+
+                konkurrenceDato;
     }
 
     public void setKonkurrenceNavn(String konkurrenceNavn) {
@@ -48,12 +47,12 @@ public class Konkurrence {
     public void setKonkurrenceDato(LocalDate konkurrenceDato) {
         this.konkurrenceDato = konkurrenceDato;
     }
-/*
-    public void gemIDB(){
-        KonkurrenceMapper konkurrenceMapper = new KonkurrenceMapper();
-        int konkurrenceID = konkurrenceMapper.opretKonkurrence(this);
-        this.setKonkurrenceID(konkurrenceID);
 
-     */
+    public void gem(){
+        KonkurrenceMapper konkurrenceMapper = new KonkurrenceMapper();
+        int konkurrenceID=konkurrenceMapper.createKonkurrence(this);
+        this.setKonkurrenceID(konkurrenceID);
+        Konkurrencer.liste.add(this);
+    }
 
 }

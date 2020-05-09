@@ -25,7 +25,7 @@ public class KonkurrenceMapper {
         //laver ny ordre..
         sqlQuery = "Insert into konkurrence (navn,dato) " +
                 "Values(\"" +
-                konkurrence.getKonkurrenceID()+"\",\"" +
+                konkurrence.getKonkurrenceNavn()+"\",\"" +
 
                 konkurrence.getKonkurrenceDato()+"\"" +");";
         System.out.println(sqlQuery);
