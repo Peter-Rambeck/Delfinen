@@ -1,10 +1,7 @@
 import IOMenu.Menu;
 import datamapper.KonkurrenceMapper;
 import datamapper.MedlemMapper;
-import model.Konkurrence;
-import model.KonkurrrenceMedlem;
-import model.Medlem;
-import model.MedlemsListe;
+import model.*;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -21,11 +18,16 @@ public class Main {
         // MedlemMapper mm = new MedlemMapper();
         // MedlemsListe ml=new MedlemsListe();
         // mm.getMedlemmerFraDB(ml.medlemmer);
+        Konkurrencer konkurrencer=new Konkurrencer();
         KonkurrenceMapper km=new KonkurrenceMapper();
         Konkurrence k=new Konkurrence();
         k.setDato(LocalDate.of(2017, 1, 13));
         k.setNavn("DM 2017");
         km.createKonkurrence(k);
+        km.getKonkurrenceFraDB(konkurrencer.liste);
+        for(Konkurrence ko:konkurrencer.liste){
+            System.out.println(ko);
+        }
 
         //Start hovedmenu I/O
        /* Menu menu = new Menu();

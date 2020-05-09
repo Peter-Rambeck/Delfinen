@@ -2,12 +2,13 @@ package datamapper;
 
 import Util.DBConnector;
 import model.Konkurrence;
+import model.KonkurrrenceMedlem;
 import model.Medlem;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.util.ArrayList;
 
 public class KonkurrenceMapper {
 
@@ -37,5 +38,34 @@ public class KonkurrenceMapper {
             System.out.println(e.getMessage());
         }
         return konkurenceID;
+    }
+    public void getKonkurrenceFraDB(ArrayList<Konkurrence> konkurrencer) {
+        String query = "";
+        Konkurrence tmpKonkurrence = null;
+
+        // TODO: The JDBC-cycle
+        Connection conn = DBConnector.getInstance().getConnection();
+        try {
+            query = "SELECT * FROM konkurrence";
+            Statement stmt = conn.createStatement();
+            ResultSet res = stmt.executeQuery(query);
+
+            while(res.next()) {
+                // laver et medlem per iteration og gemmer i listen
+                int konkurrenceID=res.getInt("konkurrenceID");
+                String navn=res.getString("navn");
+                LocalDate dato = res.getDate("dato").toLocalDate();
+
+
+                tmpKonkurrence = new Konkurrence();
+                tmpKonkurrence.setKonkurrenceID(konkurrenceID);
+                tmpKonkurrence.setDato(dato);
+                tmpKonkurrence.setNavn(navn);
+                konkurrencer.add(tmpKonkurrence);
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
     }
 }

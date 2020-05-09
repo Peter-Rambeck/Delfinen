@@ -37,11 +37,19 @@ public class Konkurrence {
         return konkurrenceID;
     }
 
-    public void setKonkurrenceID(int medlemID) {
+    public void setKonkurrenceID(int konkurrenceID) {
         this.konkurrenceID = konkurrenceID;
     }
 
-    /*
+    @Override
+    public String toString() {
+        return "Konkurrence{" +
+                "konkurrenceID=" + konkurrenceID +
+                ", navn='" + navn + '\'' +
+                ", dato=" + dato +
+                '}';
+    }
+/*
     public void gemIDB(){
         KonkurrenceMapper konkurrenceMapper = new KonkurrenceMapper();
         int konkurrenceID = konkurrenceMapper.opretKonkurrence(this);
