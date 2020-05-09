@@ -6,7 +6,6 @@ import datamapper.MedlemMapper;
 import java.time.LocalDate;
 
 public class Konkurrence {
-
     int konkurrenceID;
     private String navn;
     private LocalDate dato;
@@ -16,6 +15,22 @@ public class Konkurrence {
     public void konkurrence(String navn, LocalDate dato) {
         this.navn = navn;
         this.dato = dato;
+    }
+
+    public void setNavn(String navn) {
+        this.navn = navn;
+    }
+
+    public void setDato(LocalDate dato) {
+        this.dato = dato;
+    }
+
+    public String getNavn() {
+        return navn;
+    }
+
+    public LocalDate getDato() {
+        return dato;
     }
 
     public int getKonkurrenceID() {
