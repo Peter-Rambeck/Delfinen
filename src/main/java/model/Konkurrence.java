@@ -48,6 +48,12 @@ public class Konkurrence {
     public void setKonkurrenceDato(LocalDate konkurrenceDato) {
         this.konkurrenceDato = konkurrenceDato;
     }
+
+    public void gemIDB(){
+        KonkurrenceMapper konkurrenceMapper = new KonkurrenceMapper();
+        int konkurrenceID=konkurrenceMapper.createKonkurrence(this);
+        this.setKonkurrenceID(konkurrenceID);
+    }
 /*
     public void gemIDB(){
         KonkurrenceMapper konkurrenceMapper = new KonkurrenceMapper();

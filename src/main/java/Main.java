@@ -20,9 +20,8 @@ public class Main {
         // mm.getMedlemmerFraDB(ml.medlemmer);
         Konkurrencer konkurrencer=new Konkurrencer();
         KonkurrenceMapper km=new KonkurrenceMapper();
-        Konkurrence k=new Konkurrence();
-        k.setKonkurrenceDato(LocalDate.of(2017, 1, 13));
-        k.setNavn("DM 2017");
+        Konkurrence k=new Konkurrence("DM 2017",LocalDate.of(2017, 1, 13));
+
         km.createKonkurrence(k);
         km.getKonkurrenceFraDB(konkurrencer.liste);
         for(Konkurrence ko:konkurrencer.liste){
