@@ -8,13 +8,12 @@ import java.time.LocalDate;
 public class Konkurrence {
 
     int konkurrenceID;
-    private String navn;
-    private LocalDate dato;
+    String konkurrenceNavn;
+    LocalDate konkurrenceDato;
 
-
-    public void konkurrence(String navn, LocalDate dato) {
-        this.navn = navn;
-        this.dato = dato;
+    public Konkurrence(String konkurrenceNavn, LocalDate konkurrenceDato) {
+        this.konkurrenceNavn = konkurrenceNavn;
+        this.konkurrenceDato = konkurrenceDato;
     }
 
     public int getKonkurrenceID() {
@@ -23,6 +22,15 @@ public class Konkurrence {
 
     public void setKonkurrenceID(int medlemID) {
         this.konkurrenceID = konkurrenceID;
+    }
+
+    @Override
+    public String toString() {
+        return "Konkurrence{" +
+                "konkurrenceID=" + konkurrenceID +
+                ", konkurrenceNavn='" + konkurrenceNavn + '\'' +
+                ", konkurrenceDato=" + konkurrenceDato +
+                '}';
     }
 
     /*
