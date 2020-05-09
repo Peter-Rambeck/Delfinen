@@ -21,9 +21,8 @@ public class Main {
         Konkurrencer konkurrencer=new Konkurrencer();
         KonkurrenceMapper km=new KonkurrenceMapper();
         km.getKonkurrenceFraDB(konkurrencer.liste);
-        Konkurrence k=new Konkurrence("DM 2016",LocalDate.of(2017, 7, 13));
-        System.out.println(k);
-        km.createKonkurrence(k);
+       // Konkurrence k=new Konkurrence("DM 2016",LocalDate.of(2017, 7, 13));
+
 
         System.out.println(konkurrencer);
         }
