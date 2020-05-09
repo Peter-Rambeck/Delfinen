@@ -51,10 +51,11 @@ public class IOOpretResultat {
             System.out.println();
 
         System.out.println("Indtast tid");
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("hh.mm.ss.nnn");
+
+        DateTimeFormatter myFormat = DateTimeFormatter.ofPattern("HH:mm:ss.SSS");
         String tmpTid = opretResultatInput.next();
-        //LocalTime tid = LocalTime.parse(tmpTid, formatter);
-        // System.out.println(tid);
+        LocalTime tid = LocalTime.parse(tmpTid, myFormat);
+        System.out.println(tid);
 
         }
 
