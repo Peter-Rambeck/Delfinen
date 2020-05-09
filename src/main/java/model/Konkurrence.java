@@ -7,8 +7,6 @@ import java.time.LocalDate;
 
 public class Konkurrence {
 
-    /*
-
     int konkurrenceID;
     private String navn;
     private LocalDate dato;
@@ -28,6 +26,7 @@ public class Konkurrence {
         this.konkurrenceID = konkurrenceID;
     }
 
+    /*
     public void gemIDB(){
         KonkurrenceMapper konkurrenceMapper = new KonkurrenceMapper();
         int konkurrenceID = konkurrenceMapper.opretKonkurrence(this);
