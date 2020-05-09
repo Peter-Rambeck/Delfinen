@@ -1,7 +1,9 @@
 package model;
 
+import datamapper.MedlemMapper;
+
 import java.util.ArrayList;
-import static model.MedlemsLister.medlemmer;
+import static model.MedlemsLister.medlemMap;
 
 public class Kontingenter {
 
@@ -31,20 +33,26 @@ public class Kontingenter {
     // Finder medlem og updaterer balancen med 'indbetaling'
     public static void indbetalKontingent(int medlemID, int indbetaling) {
         int balance = 0;
-
-        for ( Medlem mm : medlemmer) {
+        MedlemsLister medlemsLister=new MedlemsLister();
+        Medlem medlem=medlemMap.get(medlemID);
+        balance = medlem.getBalance();
+        medlem.setBalance(balance + indbetaling);
+        MedlemMapper mm=new MedlemMapper();
+        mm.updateBalanceIDB(medlem);
+/*
+        for ( Medlem mm : medlemsLister.medlemMap.values()) {
             if (mm.getMedlemID() == medlemID)  {
                 balance = mm.getBalance();
                 mm.setBalance(balance + indbetaling);
                 System.out.println(mm);
             }
-        }
+        }*/
     }
 
     public static void udskrivRestanceListe() {
-        for ( Medlem rm : medlemmer ) {
+        for ( Medlem rm : medlemMap.values()) {
             if ( rm.getBalance() < 0 ) {
-                System.out.println(rm);
+                System.out.println(rm.balanceToString());;
             }
         }
 
@@ -52,7 +60,7 @@ public class Kontingenter {
 
     public void udskrivKontingent() {
         int kontingent;
-        for ( Medlem km : medlemmer ) {
+        for ( Medlem km : medlemMap.values()) {
             kontingent = udregnKontingent(km);
             km.setBalance(km.getBalance()-kontingent);
             }

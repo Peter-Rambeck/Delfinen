@@ -15,9 +15,9 @@ public class Main {
 
     public static void main(String[] args) {
 
-        // MedlemMapper mm = new MedlemMapper();
-        // MedlemsListe ml=new MedlemsListe();
-        // mm.getMedlemmerFraDB(ml.medlemmer);
+         MedlemMapper mm = new MedlemMapper();
+         MedlemsLister ml=new MedlemsLister();
+         mm.getMedlemmerFraDB(ml);
 
         /*
         Konkurrencer konkurrencer=new Konkurrencer();
@@ -40,6 +40,7 @@ public class Main {
 
         Menu menu = new Menu();
         menu.hovedMenu();
+
 
 
     }
