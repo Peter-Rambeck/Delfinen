@@ -31,8 +31,10 @@ public class IOOpretKonkurrence {
 
 
         Konkurrence konkurrence = new Konkurrence(konkurrenceNavn, konkurrenceDato);
+        // konkurrence.gemIDB();
 
-        // medlem.gemIDB();
+        // IORegistrerResultat
+
 
 
         System.out.println(konkurrence);

@@ -8,6 +8,7 @@ public class KonkurrenceResultat {
     /*
 
     public enum Svoemmediciplin {
+
         brystsvoemning,
         crawl,
         rygcrawl,
