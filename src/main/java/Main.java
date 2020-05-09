@@ -32,9 +32,11 @@ public class Main {
          */
 
         //Start hovedmenu I/O
-       Menu menu = new Menu();
-       menu.hovedMenu();
+        Menu menu = new Menu();
+        menu.hovedMenu();
 
 
     }
+}
+
 
