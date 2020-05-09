@@ -15,7 +15,11 @@ CREATE TABLE `Delfin`.`medlem` (
   aldersKlasse ENUM ("senior","junior"),
   PRIMARY KEY (`medlemID`));
  
-  
+  CREATE TABLE `Delfin`.`konkurrence` (
+  konkurrenceID INT NOT NULL AUTO_INCREMENT,
+  navn VARCHAR(45) NULL,
+  dato DATE,
+  PRIMARY KEY (`konkurrenceID`));
     
     
     
