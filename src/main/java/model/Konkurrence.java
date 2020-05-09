@@ -12,7 +12,6 @@ public class Konkurrence {
     private LocalDate dato;
 
 
-
     public void konkurrence(String navn, LocalDate dato) {
         this.navn = navn;
         this.dato = dato;
