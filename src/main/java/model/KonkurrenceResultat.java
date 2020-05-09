@@ -15,14 +15,16 @@ public class KonkurrenceResultat {
 
 
     private int konkurrenceResultatID;
-    private KonkurrrenceMedlem Medlem;
+    private Medlem medlem;
     private Konkurrence konkurrence;
     public Svoemmediciplin svoemmediciplin;
     private LocalTime tid;
 
-
-    public void KonkurrenceResultat(Konkurrence konkurrence, KonkurrrenceMedlem medlem, Svoemmediciplin svoemmediciplin, LocalTime tid) {
-
+    public KonkurrenceResultat(Medlem medlem, Konkurrence konkurrence, Svoemmediciplin svoemmediciplin, LocalTime tid) {
+        this.medlem = medlem;
+        this.konkurrence = konkurrence;
+        this.svoemmediciplin = svoemmediciplin;
+        this.tid = tid;
     }
 
     public void setTid(LocalTime tid) {

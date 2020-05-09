@@ -1,6 +1,7 @@
 import IOMenu.Menu;
 import datamapper.KonkurrenceMapper;
 import datamapper.MedlemMapper;
+import datamapper.ResultatMapper;
 import model.*;
 
 import java.time.LocalDate;
@@ -37,6 +38,10 @@ public class Main {
         KonkurrenceMapper km=new KonkurrenceMapper();
         km.getKonkurrenceFraDB(konkurrencer);
         System.out.println(konkurrencer);
+
+       // KonkurrenceResultat konkurrenceResultat=new KonkurrenceResultat();
+        ResultatMapper resultatMapper=new ResultatMapper();
+        resultatMapper.getResultaterFraDB();
 
         Menu menu = new Menu();
         menu.hovedMenu();
