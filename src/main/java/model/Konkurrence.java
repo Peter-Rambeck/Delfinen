@@ -24,6 +24,14 @@ public class Konkurrence {
         this.konkurrenceID = konkurrenceID;
     }
 
+    public String getKonkurrenceNavn() {
+        return konkurrenceNavn;
+    }
+
+    public LocalDate getKonkurrenceDato() {
+        return konkurrenceDato;
+    }
+
     @Override
     public String toString() {
         return "Konkurrence{" +
@@ -33,7 +41,14 @@ public class Konkurrence {
                 '}';
     }
 
-    /*
+    public void setKonkurrenceNavn(String konkurrenceNavn) {
+        this.konkurrenceNavn = konkurrenceNavn;
+    }
+
+    public void setKonkurrenceDato(LocalDate konkurrenceDato) {
+        this.konkurrenceDato = konkurrenceDato;
+    }
+/*
     public void gemIDB(){
         KonkurrenceMapper konkurrenceMapper = new KonkurrenceMapper();
         int konkurrenceID = konkurrenceMapper.opretKonkurrence(this);
