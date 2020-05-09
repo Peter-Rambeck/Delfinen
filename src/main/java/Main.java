@@ -20,10 +20,11 @@ public class Main {
         // mm.getMedlemmerFraDB(ml.medlemmer);
         Konkurrencer konkurrencer=new Konkurrencer();
         KonkurrenceMapper km=new KonkurrenceMapper();
-        Konkurrence k=new Konkurrence("DM 2017",LocalDate.of(2017, 1, 13));
-
-        km.createKonkurrence(k);
         km.getKonkurrenceFraDB(konkurrencer.liste);
+        Konkurrence k=new Konkurrence("DM 2016",LocalDate.of(2017, 7, 13));
+        System.out.println(k);
+        km.createKonkurrence(k);
+
         System.out.println(konkurrencer);
         }
 

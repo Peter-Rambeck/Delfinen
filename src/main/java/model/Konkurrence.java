@@ -35,7 +35,7 @@ public class Konkurrence {
     @Override
     public String toString() {
         return  "nr:" + konkurrenceID +" "+
-                konkurrenceNavn +
+                konkurrenceNavn +" "+
                 konkurrenceDato;
     }
 
