@@ -20,6 +20,16 @@ CREATE TABLE `Delfin`.`medlem` (
   navn VARCHAR(45) NULL,
   dato DATE,
   PRIMARY KEY (`konkurrenceID`));
+  
+  CREATE TABLE `Delfin`.`konkurrenceResultat` (
+  resultatID INT NOT NULL AUTO_INCREMENT,
+  medlemID INT NULL,
+  konkurrenceID INT NULL,
+  disciplin ENUM("bryst","crawl","rygcrawl","butterfly"),
+  tid TIME(3),
+  FOREIGN KEY (medlemID) REFERENCES medlem(medlemID),
+  FOREIGN KEY (konkurrenceID) REFERENCES konkurrence(konkurrenceID),
+  PRIMARY KEY (resultatID));
     
     
     
