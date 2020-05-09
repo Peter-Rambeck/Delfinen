@@ -116,6 +116,7 @@ public class UnderMenu {
                     case 1:
                         System.out.println(trænerUnderMenu[0]);
                         // TODO call Registrer resultat method
+                        IOOpretKonkurrence.opretKonkurrence();
                         break;
 
                     case 2:

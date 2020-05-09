@@ -6,38 +6,21 @@ import datamapper.MedlemMapper;
 import java.time.LocalDate;
 
 public class Konkurrence {
+
     int konkurrenceID;
-    private String navn;
-    private LocalDate dato;
+    String konkurrenceNavn;
+    LocalDate konkurrenceDato;
 
-
-
-    public void konkurrence(String navn, LocalDate dato) {
-        this.navn = navn;
-        this.dato = dato;
-    }
-
-    public void setNavn(String navn) {
-        this.navn = navn;
-    }
-
-    public void setDato(LocalDate dato) {
-        this.dato = dato;
-    }
-
-    public String getNavn() {
-        return navn;
-    }
-
-    public LocalDate getDato() {
-        return dato;
+    public Konkurrence(String konkurrenceNavn, LocalDate konkurrenceDato) {
+        this.konkurrenceNavn = konkurrenceNavn;
+        this.konkurrenceDato = konkurrenceDato;
     }
 
     public int getKonkurrenceID() {
         return konkurrenceID;
     }
 
-    public void setKonkurrenceID(int konkurrenceID) {
+    public void setKonkurrenceID(int medlemID) {
         this.konkurrenceID = konkurrenceID;
     }
 
@@ -45,11 +28,12 @@ public class Konkurrence {
     public String toString() {
         return "Konkurrence{" +
                 "konkurrenceID=" + konkurrenceID +
-                ", navn='" + navn + '\'' +
-                ", dato=" + dato +
+                ", konkurrenceNavn='" + konkurrenceNavn + '\'' +
+                ", konkurrenceDato=" + konkurrenceDato +
                 '}';
     }
-/*
+
+    /*
     public void gemIDB(){
         KonkurrenceMapper konkurrenceMapper = new KonkurrenceMapper();
         int konkurrenceID = konkurrenceMapper.opretKonkurrence(this);
