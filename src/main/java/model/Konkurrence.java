@@ -34,11 +34,9 @@ public class Konkurrence {
 
     @Override
     public String toString() {
-        return "Konkurrence{" +
-                "konkurrenceID=" + konkurrenceID +
-                ", konkurrenceNavn='" + konkurrenceNavn + '\'' +
-                ", konkurrenceDato=" + konkurrenceDato +
-                '}';
+        return  "konkurrenceID=" + konkurrenceID +
+                ", Navn='" + konkurrenceNavn + '\'' +
+                ", Dato=" + konkurrenceDato;
     }
 
     public void setKonkurrenceNavn(String konkurrenceNavn) {
