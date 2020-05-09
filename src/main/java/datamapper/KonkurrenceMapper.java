@@ -43,7 +43,7 @@ public class KonkurrenceMapper {
         }
         return konkurenceID;
     }
-}
+
     public void getKonkurrenceFraDB(ArrayList<Konkurrence> konkurrencer) {
         String query = "";
         Konkurrence tmpKonkurrence = null;

@@ -11,7 +11,7 @@ public class UnderMenu {
 
     String[] formandUnderMenu = {"Opret medlem", "Rediger medlem"};
     String[] kassererUnderMenu = {"Kontingentbetaling", "Restanceliste"};
-    String[] trænerUnderMenu = {"Registrer resultat", "Vis Top 5 liste", "Udtag til konkurrence"};
+    String[] trænerUnderMenu = {"Opret konkurrence", "Registrer resultat", "Vis Top 5 liste"};
 
 
     public void formandUnderMenu() {
@@ -121,12 +121,12 @@ public class UnderMenu {
 
                     case 2:
                         System.out.println(trænerUnderMenu[1]);
-                        // TODO call Vis Top 5 liste method
+                        IOOpretResultat.opretResultat();
                         break;
 
                     case 3:
                         System.out.println(trænerUnderMenu[2]);
-                        // TODO call Udtag til konkurrence method
+                        // TODO call Vis Top 5 liste method
                         break;
 
 
