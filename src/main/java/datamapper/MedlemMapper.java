@@ -53,36 +53,42 @@ public class MedlemMapper {
             query = "SELECT * FROM medlem";
             Statement stmt = conn.createStatement();
             ResultSet res = stmt.executeQuery(query);
+
             while(res.next()) {
                 // laver et medlem per iteration og gemmer i listen
                 int medlemID=res.getInt("medlemID");
+
                 String fornavn=res.getString("forNavn");
+
                 String efternavn=res.getString("efterNavn");
+
                 int alder=res.getInt("alder");
+
                 String email=res.getString("email");
+
                 String tlfnr=res.getString("tlfnr");
+
                 int balance=res.getInt("balance");
+
                 String ststatus=res.getString("statu");
+
                 Medlem.Status status;
-                if(ststatus.equals("passiv")){status= Medlem.Status.passiv;}else{status= Medlem.Status.aktiv;}
-                System.out.println(ststatus);
+                if (ststatus.equals("passiv"))
+                {status= Medlem.Status.passiv;}else{status= Medlem.Status.aktiv;}
+                // System.out.println(ststatus);
+
                 String stkoen=res.getString("koen");
                 Medlem.Koen koen;
                 if(stkoen.equalsIgnoreCase("mand")){koen= Medlem.Koen.mand;}else{koen= Medlem.Koen.kvinde;};
+
                 String staldersKlasse=res.getString("aldersKlasse");
                 Medlem.AldersKlasse aldersKlasse;
                 if(staldersKlasse.equalsIgnoreCase( "junior")){aldersKlasse= Medlem.AldersKlasse.junior;}else {aldersKlasse= Medlem.AldersKlasse.senior;};
 
-
-
-
-
-                /*int id = res.getInt("PizzaID");
-                String navn = res.getString("navn");
-                String ingredienser = res.getString("ingredienser");
-                int pris = res.getInt("pris");
+                /*
                 Medlem(Status status, Koen koen, AldersKlasse aldersKlasse, String forNavn, String efterNavn, int alder, String email, String tlfNr)
-*/
+                */
+
                 tmpMedlem = new Medlem(status,koen, aldersKlasse,fornavn,efternavn,alder,email,tlfnr);
                 tmpMedlem.setMedlemID(medlemID);
                 tmpMedlem.setBalance(balance);
