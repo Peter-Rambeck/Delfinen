@@ -2,6 +2,7 @@ package datamapper;
 
 import Util.DBConnector;
 import model.Konkurrence;
+import model.Konkurrencer;
 import model.KonkurrrenceMedlem;
 import model.Medlem;
 
@@ -13,6 +14,7 @@ import java.sql.*;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class KonkurrenceMapper {
 
@@ -44,7 +46,7 @@ public class KonkurrenceMapper {
         return konkurenceID;
     }
 
-    public void getKonkurrenceFraDB(ArrayList<Konkurrence> konkurrencer) {
+    public void getKonkurrenceFraDB(Konkurrencer konkurrencer) {
         String query = "";
         Konkurrence tmpKonkurrence = null;
 
@@ -64,7 +66,7 @@ public class KonkurrenceMapper {
 
                 tmpKonkurrence = new Konkurrence(navn,dato);
                 tmpKonkurrence.setKonkurrenceID(konkurrenceID);
-                konkurrencer.add(tmpKonkurrence);
+                Konkurrencer.konkurrenceMap.put(konkurrenceID,tmpKonkurrence);
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());

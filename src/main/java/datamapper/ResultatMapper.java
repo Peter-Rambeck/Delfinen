@@ -31,7 +31,7 @@ public class ResultatMapper {
                 Time sqlTid = res.getTime("tid");
                 LocalTime tid=sqlTid.toLocalTime();
 
-                KonkurrenceResultat tmpRes=new KonkurrenceResultat()
+         //       KonkurrenceResultat tmpRes=new KonkurrenceResultat()
 
 
             }

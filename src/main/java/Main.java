@@ -32,6 +32,12 @@ public class Main {
          */
 
         //Start hovedmenu I/O
+        Konkurrencer konkurrencer=new Konkurrencer();
+
+        KonkurrenceMapper km=new KonkurrenceMapper();
+        km.getKonkurrenceFraDB(konkurrencer);
+        System.out.println(konkurrencer);
+
         Menu menu = new Menu();
         menu.hovedMenu();
 
