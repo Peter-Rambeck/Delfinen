@@ -1,0 +1,35 @@
+
+
+Medlem-Klasse
+    Mangler 'Aktivitetsfrom: Motionist/Konkurrencesvømmer'
+
+UnderMenu-Klasse
+    Mangler at tilføje -> 'Aktivitetsfrom: Motionist/Konkurrencesvømmer'
+
+
+KonkurrenceMedlem-Klasse
+    Formål: Adskille konkurrrenceMedlemmer til brug i konkurrenceResultat.
+
+    Nedaver Medlem,
+        Tager medlem data fra MedlemsListe + adskiller et konkurrenceMedlem på 'Aktivitetsform: Motionist/Kokurrencesvømmer'
+        Tilføjer kokurrenceMedlem til subliste 'konkurrrenceMedlemmer'
+
+
+Konkurrence-Klasse
+    Formål: Oprette en konkurrence til DB og generere AUTO ID.
+
+    Felter: ID, navn, dato
+
+
+KonkurrenceResultat-Klasse
+    Formål: Registrere et resultat per diciplin/Medlem fra konkurrenceMedlemmer listen.
+
+    Skal tage 'konkurrenceID' og 'navn' variabler fra 'Konkurrence klassen
+    Skal tage 'medlemID' og 'navn' fra 'MedlemsListe'
+
+    Felter:
+    Tilføje et resultater og gemme i DB.
+
+
+
+

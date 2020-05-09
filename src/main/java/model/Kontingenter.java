@@ -1,7 +1,6 @@
 package model;
 
 import java.util.ArrayList;
-
 import static model.MedlemsListe.medlemmer;
 
 public class Kontingenter {

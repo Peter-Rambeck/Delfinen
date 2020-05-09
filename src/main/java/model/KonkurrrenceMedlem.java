@@ -1,10 +1,12 @@
 package model;
 
+import java.util.ArrayList;
+
 public class KonkurrrenceMedlem extends Medlem {
 
-
-
     private String Traener;
+
+    ArrayList<KonkurrrenceMedlem> konkurrrenceMedlemmer = new ArrayList<>();
 
     public KonkurrrenceMedlem(Status status,
                               Koen koen,
@@ -16,11 +18,5 @@ public class KonkurrrenceMedlem extends Medlem {
                               String tlfNr) {
         super(status, koen, aldersKlasse, forNavn, efterNavn, alder, email, tlfNr);
     }
-
-
-    //svømmedicipliner
-    //træningsresultater
-
-
 
 }
