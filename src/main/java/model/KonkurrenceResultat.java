@@ -5,8 +5,6 @@ import java.time.LocalTime;
 
 public class KonkurrenceResultat {
 
-    /*
-
     public enum Svoemmediciplin {
         brystsvoemning,
         crawl,
@@ -15,18 +13,23 @@ public class KonkurrenceResultat {
     }
 
 
-    // private int konkurrenceResultatID;
+
+    private int konkurrenceResultatID;
     private KonkurrrenceMedlem Medlem;
-    private Svoemmediciplin;
     private Konkurrence konkurrence;
     public Svoemmediciplin svoemmediciplin;
-    // private LocalTime tid;
+    private LocalTime tid;
 
 
-    public void KonkurrenceResultat(Konkurrence konkurrence, KonkurrrenceMedlem medlem, Svoemmediciplin svoemmediciplin) {
+    public void KonkurrenceResultat(Konkurrence konkurrence, KonkurrrenceMedlem medlem, Svoemmediciplin svoemmediciplin, LocalTime tid) {
 
     }
 
-     */
+    public void setTid(LocalTime tid) {
+        this.tid = tid;
+    }
 
+    public void setKonkurrenceResultatID(int konkurrenceResultatID) {
+        this.konkurrenceResultatID = konkurrenceResultatID;
+    }
 }

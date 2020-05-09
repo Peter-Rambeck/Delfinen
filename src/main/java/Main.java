@@ -18,6 +18,8 @@ public class Main {
         // MedlemMapper mm = new MedlemMapper();
         // MedlemsListe ml=new MedlemsListe();
         // mm.getMedlemmerFraDB(ml.medlemmer);
+
+        /*
         Konkurrencer konkurrencer=new Konkurrencer();
         KonkurrenceMapper km=new KonkurrenceMapper();
         km.getKonkurrenceFraDB(konkurrencer.liste);
@@ -27,10 +29,14 @@ public class Main {
         System.out.println(konkurrencer);
         }
 
+         */
+
         //Start hovedmenu I/O
-       /* Menu menu = new Menu();
+        Menu menu = new Menu();
         menu.hovedMenu();
-*/
+
 
     }
+}
+
 

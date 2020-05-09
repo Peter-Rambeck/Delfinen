@@ -1,7 +1,6 @@
 package IOMenu;
 
 import model.Konkurrence;
-import model.Konkurrencer;
 import model.Medlem;
 
 import java.time.LocalDate;
@@ -32,7 +31,7 @@ public class IOOpretKonkurrence {
 
 
         Konkurrence konkurrence = new Konkurrence(konkurrenceNavn, konkurrenceDato);
-        konkurrence.gem();
+
         // medlem.gemIDB();
 
 
