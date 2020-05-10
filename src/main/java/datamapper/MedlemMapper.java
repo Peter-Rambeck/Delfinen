@@ -45,6 +45,7 @@ public class MedlemMapper {
         return medlemID;
     }
 
+
     public void getMedlemmerFraDB(MedlemsLister medlemsLister) {
         String query = "";
         Medlem tmpMedlem = null;
@@ -103,6 +104,8 @@ public class MedlemMapper {
         }
 
     }
+
+
     public void updateBalanceIDB(Medlem medlem){
         String sqlQuery = "";
         Connection conn = DBConnector.getInstance().getConnection();
