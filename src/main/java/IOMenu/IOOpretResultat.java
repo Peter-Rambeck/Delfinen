@@ -34,8 +34,8 @@ public class IOOpretResultat {
 
 
         int tmp = opretResultatInput.nextInt();
-        KonkurrenceResultat.Svoemmediciplin svoemmediciplin;
-
+        KonkurrenceResultat.Svoemmediciplin svoemmediciplin = null;
+      
             if (tmp == 1) {
                 svoemmediciplin = KonkurrenceResultat.Svoemmediciplin.brystsvoemning;
             }
@@ -48,14 +48,13 @@ public class IOOpretResultat {
             if (tmp == 4) {
                 svoemmediciplin = KonkurrenceResultat.Svoemmediciplin.butterfly;
             }
-            System.out.println();
 
-        System.out.println("Indtast tid");
+        System.out.println("Indtast tid 'HH:mm:ss.SSS'");
 
         DateTimeFormatter myFormat = DateTimeFormatter.ofPattern("HH:mm:ss.SSS");
         String tmpTid = opretResultatInput.next();
         LocalTime tid = LocalTime.parse(tmpTid, myFormat);
-        System.out.println(tid);
+        System.out.println(svoemmediciplin+" "+tid);
 
         }
 
