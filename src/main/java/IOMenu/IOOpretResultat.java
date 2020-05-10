@@ -22,7 +22,7 @@ public class IOOpretResultat {
         int konkurrence = opretResultatInput.nextInt();
 
         System.out.println("Vælg Medlem: ");
-        System.out.println(ml.getKonkurrenceMedlemmer());
+        System.out.println(ml.KortToString());
         int medlemID = opretResultatInput.nextInt();
 
         System.out.println("Vælg diciplin: ");

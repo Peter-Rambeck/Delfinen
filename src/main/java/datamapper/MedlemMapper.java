@@ -1,6 +1,8 @@
 package datamapper;
 import Util.DBConnector;
 import model.Medlem;
+import model.MedlemsLister;
+
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -43,7 +45,7 @@ public class MedlemMapper {
         return medlemID;
     }
 
-    public void getMedlemmerFraDB(ArrayList<Medlem> medlemmer) {
+    public void getMedlemmerFraDB(MedlemsLister medlemsLister) {
         String query = "";
         Medlem tmpMedlem = null;
 
@@ -93,7 +95,8 @@ public class MedlemMapper {
                 tmpMedlem.setMedlemID(medlemID);
                 tmpMedlem.setBalance(balance);
                 System.out.println(tmpMedlem);
-                medlemmer.add(tmpMedlem);
+                medlemsLister.medlemMap.put(medlemID,tmpMedlem);
+                //medlemmer.add(tmpMedlem);
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());

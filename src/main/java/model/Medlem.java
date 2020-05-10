@@ -39,12 +39,19 @@ public class Medlem {
         this.balance = 0;
     }
 
-    public void gemIDB(){
+    public void gem(){
+        MedlemsLister medlemsLister=new MedlemsLister();
         MedlemMapper medlemMapper = new MedlemMapper();
         int medlemID=medlemMapper.createNewmedlem(this);
         this.setMedlemID(medlemID);
+        medlemsLister.medlemMap.put(medlemID,this);
+
     }
 
+    public String balanceToString(){
+        String retVal=medlemID+" "+forNavn+" "+efterNavn+" "+balance+"\n";
+        return retVal;
+    }
 
     public int getMedlemID() {
         return medlemID;
@@ -97,7 +104,10 @@ public class Medlem {
     //public void opretMedlem(boolean aktiv, boolean mand, boolean senior, String forNavn, String efterNavn, int alder, String email, String tlfNr) {
     // }
 
-
+    public String kortToString(){
+        String retVal=medlemID+" "+forNavn+" "+efterNavn;
+        return retVal;
+    }
     @Override
     public String toString() {
         return "Medlem{" +

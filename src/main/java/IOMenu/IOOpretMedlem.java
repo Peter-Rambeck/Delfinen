@@ -85,7 +85,7 @@ public class IOOpretMedlem {
             String tlfNr = opretMedlemInput.nextLine();
 
             Medlem medlem = new Medlem(status, koen, aldersKlasse, forNavn, efterNavn, alder, email, tlfNr);
-            medlem.gemIDB();
+            medlem.gem();
 
 
             System.out.println(medlem);

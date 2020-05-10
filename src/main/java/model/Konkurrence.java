@@ -1,7 +1,6 @@
 package model;
 
 import datamapper.KonkurrenceMapper;
-import datamapper.MedlemMapper;
 
 import java.time.LocalDate;
 
@@ -52,7 +51,7 @@ public class Konkurrence {
         KonkurrenceMapper konkurrenceMapper = new KonkurrenceMapper();
         int konkurrenceID=konkurrenceMapper.createKonkurrence(this);
         this.setKonkurrenceID(konkurrenceID);
-        Konkurrencer.liste.add(this);
+        Konkurrencer.konkurrenceMap.put(konkurrenceID,this);
     }
 
 }
