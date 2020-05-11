@@ -4,6 +4,8 @@ import datamapper.MedlemMapper;
 
 public class Medlem {
 
+    /*
+
     public enum Status {
         aktiv,
         passiv
@@ -17,9 +19,11 @@ public class Medlem {
         senior
     }
 
-    private Status status;
-    private Koen koen;
-    private AldersKlasse AldersKlasse;
+     */
+
+    private Enum.Status status;
+    private Enum.Koen koen;
+    private static Enum.AldersKlasse AldersKlasse;
     private int medlemID; // (fra DB)
     private String forNavn;
     private String efterNavn;
@@ -28,7 +32,7 @@ public class Medlem {
     private String tlfNr;
     private int balance;
 
-    public Medlem(Status status, Koen koen, AldersKlasse aldersKlasse, String forNavn, String efterNavn, int alder, String email, String tlfNr) {
+    public Medlem(Enum.Status status, Enum.Koen koen, Enum.AldersKlasse aldersKlasse, String forNavn, String efterNavn, int alder, String email, String tlfNr) {
         this.status = status;
         this.koen = koen;
         this.AldersKlasse = aldersKlasse;
@@ -75,15 +79,15 @@ public class Medlem {
         return email;
     }
 
-    public Status getStatus() {
+    public Enum.Status getStatus() {
         return status;
     }
 
-    public Koen getKoen() {
+    public Enum.Koen getKoen() {
         return koen;
     }
 
-    public Medlem.AldersKlasse getAldersKlasse() {
+    public Enum.AldersKlasse getAldersKlasse() {
         return AldersKlasse;
     }
 

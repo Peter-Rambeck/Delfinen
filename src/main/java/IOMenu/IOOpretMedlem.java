@@ -1,57 +1,71 @@
 package IOMenu;
 
 import datamapper.MedlemMapper;
+import model.Enum;
 import model.Medlem;
 import model.Medlem.*;
+import model.KonkurrrenceMedlem;
 
 import java.util.Scanner;
 
-import static model.Medlem.AldersKlasse.junior;
-import static model.Medlem.AldersKlasse.senior;
-import static model.Medlem.Koen.kvinde;
-import static model.Medlem.Koen.mand;
-import static model.Medlem.Status.aktiv;
-import static model.Medlem.Status.passiv;
+import static model.Enum.AldersKlasse.junior;
+import static model.Enum.AldersKlasse.senior;
+import static model.Enum.Koen.kvinde;
+import static model.Enum.Koen.mand;
+import static model.Enum.Status.aktiv;
+import static model.Enum.Status.passiv;
+
 
 public class IOOpretMedlem {
-
 
     public static void opretMedlem() {
 
             // Create Scanner object
             Scanner opretMedlemInput = new Scanner(System.in);
 
-            // Aktiv eller passiv
+            // Aktivitetsform, Motionist / Konkurrencesvoemmer
+            System.out.println("Aktivitetsform: ");
+            System.out.println("Konkurrencesvoemmer: 1 ");
+            System.out.println("Motionist: 2 ");
+            // Indput
+            int aktivitetsForm = opretMedlemInput.nextInt();
+            opretMedlemInput.nextLine();
+
+            // Aktiv eller passiv, Enum
             System.out.println("medlemstype: ");
             System.out.println("aktiv: 1 ");
             System.out.println("passiv: 2 ");
-            // Aktiv eller passiv
+            // Indput
             int tmp = opretMedlemInput.nextInt();
-            Status status;
-            if(tmp==2){
-                    status= passiv;
-            }else {status=aktiv;};
+            Enum.Status status;
+            if ( tmp == 2 ) {
+                    status = passiv;
+            } else {
+                    status = aktiv;
+            };
             System.out.println();
 
-            // Køn
+            // Køn, Enum
             System.out.println("køn: ");
             System.out.println("mand: 1 ");
             System.out.println("kvinde: 2 ");
-            // Aktiv eller passiv
+            // Indput
             tmp = opretMedlemInput.nextInt();
-            Koen koen;
-            if(tmp==2){
-                    koen= kvinde;
-            }else {koen=mand;};
+            Enum.Koen koen;
+            if ( tmp==2 ) {
+                    koen = kvinde;
+            } else {
+                    koen = mand;
+            };
             System.out.println();
 
-            // Aldersklasse
+            // Aldersklasse, Enum
             System.out.println("aldersklasse: ");
             System.out.println("junior: 1 ");
             System.out.println("senior: 2 ");
             // Aktiv eller passiv
              tmp = opretMedlemInput.nextInt();
-            AldersKlasse aldersKlasse;
+            Enum.AldersKlasse aldersKlasse;
             if(tmp==2){
                     aldersKlasse= senior;
             }else {aldersKlasse=junior;};
@@ -84,14 +98,14 @@ public class IOOpretMedlem {
             //
             String tlfNr = opretMedlemInput.nextLine();
 
-            Medlem medlem = new Medlem(status, koen, aldersKlasse, forNavn, efterNavn, alder, email, tlfNr);
-            medlem.gem();
-
-
-            System.out.println(medlem);
-
-
-
+            if ( aktivitetsForm == 1 ) {
+                    KonkurrrenceMedlem konkurrrenceMedlem = new KonkurrrenceMedlem(status, koen, aldersKlasse, forNavn, efterNavn, alder, email, tlfNr);
+                    System.out.println(konkurrrenceMedlem);
+            } else {
+                    Medlem medlem = new Medlem(status, koen, aldersKlasse, forNavn, efterNavn, alder, email, tlfNr);
+                    medlem.gem();
+                    System.out.println(medlem);
+            }
 
         }
 
