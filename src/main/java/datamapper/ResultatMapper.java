@@ -4,9 +4,7 @@ import Util.DBConnector;
 import model.*;
 
 import java.sql.*;
-import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.ArrayList;
 
 import static model.KonkurrenceResultat.*;
 import static model.KonkurrenceResultat.Svoemmediciplin.*;
@@ -20,6 +18,37 @@ private int konkurrenceResultatID;
 
  */
 public class ResultatMapper {
+    public int createKonkurrenceResultat(KonkurrenceResultat konkurrenceResultat) {
+
+        int konkurenceresultatID = 0;
+        String sqlQuery = "";
+        Connection conn = DBConnector.getInstance().getConnection();
+
+        //laver ny ordre..
+        sqlQuery = "Insert into konkurrenceresultat (medlemID,konkurrenceID,disciplin,tid) " +
+                "Values(\"" +
+                konkurrenceResultat.getMedlem().getMedlemID()+"\",\"" +
+                konkurrenceResultat.getKonkurrence().getKonkurrenceID()+"\",\""+
+                konkurrenceResultat.getSvoemmediciplin()+"\",\""+
+                konkurrenceResultat.getTid()+"\"" +");";
+        System.out.println(sqlQuery);
+        // lave statement
+        try {
+            Statement stmt = conn.createStatement();
+            //opret i DB
+            stmt.executeUpdate(sqlQuery, Statement.RETURN_GENERATED_KEYS);
+            // modtag ordreID fr DB
+            ResultSet res = stmt.getGeneratedKeys();
+            res.next();
+            konkurenceresultatID = res.getInt(1);
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return konkurenceresultatID;
+    }
+
+
+
     public void getResultaterFraDB() {
         String query = "";
         Konkurrence tmpResultat = null;
@@ -56,8 +85,10 @@ public class ResultatMapper {
 
                 }
                 // to enum
-                Time sqlTid = res.getTime("tid");
-                LocalTime tid=sqlTid.toLocalTime();
+                Timestamp sqlTid = res.getTimestamp("tid");
+                System.out.println("sql"+sqlTid);
+                LocalTime tid=sqlTid.toLocalDateTime().toLocalTime();
+                System.out.println("java"+tid);
 
                 // sæt resultatet sammen
                 KonkurrenceResultat tmpRes=new KonkurrenceResultat( medlemsLister.medlemMap.get(medlemID),

@@ -46,8 +46,9 @@ public class Main {
 
         System.out.println(konkurrenceResultater);
 
-        Menu menu = new Menu();
+       Menu menu = new Menu();
         menu.hovedMenu();
+        System.out.println(konkurrenceResultater);
 
 
 

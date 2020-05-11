@@ -13,13 +13,14 @@ public class IOOpretResultat {
     public static void opretResultat() {
         Konkurrencer konkurrencer = new Konkurrencer();
         MedlemsLister ml = new MedlemsLister();
+        KonkurrenceResultater konkurrenceResultater=new KonkurrenceResultater();
 
         // Create Scanner object
         Scanner opretResultatInput = new Scanner(System.in);
 
         System.out.println("Vælg konkurrence: ");
         System.out.println(konkurrencer);
-        int konkurrence = opretResultatInput.nextInt();
+        int konkurrenceID = opretResultatInput.nextInt();
 
         System.out.println("Vælg Medlem: ");
         System.out.println(ml.KortToString());
@@ -54,6 +55,13 @@ public class IOOpretResultat {
         DateTimeFormatter myFormat = DateTimeFormatter.ofPattern("HH:mm:ss.SSS");
         String tmpTid = opretResultatInput.next();
         LocalTime tid = LocalTime.parse(tmpTid, myFormat);
+        KonkurrenceResultat konkurrenceResultat=new KonkurrenceResultat(ml.medlemMap.get(medlemID),
+                                                                        konkurrencer.konkurrenceMap.get(konkurrenceID),
+                                                                        svoemmediciplin,
+                                                                        tid);
+
+        konkurrenceResultat.gem();
+
         System.out.println(svoemmediciplin+" "+tid);
 
         }

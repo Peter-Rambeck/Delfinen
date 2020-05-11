@@ -1,7 +1,11 @@
 package model;
 
+import datamapper.MedlemMapper;
+import datamapper.ResultatMapper;
+
 import java.sql.Time;
 import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 
 public class KonkurrenceResultat {
 
@@ -26,6 +30,13 @@ public class KonkurrenceResultat {
         this.svoemmediciplin = svoemmediciplin;
         this.tid = tid;
     }
+    public void gem(){
+        KonkurrenceResultater konkurrenceResultater=new KonkurrenceResultater();
+        ResultatMapper resultatMapper=new ResultatMapper();
+        int resultatID=resultatMapper.createKonkurrenceResultat(this);
+        this.setKonkurrenceResultatID(resultatID);
+        KonkurrenceResultater.konkurrenceResultatMap.put(resultatID,this);
+    }
 
     public void setTid(LocalTime tid) {
         this.tid = tid;
@@ -35,14 +46,35 @@ public class KonkurrenceResultat {
         this.konkurrenceResultatID = konkurrenceResultatID;
     }
 
+    public int getKonkurrenceResultatID() {
+        return konkurrenceResultatID;
+    }
+
+    public Medlem getMedlem() {
+        return medlem;
+    }
+
+    public Konkurrence getKonkurrence() {
+        return konkurrence;
+    }
+
+    public Svoemmediciplin getSvoemmediciplin() {
+        return svoemmediciplin;
+    }
+
+    public LocalTime getTid() {
+        return tid;
+    }
+
     @Override
     public String toString() {
-        return "KonkurrenceResultat{" +
-                "konkurrenceResultatID=" + konkurrenceResultatID +
-                ", medlem=" + medlem +
-                ", konkurrence=" + konkurrence +
-                ", svoemmediciplin=" + svoemmediciplin +
-                ", tid=" + tid +
-                '}';
+        DateTimeFormatter myFormat = DateTimeFormatter.ofPattern("HH:mm:ss.SSS");
+
+        return
+                "ResultatID:" + konkurrenceResultatID +
+                " Medlem: "+ medlem.getMedlemID()+" "+ medlem.getForNavn()+" "+medlem.getEfterNavn() +
+                " Konkurrence: " + konkurrence.getKonkurrenceID()+" "+konkurrence.getKonkurrenceNavn()+" " +
+                " Disciplin: " + svoemmediciplin +
+                ", Tid:" + tid.format(myFormat) +"\n";
     }
 }
