@@ -25,7 +25,31 @@ Oprette Klasse: IOMenu.Menu \
 
 Start: 8:30.
 
+**Mandag:**
 
+Jens: \
+ResultatMapper, GemIDB \
+HashMap KonkurrenceResultater \
+Gemme fra IO
+
+
+Peter: \
+Refakturering, \
+    Enum klasse 
+    
+IO \
+KonkurenceMedlem \
+    Diciplin
+    
+IO \
+Træningsresultater \
+    Diciplin
+
+IO: Refak. -> MenuSkabelon.
+
+
+Gustav: \
+Kommenter på Model.
 
 
  

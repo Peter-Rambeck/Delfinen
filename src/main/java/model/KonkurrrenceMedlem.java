@@ -16,7 +16,4 @@ public class KonkurrrenceMedlem extends Medlem {
                               String tlfNr) {
         super(status, koen, aldersKlasse, forNavn, efterNavn, alder, email, tlfNr);
     }
-
-
-
 }
