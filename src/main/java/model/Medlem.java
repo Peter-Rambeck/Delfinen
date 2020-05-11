@@ -3,6 +3,7 @@ package model;
 import datamapper.MedlemMapper;
 
 public class Medlem {
+
     public enum Status {
         aktiv,
         passiv
@@ -47,6 +48,7 @@ public class Medlem {
         medlemsLister.medlemMap.put(medlemID,this);
 
     }
+
 
     public String balanceToString(){
         String retVal=medlemID+" "+forNavn+" "+efterNavn+" "+balance+"\n";

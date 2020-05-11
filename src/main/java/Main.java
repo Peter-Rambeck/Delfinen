@@ -39,7 +39,7 @@ public class Main {
         km.getKonkurrenceFraDB(konkurrencer);
         System.out.println(konkurrencer);
 
-       // KonkurrenceResultat konkurrenceResultat=new KonkurrenceResultat();
+       // KonkurrenceResultat konkurrenceResultat=new KonkurrenceResultat();x
         ResultatMapper resultatMapper=new ResultatMapper();
         resultatMapper.getResultaterFraDB();
 
