@@ -20,7 +20,7 @@ public class KonkurrenceResultat {
     private Konkurrence konkurrence;
     public Svoemmediciplin svoemmediciplin;
     private LocalTime tid;
-
+        //contructor
     public KonkurrenceResultat(Medlem medlem, Konkurrence konkurrence, Svoemmediciplin svoemmediciplin, LocalTime tid) {
         this.medlem = medlem;
         this.konkurrence = konkurrence;
@@ -34,5 +34,16 @@ public class KonkurrenceResultat {
 
     public void setKonkurrenceResultatID(int konkurrenceResultatID) {
         this.konkurrenceResultatID = konkurrenceResultatID;
+    }
+
+    @Override
+    public String toString() {
+        return "KonkurrenceResultat{" +
+                "konkurrenceResultatID=" + konkurrenceResultatID +
+                ", medlem=" + medlem +
+                ", konkurrence=" + konkurrence +
+                ", svoemmediciplin=" + svoemmediciplin +
+                ", tid=" + tid +
+                '}';
     }
 }

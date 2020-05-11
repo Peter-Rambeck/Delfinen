@@ -40,8 +40,11 @@ public class Main {
         System.out.println(konkurrencer);
 
        // KonkurrenceResultat konkurrenceResultat=new KonkurrenceResultat();x
+        KonkurrenceResultater konkurrenceResultater=new KonkurrenceResultater();
         ResultatMapper resultatMapper=new ResultatMapper();
         resultatMapper.getResultaterFraDB();
+
+        System.out.println(konkurrenceResultater);
 
         Menu menu = new Menu();
         menu.hovedMenu();
