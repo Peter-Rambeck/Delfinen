@@ -19,7 +19,7 @@ public class KonkurrenceResultat {
     private Konkurrence konkurrence;
     public Svoemmediciplin svoemmediciplin;
     private LocalTime tid;
-
+        //contructor
     public KonkurrenceResultat(Medlem medlem, Konkurrence konkurrence, Svoemmediciplin svoemmediciplin, LocalTime tid) {
         this.medlem = medlem;
         this.konkurrence = konkurrence;

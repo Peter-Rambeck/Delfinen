@@ -12,7 +12,7 @@ public class Kontingenter {
     final int over60Kontingent = 1200;
     final int passivKontingent = 500;
 
-
+        //udregner kontingent for medlemmer ud fra deres oprettede alder, og ovenstående kriterier
     public int udregnKontingent(Medlem medlem) {
         int kontingent = 0;
         if (medlem.getAldersKlasse() == Medlem.AldersKlasse.junior) {
@@ -48,7 +48,7 @@ public class Kontingenter {
             }
         }*/
     }
-
+                //Finder medlem i hashmap og udskriver restancen
     public static void udskrivRestanceListe() {
         for ( Medlem rm : medlemMap.values()) {
             if ( rm.getBalance() < 0 ) {
@@ -57,7 +57,7 @@ public class Kontingenter {
         }
 
     }
-
+        //???
     public void udskrivKontingent() {
         int kontingent;
         for ( Medlem km : medlemMap.values()) {
