@@ -66,7 +66,6 @@ public class ResultatMapper {
             while(res.next()) {
                 // laver et resultat per iteration og gemmer i listen
                 resultatID=res.getInt("resultatID");
-                System.out.println(resultatID);
                 int medlemID=res.getInt("medlemID");
                 int konkurrenceID=res.getInt("konkurrenceID");
                 String stDisciplin=res.getString("disciplin");
@@ -86,9 +85,7 @@ public class ResultatMapper {
                 }
                 // to enum
                 Timestamp sqlTid = res.getTimestamp("tid");
-                System.out.println("sql"+sqlTid);
                 LocalTime tid=sqlTid.toLocalDateTime().toLocalTime();
-                System.out.println("java"+tid);
 
                 // sæt resultatet sammen
                 KonkurrenceResultat tmpRes=new KonkurrenceResultat( medlemsLister.medlemMap.get(medlemID),
@@ -96,7 +93,6 @@ public class ResultatMapper {
                                                                    svoemmediciplin,
                                                                    tid);
                 // tilføj resultat til resultat map..med reultatID som key
-                System.out.println(resultatID);
                 tmpRes.setKonkurrenceResultatID(resultatID);
                 KonkurrenceResultater.konkurrenceResultatMap.put(resultatID,tmpRes);
 

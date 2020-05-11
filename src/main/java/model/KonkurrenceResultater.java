@@ -16,9 +16,6 @@ public class KonkurrenceResultater {
             retVal=retVal+konkurrenceResultat.toString();
 
         }
-
-
-
         return retVal;
     }
 }
