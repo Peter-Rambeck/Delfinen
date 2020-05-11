@@ -27,7 +27,7 @@ public class Medlem {
     private String email;
     private String tlfNr;
     private int balance;
-
+            //constructor
     public Medlem(Status status, Koen koen, AldersKlasse aldersKlasse, String forNavn, String efterNavn, int alder, String email, String tlfNr) {
         this.status = status;
         this.koen = koen;
@@ -39,7 +39,7 @@ public class Medlem {
         this.tlfNr = tlfNr;
         this.balance = 0;
     }
-
+                    //Opretter medlem i databasen, modtager id fra databasen og gemmer det i hashmap
     public void gem(){
         MedlemsLister medlemsLister=new MedlemsLister();
         MedlemMapper medlemMapper = new MedlemMapper();
