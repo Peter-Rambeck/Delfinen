@@ -17,9 +17,11 @@ public class Medlem {
         senior
     }
 
+
+
     private Status status;
     private Koen koen;
-    private AldersKlasse AldersKlasse;
+    private static AldersKlasse AldersKlasse;
     private int medlemID; // (fra DB)
     private String forNavn;
     private String efterNavn;
@@ -83,7 +85,7 @@ public class Medlem {
         return koen;
     }
 
-    public Medlem.AldersKlasse getAldersKlasse() {
+    public AldersKlasse getAldersKlasse() {
         return AldersKlasse;
     }
 

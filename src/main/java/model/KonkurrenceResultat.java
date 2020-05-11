@@ -9,6 +9,7 @@ import java.time.format.DateTimeFormatter;
 
 public class KonkurrenceResultat {
 
+
     public enum Svoemmediciplin {
         brystsvoemning,
         crawl,
