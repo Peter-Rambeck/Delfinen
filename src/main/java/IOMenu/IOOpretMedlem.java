@@ -20,8 +20,6 @@ public class IOOpretMedlem {
 
     public static void opretMedlem() {
 
-
-
             // Create Scanner object
             Scanner opretMedlemInput = new Scanner(System.in);
 
@@ -73,7 +71,6 @@ public class IOOpretMedlem {
             }else {aldersKlasse=junior;};
             System.out.println();
 
-
             System.out.println("Fornavn?: ");
             //
             String forNavn = opretMedlemInput.nextLine();
@@ -99,19 +96,22 @@ public class IOOpretMedlem {
             System.out.println("Telefon nr.?: ");
             //
             String tlfNr = opretMedlemInput.nextLine();
+            Medlem medlem;
 
             if ( aktivitetsForm == 1 ) {
-                    KonkurrrenceMedlem konkurrrenceMedlem = new KonkurrrenceMedlem(status, koen, aldersKlasse, forNavn, efterNavn, alder, email, tlfNr);
-                    KonkurrenceMedlemListe konkurrenceMedlemListe = new KonkurrenceMedlemListe();
-                    konkurrenceMedlemListe.gem(konkurrrenceMedlem);
+                    System.out.println("Valeg traener");
+                    String traener = "Tom";
+                    medlem = new KonkurrrenceMedlem(status, koen, aldersKlasse, forNavn, efterNavn, alder, email, tlfNr, traener);
+                    // KonkurrenceMedlemListe konkurrenceMedlemListe = new KonkurrenceMedlemListe();
+                    // konkurrenceMedlemListe.gem(konkurrrenceMedlem);
 
-                    System.out.println(konkurrrenceMedlem);
-            } else {
-                    Medlem medlem = new Medlem(status, koen, aldersKlasse, forNavn, efterNavn, alder, email, tlfNr);
-                    medlem.gem();
                     System.out.println(medlem);
-            }
+            } else {
+                    medlem = new Medlem(status, koen, aldersKlasse, forNavn, efterNavn, alder, email, tlfNr);
 
+            }
+            medlem.gem();
+            System.out.println(medlem);
         }
 
     @Override

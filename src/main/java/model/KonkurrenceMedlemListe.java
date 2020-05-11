@@ -14,23 +14,4 @@ public class KonkurrenceMedlemListe {
         konkurrrenceMedlemmer.add(konkurrrenceMedlem);
     }
 
-
-
-
-
-    /*
-    public static HashMap <Integer, KonkurrrenceMedlem> konkurrrenceMedlemMap = new HashMap <Integer, KonkurrrenceMedlem>();
-
-
-    @Override
-    public String toString() {
-        String retVal = "konkurrenceMedlemmer";
-        for (Medlem konkurrenceMedlem : konkurrrenceMedlemMap.values()) {
-            retVal = retVal + konkurrenceMedlem.toString() + "\n";
-        }
-        return retVal;
-    }
-     */
-
-
 }
