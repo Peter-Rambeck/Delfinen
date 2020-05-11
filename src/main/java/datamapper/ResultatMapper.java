@@ -1,10 +1,7 @@
 package datamapper;
 
 import Util.DBConnector;
-import model.Konkurrence;
-import model.KonkurrenceResultat;
-import model.Konkurrencer;
-import model.MedlemsLister;
+import model.*;
 
 import java.sql.*;
 import java.time.LocalDate;
@@ -26,6 +23,7 @@ public class ResultatMapper {
     public void getResultaterFraDB() {
         String query = "";
         Konkurrence tmpResultat = null;
+        KonkurrenceResultater konkurrenceResultater=new KonkurrenceResultater();
 
         // TODO: The JDBC-cycle
         Connection conn = DBConnector.getInstance().getConnection();
@@ -35,9 +33,11 @@ public class ResultatMapper {
             ResultSet res = stmt.executeQuery(query);
             Konkurrencer konkurrencer=new Konkurrencer();
             MedlemsLister medlemsLister=new MedlemsLister();
-
+            int resultatID;
             while(res.next()) {
                 // laver et resultat per iteration og gemmer i listen
+                resultatID=res.getInt("resultatID");
+                System.out.println(resultatID);
                 int medlemID=res.getInt("medlemID");
                 int konkurrenceID=res.getInt("konkurrenceID");
                 String stDisciplin=res.getString("disciplin");
@@ -59,11 +59,17 @@ public class ResultatMapper {
                 Time sqlTid = res.getTime("tid");
                 LocalTime tid=sqlTid.toLocalTime();
 
-
+                // sæt resultatet sammen
                 KonkurrenceResultat tmpRes=new KonkurrenceResultat( medlemsLister.medlemMap.get(medlemID),
                                                                     konkurrencer.konkurrenceMap.get(konkurrenceID),
                                                                    svoemmediciplin,
                                                                    tid);
+                // tilføj resultat til resultat map..med reultatID som key
+                System.out.println(resultatID);
+                tmpRes.setKonkurrenceResultatID(resultatID);
+                KonkurrenceResultater.konkurrenceResultatMap.put(resultatID,tmpRes);
+
+
 
 
 

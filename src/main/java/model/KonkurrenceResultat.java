@@ -34,4 +34,15 @@ public class KonkurrenceResultat {
     public void setKonkurrenceResultatID(int konkurrenceResultatID) {
         this.konkurrenceResultatID = konkurrenceResultatID;
     }
+
+    @Override
+    public String toString() {
+        return "KonkurrenceResultat{" +
+                "konkurrenceResultatID=" + konkurrenceResultatID +
+                ", medlem=" + medlem +
+                ", konkurrence=" + konkurrence +
+                ", svoemmediciplin=" + svoemmediciplin +
+                ", tid=" + tid +
+                '}';
+    }
 }
