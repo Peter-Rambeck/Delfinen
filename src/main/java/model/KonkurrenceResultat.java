@@ -75,6 +75,6 @@ public class KonkurrenceResultat {
                 " Medlem: "+ medlem.getMedlemID()+" "+ medlem.getForNavn()+" "+medlem.getEfterNavn() +
                 " Konkurrence: " + konkurrence.getKonkurrenceID()+" "+konkurrence.getKonkurrenceNavn()+" " +
                 " Disciplin: " + svoemmediciplin +
-                ", Tid:" + tid.format(myFormat) +"\n";
+                " Tid:" + tid.format(myFormat) +"\n";
     }
 }
