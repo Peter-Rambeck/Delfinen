@@ -23,7 +23,7 @@ public class MedlemMapperTest extends TestCase {
     public void testCreateNewmedlem() {
         int actual = MedlemMapper.createNewmedlem(medlem);
 
-        int expected = 0;
+        int expected = 8;
         assertEquals(expected, actual);
         }
 
