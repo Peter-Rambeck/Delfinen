@@ -7,14 +7,13 @@ import java.util.ArrayList;
 public class KonkurrrenceMedlem extends Medlem {
 
     private String Traener = "Tom";
-
-
+    Enum.Svoemmediciplin svoemmediciplin;
 
 
     public KonkurrrenceMedlem(
-                              Enum.Status status,
-                              Enum.Koen koen,
-                              Enum.AldersKlasse aldersKlasse,
+                              Status status,
+                              Koen koen,
+                              AldersKlasse aldersKlasse,
                               String forNavn,
                               String efterNavn,
                               int alder,
@@ -26,7 +25,8 @@ public class KonkurrrenceMedlem extends Medlem {
     public String toString()
     {
         return (super.toString()+
-                "\" Traener: "+ Traener);
+                "\" Traener: "+ Traener +
+                "\" Dicipliner: "+ svoemmediciplin );
     }
 
 

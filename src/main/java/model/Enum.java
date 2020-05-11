@@ -2,6 +2,7 @@ package model;
 
 public class Enum {
 
+
     public enum Status {
         aktiv,
         passiv
@@ -22,6 +23,7 @@ public class Enum {
         rygcrawl,
         butterfly
     }
+
 
 
 }

@@ -5,6 +5,7 @@ import java.time.LocalTime;
 
 public class KonkurrenceResultat {
 
+
     public enum Svoemmediciplin {
         brystsvoemning,
         crawl,

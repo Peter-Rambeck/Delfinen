@@ -1,24 +1,26 @@
 package IOMenu;
 
 import datamapper.MedlemMapper;
-import model.Enum;
+import model.KonkurrenceMedlemListe;
 import model.Medlem;
 import model.Medlem.*;
 import model.KonkurrrenceMedlem;
 
 import java.util.Scanner;
 
-import static model.Enum.AldersKlasse.junior;
-import static model.Enum.AldersKlasse.senior;
-import static model.Enum.Koen.kvinde;
-import static model.Enum.Koen.mand;
-import static model.Enum.Status.aktiv;
-import static model.Enum.Status.passiv;
+import static model.Medlem.AldersKlasse.junior;
+import static model.Medlem.AldersKlasse.senior;
+import static model.Medlem.Koen.kvinde;
+import static model.Medlem.Koen.mand;
+import static model.Medlem.Status.aktiv;
+import static model.Medlem.Status.passiv;
 
 
 public class IOOpretMedlem {
 
     public static void opretMedlem() {
+
+
 
             // Create Scanner object
             Scanner opretMedlemInput = new Scanner(System.in);
@@ -37,7 +39,7 @@ public class IOOpretMedlem {
             System.out.println("passiv: 2 ");
             // Indput
             int tmp = opretMedlemInput.nextInt();
-            Enum.Status status;
+            Status status;
             if ( tmp == 2 ) {
                     status = passiv;
             } else {
@@ -51,8 +53,8 @@ public class IOOpretMedlem {
             System.out.println("kvinde: 2 ");
             // Indput
             tmp = opretMedlemInput.nextInt();
-            Enum.Koen koen;
-            if ( tmp==2 ) {
+            Koen koen;
+            if ( tmp == 2 ) {
                     koen = kvinde;
             } else {
                     koen = mand;
@@ -64,8 +66,8 @@ public class IOOpretMedlem {
             System.out.println("junior: 1 ");
             System.out.println("senior: 2 ");
             // Aktiv eller passiv
-             tmp = opretMedlemInput.nextInt();
-            Enum.AldersKlasse aldersKlasse;
+            tmp = opretMedlemInput.nextInt();
+            AldersKlasse aldersKlasse;
             if(tmp==2){
                     aldersKlasse= senior;
             }else {aldersKlasse=junior;};
@@ -100,6 +102,9 @@ public class IOOpretMedlem {
 
             if ( aktivitetsForm == 1 ) {
                     KonkurrrenceMedlem konkurrrenceMedlem = new KonkurrrenceMedlem(status, koen, aldersKlasse, forNavn, efterNavn, alder, email, tlfNr);
+                    KonkurrenceMedlemListe konkurrenceMedlemListe = new KonkurrenceMedlemListe();
+                    konkurrenceMedlemListe.gem(konkurrrenceMedlem);
+
                     System.out.println(konkurrrenceMedlem);
             } else {
                     Medlem medlem = new Medlem(status, koen, aldersKlasse, forNavn, efterNavn, alder, email, tlfNr);

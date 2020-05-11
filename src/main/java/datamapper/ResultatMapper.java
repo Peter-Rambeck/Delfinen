@@ -44,7 +44,7 @@ public class ResultatMapper {
                 Svoemmediciplin svoemmediciplin;
                 switch (stDisciplin){
                     case "bryst":
-                        svoemmediciplin= brystsvoemning;break;
+                        svoemmediciplin = brystsvoemning;break;
                     case "crawl":
                         svoemmediciplin=crawl;break;
                     case "butterfly":
@@ -61,9 +61,7 @@ public class ResultatMapper {
 
 
                 KonkurrenceResultat tmpRes=new KonkurrenceResultat( medlemsLister.medlemMap.get(medlemID),
-                                                                    konkurrencer.konkurrenceMap.get(konkurrenceID),
-                                                                   svoemmediciplin,
-                                                                   tid);
+                                                                    konkurrencer.konkurrenceMap.get(konkurrenceID), svoemmediciplin, tid);
 
 
 
