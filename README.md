@@ -2,54 +2,37 @@
 
 Delfinen projekt.
 
-**Mandag:**
-1.  Domain Model Diagram
-2.  Use Case Diagram
-3.  Use Case: Opret medlem.
 
-**Tirsdag**: 
+**TODO:**
 
-Presenter til Tess. \
-Rette til \
-Strategi og opgave-deling
+Refak. Menu til metode-kald
 
 Jens: \
-Oprette Klasse: Medlem 
+Medlem: \
+    Disciplin felt = set af discipliner \
+    MotionM = null \   
+    Traener felt, \
 
-Peter: \
-Oprette Klasse: IOMenu.Menu \
-    1. Hovedmenu aktører, \
-    2. Undermenu punkter / aktører - UseCase. 
+Refak. Enums \
+    ( Behold på Disciplin. )
 
-**Onsdag:**
+Peter \
+DB: \
+Disciplin tabel \
+Sammenføjning med medlem.
+MedlemID + ( DisciplinMapper: DisciplinID )
 
-Start: 8:30.
+Peter \
+Resultat tid => parse til int \
+    Udskriv som int som tid 00:22
 
-**Mandag:**
+Resultat: \
+    Vælg på: Træning eller Konkurrence
 
-Jens: \
-ResultatMapper, GemIDB \
-HashMap KonkurrenceResultater \
-Gemme fra IO
+Vis top 5, per disciplin, koen, aldersklasse
 
+Evt. tid-klasse
 
-Peter: \
-Refakturering, \
-    Enum klasse 
-    
-IO \
-KonkurenceMedlem \
-    Diciplin
-    
-IO \
-Træningsresultater \
-    Diciplin
+Tests
 
-IO: Refak. -> MenuSkabelon.
-
-
-Gustav: \
-Kommenter på Model.
-
-
- 
+Startup data

@@ -2,14 +2,15 @@ package model;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 
 public class MedlemsLister {
 
    // public static ArrayList<Medlem> medlemmer = new ArrayList<>();Medlem>();
-    public static HashMap<Integer, Medlem> medlemMap = new HashMap<Integer, Medlem>();
-    public static HashMap<Integer, KonkurrrenceMedlem> konkurrrenceMedlemHashMap = new HashMap<Integer, KonkurrrenceMedlem>();
+    public static HashMap<Integer, Medlem> medlemMap = new HashMap<>();
 
 //    public static HashMap<Integer, Medlem> medlemMap = new HashMap<Integer, Medlem>();
+
 
     @Override
     public String toString() {

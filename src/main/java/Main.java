@@ -4,12 +4,14 @@ import datamapper.MedlemMapper;
 import datamapper.ResultatMapper;
 import model.*;
 
+import java.lang.reflect.Array;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
 import static model.Medlem.AldersKlasse.senior;
 import static model.Medlem.Koen.mand;
 import static model.Medlem.Status.passiv;
+import static model.MedlemsLister.medlemMap;
 
 
 public class Main {
@@ -19,6 +21,10 @@ public class Main {
          MedlemMapper mm = new MedlemMapper();
          MedlemsLister ml=new MedlemsLister();
          mm.getMedlemmerFraDB(ml);
+         System.out.println();
+         ml.getElementByIndex(medlemMap, medlemMap.size()-1);
+
+
 
         /*
         Konkurrencer konkurrencer=new Konkurrencer();
