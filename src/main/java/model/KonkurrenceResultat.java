@@ -10,22 +10,16 @@ import java.time.format.DateTimeFormatter;
 public class KonkurrenceResultat {
 
 
-    public enum Svoemmediciplin {
-        brystsvoemning,
-        crawl,
-        rygcrawl,
-        butterfly
-    }
 
 
 
     private int konkurrenceResultatID;
     private Medlem medlem;
     private Konkurrence konkurrence;
-    public Svoemmediciplin svoemmediciplin;
+    public int svoemmediciplin;
     private int tid;
         //contructor
-    public KonkurrenceResultat(Medlem medlem, Konkurrence konkurrence, Svoemmediciplin svoemmediciplin, int tid) {
+    public KonkurrenceResultat(Medlem medlem, Konkurrence konkurrence, int svoemmediciplin, int tid) {
         this.medlem = medlem;
         this.konkurrence = konkurrence;
         this.svoemmediciplin = svoemmediciplin;
@@ -59,7 +53,7 @@ public class KonkurrenceResultat {
         return konkurrence;
     }
 
-    public Svoemmediciplin getSvoemmediciplin() {
+    public int getSvoemmediciplin() {
         return svoemmediciplin;
     }
 
