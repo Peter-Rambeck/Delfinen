@@ -1,10 +1,6 @@
 package IOMenu;
 
-import model.Kontingenter;
-
 import java.util.Scanner;
-
-import static model.Kontingenter.*;
 
 public class UnderMenu {
 

@@ -18,7 +18,7 @@ public class MedlemMapper {
         Connection conn = DBConnector.getInstance().getConnection();
 
         //laver ny ordre..
-        sqlQuery = "Insert into medlem (forNavn,efterNavn,fodselsaer,email,tlfnr,balance,statu,koen,aldersklasse,traener) " +
+        sqlQuery = "Insert into medlem (forNavn,efterNavn,fodselsaer,email,tlfnr,balance,statu,konkurrencemedlem,koen,aldersklasse,traener) " +
                 "Values(\"" +
                 medlem.getForNavn()+"\",\"" +
                 medlem.getEfterNavn()+"\",\"" +
@@ -29,9 +29,9 @@ public class MedlemMapper {
                 boolToSql(medlem.isMotionist())+"\",\"" +
                 boolToSql(medlem.isAktiv())+"\",\"" +
                 boolToSql(medlem.isMand())+"\",\"" +
-                boolToSql(medlem.isSenior())+"\"" +
-                medlem.getTraener()+"\",\"" +");";
-
+                boolToSql(medlem.isSenior())+"\",\"" +
+                medlem.getTraener()+"\"" +");";
+        System.out.println(sqlQuery);
         // lave statement
         try {
             Statement stmt = conn.createStatement();

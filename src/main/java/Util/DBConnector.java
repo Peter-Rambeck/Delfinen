@@ -15,7 +15,7 @@ public class DBConnector {
             String timeZ = "serverTimezone=Europe/Copenhagen&allowPublicKeyRetrieval=true";
             String totalUrl = baseurl+db+"?"+timeZ;
             String user = "root";
-            String password = "ghytr51kkk";
+            String password = "Data2020";
             connection = DriverManager.getConnection(totalUrl,user,password);
         } catch (SQLException id) {
             System.out.println("Wrong " + id.getMessage());
