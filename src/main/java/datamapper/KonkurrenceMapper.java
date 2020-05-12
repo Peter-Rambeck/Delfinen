@@ -45,7 +45,8 @@ public class KonkurrenceMapper {
         return konkurenceID;
     }
 
-    public void getKonkurrenceFraDB(Konkurrencer konkurrencer) {
+    public void getKonkurrenceFraDB() {
+        Konkurrencer konkurrencer=new Konkurrencer();
         String query = "";
         Konkurrence tmpKonkurrence = null;
 

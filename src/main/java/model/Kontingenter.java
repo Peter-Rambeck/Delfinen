@@ -38,12 +38,9 @@ public class Kontingenter {
         medlem =  medlemsLister.medlemMap.get(medlemID);
 
         balance = medlem.getBalance();
-        System.out.println(balance);
         medlem.setBalance(balance + indbetaling);
-        System.out.println(medlem.getBalance());
         MedlemMapper mm=new MedlemMapper();
         mm.updateBalanceIDB(medlem);
-        System.out.println(medlem);
 
 
     }
@@ -58,11 +55,15 @@ public class Kontingenter {
 
     }
         //???
-    public void udskrivKontingent() {
+    public  void udskrivKontingent() {
         int kontingent;
+        MedlemMapper mM=new MedlemMapper();
         for ( Medlem km : medlemMap.values()) {
             kontingent = udregnKontingent(km);
             km.setBalance(km.getBalance()-kontingent);
+            System.out.println(km.getBalance());
+            mM.updateBalanceIDB(km);
+
             }
         }
 

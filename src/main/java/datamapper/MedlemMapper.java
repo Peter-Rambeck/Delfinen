@@ -103,7 +103,6 @@ public class MedlemMapper {
 
                 tmpMedlem = new Medlem(aktiv,mand, senior,motionist,fornavn,efternavn,traener,fodselsaer,email,tlfnr,balance);
                 tmpMedlem.setMedlemID(medlemID);
-                System.out.println(tmpMedlem);
                 medlemsLister.medlemMap.put(medlemID,tmpMedlem);
                 //medlemmer.add(tmpMedlem);
             }
@@ -120,7 +119,6 @@ public class MedlemMapper {
         int nyBalance=medlem.getBalance();
         int medlemID=medlem.getMedlemID();
         sqlQuery = "UPDATE medlem SET balance ="+nyBalance+" WHERE medlemID="+medlemID+";";
-
         // lave statement
         try {
             Statement stmt = conn.createStatement();
