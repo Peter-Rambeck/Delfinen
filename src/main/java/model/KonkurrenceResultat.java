@@ -9,32 +9,20 @@ import java.time.format.DateTimeFormatter;
 
 public class KonkurrenceResultat {
 
-/*
-    public enum Svoemmediciplin {
-        brystsvoemning,
-        crawl,
-        rygcrawl,
-        butterfly
-    }
-*/
 
-    int svoemmedisciplin;
+
 
 
     private int konkurrenceResultatID;
     private Medlem medlem;
     private Konkurrence konkurrence;
-    public Svoemmediciplin svoemmediciplin;
+    public int svoemmediciplin;
     private int tid;
-
         //contructor
     public KonkurrenceResultat(Medlem medlem, Konkurrence konkurrence, int svoemmediciplin, int tid) {
         this.medlem = medlem;
         this.konkurrence = konkurrence;
-
-
         this.svoemmediciplin = svoemmediciplin;
-
         this.tid = tid;
     }
     public void gem(){
@@ -45,7 +33,7 @@ public class KonkurrenceResultat {
         KonkurrenceResultater.konkurrenceResultatMap.put(resultatID,this);
     }
 
-    public void setTid(Local tid) {
+    public void setTid(int tid) {
         this.tid = tid;
     }
 
@@ -65,23 +53,22 @@ public class KonkurrenceResultat {
         return konkurrence;
     }
 
-    public Svoemmediciplin getSvoemmediciplin() {
+    public int getSvoemmediciplin() {
         return svoemmediciplin;
     }
 
-    public LocalTime getTid() {
+    public int getTid() {
         return tid;
     }
 
     @Override
     public String toString() {
-        DateTimeFormatter myFormat = DateTimeFormatter.ofPattern("HH:mm:ss.SSS");
 
         return
                 "ResultatID:" + konkurrenceResultatID +
                 " Medlem: "+ medlem.getMedlemID()+" "+ medlem.getForNavn()+" "+medlem.getEfterNavn() +
                 " Konkurrence: " + konkurrence.getKonkurrenceID()+" "+konkurrence.getKonkurrenceNavn()+" " +
                 " Disciplin: " + svoemmediciplin +
-                " Tid:" + tid.format(myFormat) +"\n";
+                " Tid:" + tid +"\n";
     }
 }

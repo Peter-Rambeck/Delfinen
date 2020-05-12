@@ -1,7 +1,6 @@
 package IOMenu;
 
 import datamapper.MedlemMapper;
-import model.KonkurrenceMedlemListe;
 import model.Medlem;
 import java.util.Scanner;
 
@@ -63,7 +62,7 @@ public class IOOpretMedlem {
             // Fornavn, String
             System.out.println("Fornavn?: ");
             String forNavn = opretMedlemInput.nextLine();
-            // forNavn = opretMedlemInput.nextLine();
+            forNavn = opretMedlemInput.nextLine();
             System.out.println();
 
             // Efternavn, String
@@ -96,7 +95,8 @@ public class IOOpretMedlem {
 
 
             Medlem medlem = new Medlem(aktiv, mand, senior, motionist, forNavn, efterNavn, traener, fodselsaer, email, tlfNr, balance);
-            medlem.gem();
+            //medlem.gem();
+            System.out.println(medlem);
 
         }
 

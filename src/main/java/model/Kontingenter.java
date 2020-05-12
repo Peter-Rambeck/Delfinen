@@ -6,9 +6,7 @@ import java.util.ArrayList;
 import static model.MedlemsLister.*;
 
 public class Kontingenter {
-
-    /*
-
+/*
     final int juniorKontingent = 1000;
     final int seniorKontingent = 1600;
     final int over60Kontingent = 1200;
@@ -17,7 +15,7 @@ public class Kontingenter {
         //udregner kontingent for medlemmer ud fra deres oprettede alder, og ovenstående kriterier
     public int udregnKontingent(Medlem medlem) {
         int kontingent = 0;
-        if (medlem.getAldersKlasse() == Medlem.AldersKlasse.junior) {
+     /*  if (medlem.getAldersKlasse() == Medlem.AldersKlasse.junior) {
             kontingent = juniorKontingent;
         }
         if (medlem.getAldersKlasse() == Medlem.AldersKlasse.senior) {
@@ -36,7 +34,7 @@ public class Kontingenter {
     public static void indbetalKontingent(int medlemID, int indbetaling) {
         int balance = 0;
         MedlemsLister medlemsLister=new MedlemsLister();
-        Medlem medlem;
+        Medlem medlem;/*
         if (medlemID<1000) {
             medlem = medlemMap.get(medlemID);
         }else {
@@ -46,7 +44,7 @@ public class Kontingenter {
         medlem.setBalance(balance + indbetaling);
         MedlemMapper mm=new MedlemMapper();
         mm.updateBalanceIDB(medlem);
-///*
+/*
         for ( Medlem mm : medlemsLister.medlemMap.values()) {
             if (mm.getMedlemID() == medlemID)  {
                 balance = mm.getBalance();
@@ -54,16 +52,10 @@ public class Kontingenter {
                 System.out.println(mm);
             }
         }
-
-
-    }
-
-     */
-
-    /*
+    }/*
                 //Finder medlem i hashmap og udskriver restancen
     public static void udskrivRestanceListe() {
-        for ( Medlem rm : medlemMap.values()) {
+       /* for ( Medlem rm : medlemMap.values()) {
             if ( rm.getBalance() < 0 ) {
                 System.out.println(rm.balanceToString());;
             }
@@ -85,14 +77,8 @@ public class Kontingenter {
         for ( Medlem km : konkurrrenceMedlemHashMap.values()) {
         kontingent = udregnKontingent(km);
         km.setBalance(km.getBalance()-kontingent);
-        }
     }
-
-     */
-
 }
-
-
-
-
+*/
+    }
 
