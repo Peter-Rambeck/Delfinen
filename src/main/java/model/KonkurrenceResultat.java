@@ -9,26 +9,30 @@ import java.time.format.DateTimeFormatter;
 
 public class KonkurrenceResultat {
 
-
+/*
     public enum Svoemmediciplin {
         brystsvoemning,
         crawl,
         rygcrawl,
         butterfly
     }
-
+*/
 
 
     private int konkurrenceResultatID;
     private Medlem medlem;
     private Konkurrence konkurrence;
     public Svoemmediciplin svoemmediciplin;
-    private LocalTime tid;
+    private int tid;
+
         //contructor
-    public KonkurrenceResultat(Medlem medlem, Konkurrence konkurrence, Svoemmediciplin svoemmediciplin, LocalTime tid) {
+    public KonkurrenceResultat(Medlem medlem, Konkurrence konkurrence, Svoemmediciplin svoemmediciplin, int tid) {
         this.medlem = medlem;
         this.konkurrence = konkurrence;
+
+
         this.svoemmediciplin = svoemmediciplin;
+
         this.tid = tid;
     }
     public void gem(){
@@ -39,7 +43,7 @@ public class KonkurrenceResultat {
         KonkurrenceResultater.konkurrenceResultatMap.put(resultatID,this);
     }
 
-    public void setTid(LocalTime tid) {
+    public void setTid(Local tid) {
         this.tid = tid;
     }
 

@@ -8,6 +8,11 @@ import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
+/*
+Træningsresultat
+Konkurrenceresultat
+if else statement.
+ */
 
 public class IOOpretResultat {
 

@@ -16,7 +16,7 @@ public class IOOpretMedlem {
             System.out.println("medlemstype: ");
             System.out.println("Aktiv: 1 ");
             System.out.println("Passiv: 2 ");
-            int InputAktiv = opretMedlemInput.nextInt()
+            int InputAktiv = opretMedlemInput.nextInt();
             boolean aktiv;
             if (InputAktiv == 1) {
                     aktiv = true;
@@ -28,7 +28,7 @@ public class IOOpretMedlem {
             System.out.println("medlemstype: ");
             System.out.println("Mand: 1 ");
             System.out.println("Kvinde: 2 ");
-            int InputMand = opretMedlemInput.nextInt()
+            int InputMand = opretMedlemInput.nextInt();
             boolean mand;
             if (InputAktiv == 1) {
                     mand = true;
@@ -40,7 +40,7 @@ public class IOOpretMedlem {
             System.out.println("medlemstype: ");
             System.out.println("Senior: 1 ");
             System.out.println("Junior: 2 ");
-            int InputSenior = opretMedlemInput.nextInt()
+            int InputSenior = opretMedlemInput.nextInt();
             boolean senior;
             if (InputAktiv == 1) {
                     senior = true;
@@ -52,7 +52,7 @@ public class IOOpretMedlem {
             System.out.println("medlemstype: ");
             System.out.println("Motionist: 1 ");
             System.out.println("Konkurrencemedlem: 2 ");
-            int InputMotionist = opretMedlemInput.nextInt()
+            int InputMotionist = opretMedlemInput.nextInt();
             boolean motionist;
             if (InputAktiv == 1) {
                     motionist = true;
