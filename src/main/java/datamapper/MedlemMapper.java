@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 public class MedlemMapper {
 
-    public static int createNewmedlem(Medlem medlem) {
+    public  int createNewmedlem(Medlem medlem) {
 
 
         int medlemID = 0;
@@ -27,10 +27,10 @@ public class MedlemMapper {
                 medlem.getEmail()+"\",\"" +
                 medlem.getTlfNr()+"\",\"" +
                 medlem.getBalance()+"\",\"" +
-                medlem.isMotionist()+"\",\"" +
-                medlem.isAktiv()+"\",\"" +
-                medlem.isMand()+"\",\"" +
-                medlem.isSenior()+"\"" +");";
+                boolToSql(medlem.isMotionist())+"\",\"" +
+                boolToSql(medlem.isAktiv())+"\",\"" +
+                boolToSql(medlem.isMand())+"\",\"" +
+                boolToSql(medlem.isSenior())+"\"" +");";
 
         // lave statement
         try {
@@ -128,6 +128,13 @@ public class MedlemMapper {
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
+    }
+    public int boolToSql(boolean bool) {
+        int retVal = 0;
+        if (bool == true) {
+            retVal = 1;
+        }
+        return retVal;
     }
 
 }
