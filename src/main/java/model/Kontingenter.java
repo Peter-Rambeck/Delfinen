@@ -1,4 +1,4 @@
-package model;
+/*package model;
 
 import datamapper.MedlemMapper;
 
@@ -64,3 +64,4 @@ public class Kontingenter {
 
     }
 
+*/

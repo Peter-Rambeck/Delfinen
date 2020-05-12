@@ -27,13 +27,12 @@ public class IOOpretResultat {
         Medlem medlem = ml.medlemMap.get(medlemID);
 
 
-
         // Konkurrence eller træningsresultat
         System.out.println("Vælg konkurrence tast 1, ellers 2: ");
         System.out.println("Vælg konkurrence: ");
         int konkurrenceInput = opretResultatInput.nextInt();
         Konkurrence konkurrence = null;
-        if ( konkurrenceInput == 1 ) {
+        if (konkurrenceInput == 1) {
             System.out.println(konkurrencer);
             // TODO Test retur værdi
             int konkurrenceID = opretResultatInput.nextInt();
@@ -54,17 +53,16 @@ public class IOOpretResultat {
         // Tid
         // System.out.println("Indtast tid: 00,00,00 ");
         System.out.println("Indtast tid 'HH:mm:ss.SSS'");
-        int tid = opretResultatInput.nextInt();
+        String tmpTid = opretResultatInput.nextLine();
+         tmpTid = opretResultatInput.nextLine();
         DateTimeFormatter myFormat = DateTimeFormatter.ofPattern("HH:mm:ss.SSS");
-        //int tid = LocalTime.parse(tmpTid, myFormat);
+        LocalTime tid = LocalTime.parse(tmpTid, myFormat);
+        int intTid = omRegner(tid);
 
 
 
-        String tmpTid = opretResultatInput.next();
 
-
-
-        KonkurrenceResultat konkurrenceResultat = new KonkurrenceResultat(medlem, konkurrence, svoemmediciplin, tid );
+        KonkurrenceResultat konkurrenceResultat = new KonkurrenceResultat(medlem, konkurrence, svoemmediciplin, intTid);
         konkurrenceResultat.gem();
         System.out.println(konkurrenceResultat);
 
@@ -100,8 +98,19 @@ public class IOOpretResultat {
 
  */
 
-        }
 
+    }
+
+    public static int omRegner(LocalTime tid) {
+        int sekunder;
+        int minutter;
+        int nanosekunder;
+
+        sekunder = tid.getSecond();
+        minutter = tid.getMinute();
+        nanosekunder = tid.getNano();
+
+        return nanosekunder / 1000000 + sekunder * 1000 + minutter * 60000;
+    }
 }
-
 
