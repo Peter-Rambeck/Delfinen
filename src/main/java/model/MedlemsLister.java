@@ -7,6 +7,7 @@ public class MedlemsLister {
 
    // public static ArrayList<Medlem> medlemmer = new ArrayList<>();Medlem>();
     public static HashMap<Integer, Medlem> medlemMap = new HashMap<Integer, Medlem>();
+    public static HashMap<Integer, KonkurrrenceMedlem> konkurrrenceMedlemHashMap = new HashMap<Integer, KonkurrrenceMedlem>();
 
 //    public static HashMap<Integer, Medlem> medlemMap = new HashMap<Integer, Medlem>();
 
