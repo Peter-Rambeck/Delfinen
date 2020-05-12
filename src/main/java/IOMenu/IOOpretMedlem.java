@@ -95,7 +95,7 @@ public class IOOpretMedlem {
 
 
             Medlem medlem = new Medlem(aktiv, mand, senior, motionist, forNavn, efterNavn, traener, fodselsaer, email, tlfNr, balance);
-            //medlem.gem();
+            medlem.gem();
             System.out.println(medlem);
 
         }

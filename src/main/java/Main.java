@@ -1,4 +1,4 @@
-import IOMenu.Menu;
+//import IOMenu.Menu;
 //import datamapper.KonkurrenceMapper;
 import datamapper.MedlemMapper;
 import model.MedlemsLister;
@@ -21,8 +21,8 @@ public class Main {
          MedlemsLister ml=new MedlemsLister();
          mm.getMedlemmerFraDB(ml);
          System.out.println();
-        Menu menu = new Menu();
-        menu.hovedMenu();
+       //Menu menu = new Menu();
+       // menu.hovedMenu();
 
         /*
         Konkurrencer konkurrencer=new Konkurrencer();
