@@ -17,8 +17,13 @@ CREATE TABLE `Delfin`.`medlem` (
   traener VARCHAR(45),
   PRIMARY KEY (`medlemID`));
   
- 
-  
+ CREATE TABLE `Delfin`.`konkurrence` (
+  konkurrenceID INT NOT NULL AUTO_INCREMENT,
+  navn VARCHAR(45) NULL,
+  dato DATE,
+  PRIMARY KEY (`konkurrenceID`));
+
+
   CREATE TABLE `Delfin`.`Resultat` (
   resultatID INT NOT NULL AUTO_INCREMENT,
   medlemID INT NULL,
@@ -28,6 +33,5 @@ CREATE TABLE `Delfin`.`medlem` (
   FOREIGN KEY (medlemID) REFERENCES medlem(medlemID),
   FOREIGN KEY (konkurrenceID) REFERENCES konkurrence(konkurrenceID),
   PRIMARY KEY (resultatID));
-    
-    
-    
+
+
