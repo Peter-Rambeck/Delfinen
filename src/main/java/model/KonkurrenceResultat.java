@@ -57,12 +57,20 @@ public class KonkurrenceResultat {
 
     @Override
     public String toString() {
+        String konkurrencestr="";
+        String disciplinstr="";
+        if(konkurrence==null) {
+            konkurrencestr = "træning";
+        }else{konkurrencestr=  konkurrence.getKonkurrenceNavn();}
+
+
+
 
         return
                 "ResultatID:" + konkurrenceResultatID +
-                " Medlem: "+ medlem.getMedlemID()+" "+ medlem.getForNavn()+" "+medlem.getEfterNavn() +
-                " Konkurrence: " + konkurrence.getKonkurrenceID()+" "+konkurrence.getKonkurrenceNavn()+" " +
-                " Disciplin: " + svoemmediciplin +
-                " Tid:" + tid +"\n";
+                        " "+ " "+konkurrencestr+
+                        " "+ medlem.getForNavn()+" "+medlem.getEfterNavn() +
+                        " "  + svoemmediciplin +
+                        " Tid:" + tid +"\n";
     }
 }

@@ -15,7 +15,7 @@ public class ResultatMapper {
         Connection conn = DBConnector.getInstance().getConnection();
 
         //laver nyt resultat..
-        sqlQuery = "Insert into konkurrenceresultat (medlemID,konkurrenceID,disciplin,tid) " +
+        sqlQuery = "Insert into resultat (medlemID,konkurrenceID,disciplin,tid) " +
                 "Values(\"" +
                 konkurrenceResultat.getMedlem().getMedlemID()+"\",\"" +
                 konkurrenceResultat.getKonkurrence().getKonkurrenceID()+"\",\""+
