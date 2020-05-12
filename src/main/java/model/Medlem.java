@@ -12,6 +12,7 @@ public class Medlem {
     private int medlemID; // (fra DB)
     private String forNavn;
     private String efterNavn;
+    private String traener;
     private int alder;
     private String email;
     private String tlfNr;
