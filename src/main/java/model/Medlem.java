@@ -77,9 +77,6 @@ public class Medlem {
         return efterNavn;
     }
 
-    public int getAlder() {
-        return alder;
-    }
 
     public String getEmail() {
         return email;
@@ -125,9 +122,6 @@ public class Medlem {
         this.efterNavn = efterNavn;
     }
 
-    public void setAlder(int alder) {
-        this.alder = alder;
-    }
 
     public void setEmail(String email) {
         this.email = email;
