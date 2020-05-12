@@ -3,7 +3,7 @@ package model;
 import datamapper.MedlemMapper;
 
 import java.util.ArrayList;
-import static model.MedlemsLister.medlemMap;
+import static model.MedlemsLister.*;
 
 public class Kontingenter {
 
@@ -34,7 +34,12 @@ public class Kontingenter {
     public static void indbetalKontingent(int medlemID, int indbetaling) {
         int balance = 0;
         MedlemsLister medlemsLister=new MedlemsLister();
-        Medlem medlem=medlemMap.get(medlemID);
+        Medlem medlem;
+        if (medlemID<1000) {
+            medlem = medlemMap.get(medlemID);
+        }else {
+            medlem = konkurrrenceMedlemHashMap.get(medlemID);
+        }
         balance = medlem.getBalance();
         medlem.setBalance(balance + indbetaling);
         MedlemMapper mm=new MedlemMapper();
@@ -55,6 +60,11 @@ public class Kontingenter {
                 System.out.println(rm.balanceToString());;
             }
         }
+        for ( Medlem rm : konkurrrenceMedlemHashMap.values()) {
+            if ( rm.getBalance() < 0 ) {
+                System.out.println(rm.balanceToString());;
+            }
+        }
 
     }
         //???
@@ -64,7 +74,11 @@ public class Kontingenter {
             kontingent = udregnKontingent(km);
             km.setBalance(km.getBalance()-kontingent);
             }
-        }
+        for ( Medlem km : konkurrrenceMedlemHashMap.values()) {
+        kontingent = udregnKontingent(km);
+        km.setBalance(km.getBalance()-kontingent);
+    }
+}
 
     }
 

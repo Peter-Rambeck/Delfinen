@@ -96,22 +96,21 @@ public class IOOpretMedlem {
             System.out.println("Telefon nr.?: ");
             //
             String tlfNr = opretMedlemInput.nextLine();
-            Medlem medlem;
+
 
             if ( aktivitetsForm == 1 ) {
                     System.out.println("Valeg traener");
                     String traener = "Tom";
-                    medlem = new KonkurrrenceMedlem(status, koen, aldersKlasse, forNavn, efterNavn, alder, email, tlfNr, traener);
-                    // KonkurrenceMedlemListe konkurrenceMedlemListe = new KonkurrenceMedlemListe();
-                    // konkurrenceMedlemListe.gem(konkurrrenceMedlem);
-
-                    System.out.println(medlem);
+                    KonkurrrenceMedlem konkurrrenceMedlem = new KonkurrrenceMedlem(status, koen, aldersKlasse, forNavn, efterNavn, alder, email, tlfNr, traener);
+                    KonkurrrenceMedlem.gem();
             } else {
-                    medlem = new Medlem(status, koen, aldersKlasse, forNavn, efterNavn, alder, email, tlfNr);
-
+                    Medlem medlem = new Medlem(status, koen, aldersKlasse, forNavn, efterNavn, alder, email, tlfNr);
+                    medlem.gem();
             }
-            medlem.gem();
-            System.out.println(medlem);
+
+            //System.out.println(medlem);
+
+
         }
 
     @Override

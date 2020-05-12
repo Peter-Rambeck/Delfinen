@@ -23,6 +23,19 @@ public class KonkurrrenceMedlem extends Medlem {
         this.traener = traener;
     }
 
+    public void gem(){
+        MedlemsLister medlemsLister=new MedlemsLister();
+        MedlemMapper medlemMapper = new MedlemMapper();
+        int medlemID=medlemMapper.createNewmedlem(this);//??
+        this.setMedlemID(medlemID);                     //??
+        medlemsLister.konkurrrenceMedlemHashMap.put(medlemID,this);
+
+    }
+
+    public void setTraener(String traener) {
+        this.traener = traener;
+    }
+
     public String toString()
     {
         return (super.toString()+
