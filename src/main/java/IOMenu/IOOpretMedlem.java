@@ -5,13 +5,11 @@ import model.KonkurrenceMedlemListe;
 import model.Medlem;
 import java.util.Scanner;
 
-
-
 public class IOOpretMedlem {
 
     public static void opretMedlem() {
 
-            // Create Scanner object
+            // Scanner
             Scanner opretMedlemInput = new Scanner(System.in);
 
             // Aktiv eller passiv, Bool
