@@ -13,14 +13,14 @@ public class Medlem {
     private String forNavn;
     private String efterNavn;
     private String traener;
-    private int alder;
+    private int fodselsaer;
     private String email;
     private String tlfNr;
     private int balance;
-            //constructor
+    //constructor
 
 
-    public Medlem(boolean aktiv, boolean mand, boolean senior, boolean motionist, String forNavn, String efterNavn, String traener, int alder, String email, String tlfNr, int balance) {
+    public Medlem(boolean aktiv, boolean mand, boolean senior, boolean motionist, String forNavn, String efterNavn, String traener, int fodselsaer, String email, String tlfNr, int balance) {
         this.aktiv = aktiv;
         this.mand = mand;
         this.senior = senior;
@@ -28,20 +28,28 @@ public class Medlem {
         this.forNavn = forNavn;
         this.efterNavn = efterNavn;
         this.traener = traener;
-        this.alder = alder;
+        this.fodselsaer = fodselsaer;
         this.email = email;
         this.tlfNr = tlfNr;
         this.balance = balance;
     }
 
     //Opretter medlem i databasen, modtager id fra databasen og gemmer det i hashmap
-    public void gem(){
-        MedlemsLister medlemsLister=new MedlemsLister();
+    public void gem() {
+        MedlemsLister medlemsLister = new MedlemsLister();
         MedlemMapper medlemMapper = new MedlemMapper();
-        int medlemID=medlemMapper.createNewmedlem(this);
+        int medlemID = medlemMapper.createNewmedlem(this);
         this.setMedlemID(medlemID);
-        medlemsLister.medlemMap.put(medlemID,this);
+        medlemsLister.medlemMap.put(medlemID, this);
 
+    }
+
+    public int getFodselsaer() {
+        return fodselsaer;
+    }
+
+    public void setFodselsaer(int fodselsaer) {
+        this.fodselsaer = fodselsaer;
     }
 
     public String getTraener() {
@@ -52,8 +60,8 @@ public class Medlem {
         this.traener = traener;
     }
 
-    public String balanceToString(){
-        String retVal=medlemID+" "+forNavn+" "+efterNavn+" "+balance+"\n";
+    public String balanceToString() {
+        String retVal = medlemID + " " + forNavn + " " + efterNavn + " " + balance + "\n";
         return retVal;
     }
 
@@ -69,9 +77,6 @@ public class Medlem {
         return efterNavn;
     }
 
-    public int getAlder() {
-        return alder;
-    }
 
     public String getEmail() {
         return email;
@@ -117,9 +122,6 @@ public class Medlem {
         this.efterNavn = efterNavn;
     }
 
-    public void setAlder(int alder) {
-        this.alder = alder;
-    }
 
     public void setEmail(String email) {
         this.email = email;
@@ -148,11 +150,10 @@ public class Medlem {
     //public void opretMedlem(boolean aktiv, boolean mand, boolean senior, String forNavn, String efterNavn, int alder, String email, String tlfNr) {
     // }
 
-    public String kortToString(){
-        String retVal=medlemID+" "+forNavn+" "+efterNavn;
+    public String kortToString() {
+        String retVal = medlemID + " " + forNavn + " " + efterNavn;
         return retVal;
     }
-    @Override
 
     @Override
     public String toString() {
@@ -164,7 +165,8 @@ public class Medlem {
                 ", medlemID=" + medlemID +
                 ", forNavn='" + forNavn + '\'' +
                 ", efterNavn='" + efterNavn + '\'' +
-                ", alder=" + alder +
+                ", traener='" + traener + '\'' +
+                ", fodselsaer=" + fodselsaer +
                 ", email='" + email + '\'' +
                 ", tlfNr='" + tlfNr + '\'' +
                 ", balance=" + balance +
