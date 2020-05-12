@@ -4,24 +4,11 @@ import datamapper.MedlemMapper;
 
 public class Medlem {
 
-    public enum Status {
-        aktiv,
-        passiv
-    }
-    public enum Koen {
-        mand,
-        kvinde
-    }
-    public enum AldersKlasse {
-        junior,
-        senior
-    }
 
-
-
-    private Status status;
-    private Koen koen;
-    private static AldersKlasse AldersKlasse;
+    private boolean aktiv;
+    private boolean mand;
+    private boolean senior;
+    private boolean motionist;
     private int medlemID; // (fra DB)
     private String forNavn;
     private String efterNavn;
@@ -30,18 +17,21 @@ public class Medlem {
     private String tlfNr;
     private int balance;
             //constructor
-    public Medlem(Status status, Koen koen, AldersKlasse aldersKlasse, String forNavn, String efterNavn, int alder, String email, String tlfNr) {
-        this.status = status;
-        this.koen = koen;
-        this.AldersKlasse = aldersKlasse;
+
+    public Medlem(boolean aktiv, boolean mand, boolean senior, boolean motionist, String forNavn, String efterNavn, int alder, String email, String tlfNr, int balance) {
+        this.aktiv = aktiv;
+        this.mand = mand;
+        this.senior = senior;
+        this.motionist = motionist;
         this.forNavn = forNavn;
         this.efterNavn = efterNavn;
         this.alder = alder;
         this.email = email;
         this.tlfNr = tlfNr;
-        this.balance = 0;
+        this.balance = balance;
     }
-                    //Opretter medlem i databasen, modtager id fra databasen og gemmer det i hashmap
+
+    //Opretter medlem i databasen, modtager id fra databasen og gemmer det i hashmap
     public void gem(){
         MedlemsLister medlemsLister=new MedlemsLister();
         MedlemMapper medlemMapper = new MedlemMapper();
@@ -77,16 +67,56 @@ public class Medlem {
         return email;
     }
 
-    public Status getStatus() {
-        return status;
+    public boolean isAktiv() {
+        return aktiv;
     }
 
-    public Koen getKoen() {
-        return koen;
+    public void setAktiv(boolean aktiv) {
+        this.aktiv = aktiv;
     }
 
-    public AldersKlasse getAldersKlasse() {
-        return AldersKlasse;
+    public boolean isMand() {
+        return mand;
+    }
+
+    public void setMand(boolean mand) {
+        this.mand = mand;
+    }
+
+    public boolean isSenior() {
+        return senior;
+    }
+
+    public void setSenior(boolean senior) {
+        this.senior = senior;
+    }
+
+    public boolean isMotionist() {
+        return motionist;
+    }
+
+    public void setMotionist(boolean motionist) {
+        this.motionist = motionist;
+    }
+
+    public void setForNavn(String forNavn) {
+        this.forNavn = forNavn;
+    }
+
+    public void setEfterNavn(String efterNavn) {
+        this.efterNavn = efterNavn;
+    }
+
+    public void setAlder(int alder) {
+        this.alder = alder;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setTlfNr(String tlfNr) {
+        this.tlfNr = tlfNr;
     }
 
     public String getTlfNr() {
@@ -113,11 +143,14 @@ public class Medlem {
         return retVal;
     }
     @Override
+
+    @Override
     public String toString() {
         return "Medlem{" +
-                "status=" + status +
-                ", koen=" + koen +
-                ", AldersKlasse=" + AldersKlasse +
+                "aktiv=" + aktiv +
+                ", mand=" + mand +
+                ", senior=" + senior +
+                ", motionist=" + motionist +
                 ", medlemID=" + medlemID +
                 ", forNavn='" + forNavn + '\'' +
                 ", efterNavn='" + efterNavn + '\'' +
