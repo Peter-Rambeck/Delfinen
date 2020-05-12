@@ -19,13 +19,15 @@ public class Medlem {
     private int balance;
             //constructor
 
-    public Medlem(boolean aktiv, boolean mand, boolean senior, boolean motionist, String forNavn, String efterNavn, int alder, String email, String tlfNr, int balance) {
+
+    public Medlem(boolean aktiv, boolean mand, boolean senior, boolean motionist, String forNavn, String efterNavn, String traener, int alder, String email, String tlfNr, int balance) {
         this.aktiv = aktiv;
         this.mand = mand;
         this.senior = senior;
         this.motionist = motionist;
         this.forNavn = forNavn;
         this.efterNavn = efterNavn;
+        this.traener = traener;
         this.alder = alder;
         this.email = email;
         this.tlfNr = tlfNr;
