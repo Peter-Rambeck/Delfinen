@@ -56,7 +56,6 @@ public class KonkurrenceMapper {
             query = "SELECT * FROM konkurrence";
             Statement stmt = conn.createStatement();
             ResultSet res = stmt.executeQuery(query);
-
             while(res.next()) {
                 // laver et medlem per iteration og gemmer i listen
                 int konkurrenceID=res.getInt("konkurrenceID");

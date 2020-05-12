@@ -32,7 +32,7 @@ public class IOOpretKonkurrence {
 
         Konkurrence konkurrence = new Konkurrence(konkurrenceNavn, konkurrenceDato);
 
-        // medlem.gemIDB();
+        konkurrence.gem();
 
 
         System.out.println(konkurrence);

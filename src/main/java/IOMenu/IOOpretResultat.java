@@ -30,14 +30,14 @@ public class IOOpretResultat {
         System.out.println("Vælg konkurrence tast 1, ellers 2: ");
         System.out.println("Vælg konkurrence: ");
         int konkurrenceInput = opretResultatInput.nextInt();
-        Konkurrence konkurrence = null;
+        Konkurrence konkurrence;
+        int konkurrenceID=1;
         if (konkurrenceInput == 1) {
             System.out.println(konkurrencer);
             // TODO Test retur værdi
-            int konkurrenceID = opretResultatInput.nextInt();
-            konkurrence = konkurrencer.konkurrenceMap.get(konkurrenceID);
+            konkurrenceID = opretResultatInput.nextInt();
         }
-
+        konkurrence = konkurrencer.konkurrenceMap.get(konkurrenceID);
 
         // Konkurrence eller træningsresultat
         System.out.println("Vælg diciplin: ");

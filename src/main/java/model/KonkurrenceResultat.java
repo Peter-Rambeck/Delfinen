@@ -57,20 +57,42 @@ public class KonkurrenceResultat {
 
     @Override
     public String toString() {
-        String konkurrencestr="";
         String disciplinstr="";
-        if(konkurrence==null) {
-            konkurrencestr = "træning";
-        }else{konkurrencestr=  konkurrence.getKonkurrenceNavn();}
+        switch (svoemmediciplin){
+            case 1:disciplinstr="Brystsvømning";
+                    break;
+            case 2:disciplinstr="Crawl";
+                break;
+            case 3:disciplinstr="Rygcrawl";
+                break;
+            case 4:disciplinstr="Butterfly";
+                break;
 
+        }
 
 
 
         return
                 "ResultatID:" + konkurrenceResultatID +
-                        " "+ " "+konkurrencestr+
+                        " "+ " "+konkurrence.getKonkurrenceNavn()+
                         " "+ medlem.getForNavn()+" "+medlem.getEfterNavn() +
-                        " "  + svoemmediciplin +
-                        " Tid:" + tid +"\n";
+                        " "  + disciplinstr +
+                        " Tid:" + intToTimeString(tid) +"\n";
+    }
+
+    public String intToTimeString(int intTid){
+        String retVal="";
+        int minutes;
+        int seconds;
+        int milliseconds;
+        minutes=intTid/60000;intTid=intTid%60000;
+
+        seconds=intTid/1000;intTid=intTid%1000;
+
+        milliseconds=intTid;
+        retVal=minutes+":"+seconds+":"+milliseconds;
+        return retVal;
+
+
     }
 }
