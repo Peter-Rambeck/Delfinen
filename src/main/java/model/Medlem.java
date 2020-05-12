@@ -3,6 +3,7 @@ package model;
 import datamapper.MedlemMapper;
 
 import java.time.LocalTime;
+import java.time.Year;
 import java.time.temporal.TemporalField;
 import java.util.concurrent.TimeUnit;
 
@@ -50,6 +51,10 @@ public class Medlem {
         this.setMedlemID(medlemID);
         medlemsLister.medlemMap.put(medlemID, this);
 
+    }
+    public int getAlder (){
+        Year y=Year.now();
+        return this.fodselsaer-y.getValue();
     }
 
     public int getFodselsaer() {

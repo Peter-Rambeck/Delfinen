@@ -1,4 +1,4 @@
-/*package model;
+package model;
 
 import datamapper.MedlemMapper;
 
@@ -35,12 +35,16 @@ public class Kontingenter {
         int balance = 0;
         MedlemsLister medlemsLister=new MedlemsLister();
         Medlem medlem;
-        medlem =  medlemMap.get(medlemID);
+        medlem =  medlemsLister.medlemMap.get(medlemID);
 
         balance = medlem.getBalance();
+        System.out.println(balance);
         medlem.setBalance(balance + indbetaling);
+        System.out.println(medlem.getBalance());
         MedlemMapper mm=new MedlemMapper();
         mm.updateBalanceIDB(medlem);
+        System.out.println(medlem);
+
 
     }
                 //Finder medlem i hashmap og udskriver restancen
@@ -64,4 +68,3 @@ public class Kontingenter {
 
     }
 
-*/
