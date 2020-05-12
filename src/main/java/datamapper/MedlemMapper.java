@@ -19,17 +19,18 @@ public class MedlemMapper {
         Connection conn = DBConnector.getInstance().getConnection();
 
         //laver ny ordre..
-        sqlQuery = "Insert into medlem (forNavn,efterNavn,alder,email,tlfnr,balance,statu,koen,aldersklasse) " +
+        sqlQuery = "Insert into medlem (forNavn,efterNavn,fodselsaer,email,tlfnr,balance,statu,koen,aldersklasse) " +
                 "Values(\"" +
                 medlem.getForNavn()+"\",\"" +
                 medlem.getEfterNavn()+"\",\"" +
-                medlem.getAlder()+"\",\"" +
+                medlem.getFodselsaer()+"\",\"" +
                 medlem.getEmail()+"\",\"" +
                 medlem.getTlfNr()+"\",\"" +
                 medlem.getBalance()+"\",\"" +
-                medlem.getStatus()+"\",\"" +
-                medlem.getKoen()+"\",\"" +
-                medlem.getAldersKlasse()+"\"" +");";
+                medlem.isMotionist()+"\",\"" +
+                medlem.isAktiv()+"\",\"" +
+                medlem.isMand()+"\",\"" +
+                medlem.isSenior()+"\"" +");";
 
         // lave statement
         try {
@@ -66,7 +67,9 @@ public class MedlemMapper {
 
                 String efternavn=res.getString("efterNavn");
 
-                int alder=res.getInt("alder");
+                String traener=res.getString("traener");
+
+                int fodselsaer=res.getInt("fodselaer");
 
                 String email=res.getString("email");
 
@@ -74,28 +77,32 @@ public class MedlemMapper {
 
                 int balance=res.getInt("balance");
 
-                String ststatus=res.getString("statu");
+                int intstatus=res.getInt("statu");
+                boolean aktiv=true;
+                if (intstatus>0)
+                {aktiv= true;}else{aktiv=false;}
 
-                Medlem.Status status;
-                if (ststatus.equals("passiv"))
-                {status= Medlem.Status.passiv;}else{status= Medlem.Status.aktiv;}
-                // System.out.println(ststatus);
+                int intkoen=res.getInt("koen");
+                boolean mand=true;
+                if (intkoen>0)
+                {mand= true;}else{mand=false;}
 
-                String stkoen=res.getString("koen");
-                Medlem.Koen koen;
-                if(stkoen.equalsIgnoreCase("mand")){koen= Medlem.Koen.mand;}else{koen= Medlem.Koen.kvinde;};
+                int intsenior=res.getInt("aldersklasse");
+                boolean senior=true;
+                if (intsenior>0)
+                {senior= true;}else{senior=false;}
 
-                String staldersKlasse=res.getString("aldersKlasse");
-                Medlem.AldersKlasse aldersKlasse;
-                if(staldersKlasse.equalsIgnoreCase( "junior")){aldersKlasse= Medlem.AldersKlasse.junior;}else {aldersKlasse= Medlem.AldersKlasse.senior;};
+                int intmotionist=res.getInt("konkurrencemedlem");
+                boolean motionist=true;
+                if (intmotionist>0)
+                {motionist= true;}else{motionist=false;}
 
                 /*
                 Medlem(Status status, Koen koen, AldersKlasse aldersKlasse, String forNavn, String efterNavn, int alder, String email, String tlfNr)
                 */
 
-                tmpMedlem = new Medlem(status,koen, aldersKlasse,fornavn,efternavn,alder,email,tlfnr);
+                tmpMedlem = new Medlem(aktiv,mand, senior,motionist,fornavn,efternavn,traener,fodselsaer,email,tlfnr,balance);
                 tmpMedlem.setMedlemID(medlemID);
-                tmpMedlem.setBalance(balance);
                 System.out.println(tmpMedlem);
                 medlemsLister.medlemMap.put(medlemID,tmpMedlem);
                 //medlemmer.add(tmpMedlem);

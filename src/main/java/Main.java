@@ -22,8 +22,6 @@ public class Main {
          MedlemsLister ml=new MedlemsLister();
          mm.getMedlemmerFraDB(ml);
          System.out.println();
-         ml.getElementByIndex(medlemMap, medlemMap.size()-1);
-
 
 
         /*
