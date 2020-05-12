@@ -1,11 +1,8 @@
 package model;
 
-import datamapper.MedlemMapper;
+
 import datamapper.ResultatMapper;
 
-import java.sql.Time;
-import java.time.LocalTime;
-import java.time.format.DateTimeFormatter;
 
 public class KonkurrenceResultat {
 
