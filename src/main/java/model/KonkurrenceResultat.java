@@ -10,9 +10,6 @@ import java.time.format.DateTimeFormatter;
 public class KonkurrenceResultat {
 
 
-
-
-
     private int konkurrenceResultatID;
     private Medlem medlem;
     private Konkurrence konkurrence;

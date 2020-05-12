@@ -8,38 +8,80 @@ import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
-/*
-Træningsresultat
-Konkurrenceresultat
-if else statement.
- */
 
 public class IOOpretResultat {
 
     public static void opretResultat() {
         Konkurrencer konkurrencer = new Konkurrencer();
         MedlemsLister ml = new MedlemsLister();
-        KonkurrenceResultater konkurrenceResultater=new KonkurrenceResultater();
+        KonkurrenceResultater konkurrenceResultater = new KonkurrenceResultater();
 
         // Create Scanner object
         Scanner opretResultatInput = new Scanner(System.in);
 
-        System.out.println("Vælg konkurrence: ");
-        System.out.println(konkurrencer);
-        int konkurrenceID = opretResultatInput.nextInt();
 
+        // Medlem
         System.out.println("Vælg Medlem: ");
         System.out.println(ml.KortToString());
         int medlemID = opretResultatInput.nextInt();
+        Medlem medlem = ml.medlemMap.get(medlemID);
 
+
+
+        // Konkurrence eller træningsresultat
+        System.out.println("Vælg konkurrence tast 1, ellers 2: ");
+        System.out.println("Vælg konkurrence: ");
+        int konkurrenceInput = opretResultatInput.nextInt();
+        Konkurrence konkurrence = null;
+        if ( konkurrenceInput == 1 ) {
+            System.out.println(konkurrencer);
+            // TODO Test retur værdi
+            int konkurrenceID = opretResultatInput.nextInt();
+            konkurrence = konkurrencer.konkurrenceMap.get(konkurrenceID);
+        }
+
+
+        // Konkurrence eller træningsresultat
         System.out.println("Vælg diciplin: ");
         System.out.println("brystsvoemning: 1 ");
         System.out.println("crawl: 2 ");
         System.out.println("rygcrawl: 3 ");
         System.out.println("butterfly: 4 ");
-        System.out.println("Slut diciplin: 0 ");
+        // System.out.println("Slut diciplin: 0 ");
+        int svoemmediciplin = opretResultatInput.nextInt();
 
 
+        // Tid
+        // System.out.println("Indtast tid: 00,00,00 ");
+        System.out.println("Indtast tid 'HH:mm:ss.SSS'");
+        int tid = opretResultatInput.nextInt();
+        DateTimeFormatter myFormat = DateTimeFormatter.ofPattern("HH:mm:ss.SSS");
+        //int tid = LocalTime.parse(tmpTid, myFormat);
+
+
+
+        String tmpTid = opretResultatInput.next();
+
+
+
+        KonkurrenceResultat konkurrenceResultat = new KonkurrenceResultat(medlem, konkurrence, svoemmediciplin, tid );
+        konkurrenceResultat.gem();
+        System.out.println(konkurrenceResultat);
+
+
+                /*
+                (ml.medlemMap.get(medlemID)
+                konkurrencer.konkurrenceMap.get(konkurrenceID),
+                svoemmediciplin,
+                tid);
+
+                 */
+
+
+
+
+
+/*
         int tmp = opretResultatInput.nextInt();
         KonkurrenceResultat.Svoemmediciplin svoemmediciplin = null;
       
@@ -56,19 +98,7 @@ public class IOOpretResultat {
                 svoemmediciplin = KonkurrenceResultat.Svoemmediciplin.butterfly;
             }
 
-        System.out.println("Indtast tid 'HH:mm:ss.SSS'");
-
-        DateTimeFormatter myFormat = DateTimeFormatter.ofPattern("HH:mm:ss.SSS");
-        String tmpTid = opretResultatInput.next();
-        LocalTime tid = LocalTime.parse(tmpTid, myFormat);
-        KonkurrenceResultat konkurrenceResultat=new KonkurrenceResultat(ml.medlemMap.get(medlemID),
-                                                                        konkurrencer.konkurrenceMap.get(konkurrenceID),
-                                                                        svoemmediciplin,
-                                                                        tid);
-
-        konkurrenceResultat.gem();
-
-        System.out.println(svoemmediciplin+" "+tid);
+ */
 
         }
 
