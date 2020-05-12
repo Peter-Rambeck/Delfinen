@@ -13,14 +13,14 @@ public class Medlem {
     private String forNavn;
     private String efterNavn;
     private String traener;
-    private int alder;
+    private int fodselsaer;
     private String email;
     private String tlfNr;
     private int balance;
             //constructor
 
 
-    public Medlem(boolean aktiv, boolean mand, boolean senior, boolean motionist, String forNavn, String efterNavn, String traener, int alder, String email, String tlfNr, int balance) {
+    public Medlem(boolean aktiv, boolean mand, boolean senior, boolean motionist, String forNavn, String efterNavn, String traener, int fodselsaer, String email, String tlfNr, int balance) {
         this.aktiv = aktiv;
         this.mand = mand;
         this.senior = senior;
@@ -28,7 +28,7 @@ public class Medlem {
         this.forNavn = forNavn;
         this.efterNavn = efterNavn;
         this.traener = traener;
-        this.alder = alder;
+        this.fodselsaer = fodselsaer;
         this.email = email;
         this.tlfNr = tlfNr;
         this.balance = balance;
@@ -42,6 +42,14 @@ public class Medlem {
         this.setMedlemID(medlemID);
         medlemsLister.medlemMap.put(medlemID,this);
 
+    }
+
+    public int getFodselsaer() {
+        return fodselsaer;
+    }
+
+    public void setFodselsaer(int fodselsaer) {
+        this.fodselsaer = fodselsaer;
     }
 
     public String getTraener() {
