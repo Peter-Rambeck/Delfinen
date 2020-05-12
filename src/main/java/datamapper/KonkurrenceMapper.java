@@ -3,7 +3,6 @@ package datamapper;
 import Util.DBConnector;
 import model.Konkurrence;
 import model.Konkurrencer;
-import model.KonkurrrenceMedlem;
 import model.Medlem;
 
 import java.sql.Connection;

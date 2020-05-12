@@ -23,9 +23,9 @@ public class KonkurrenceResultat {
     private Medlem medlem;
     private Konkurrence konkurrence;
     public Svoemmediciplin svoemmediciplin;
-    private LocalTime tid;
+    private int tid;
         //contructor
-    public KonkurrenceResultat(Medlem medlem, Konkurrence konkurrence, Svoemmediciplin svoemmediciplin, LocalTime tid) {
+    public KonkurrenceResultat(Medlem medlem, Konkurrence konkurrence, Svoemmediciplin svoemmediciplin, int tid) {
         this.medlem = medlem;
         this.konkurrence = konkurrence;
         this.svoemmediciplin = svoemmediciplin;
@@ -39,7 +39,7 @@ public class KonkurrenceResultat {
         KonkurrenceResultater.konkurrenceResultatMap.put(resultatID,this);
     }
 
-    public void setTid(LocalTime tid) {
+    public void setTid(int tid) {
         this.tid = tid;
     }
 
@@ -63,19 +63,18 @@ public class KonkurrenceResultat {
         return svoemmediciplin;
     }
 
-    public LocalTime getTid() {
+    public int getTid() {
         return tid;
     }
 
     @Override
     public String toString() {
-        DateTimeFormatter myFormat = DateTimeFormatter.ofPattern("HH:mm:ss.SSS");
 
         return
                 "ResultatID:" + konkurrenceResultatID +
                 " Medlem: "+ medlem.getMedlemID()+" "+ medlem.getForNavn()+" "+medlem.getEfterNavn() +
                 " Konkurrence: " + konkurrence.getKonkurrenceID()+" "+konkurrence.getKonkurrenceNavn()+" " +
                 " Disciplin: " + svoemmediciplin +
-                " Tid:" + tid.format(myFormat) +"\n";
+                " Tid:" + tid +"\n";
     }
 }

@@ -69,7 +69,7 @@ public class MedlemMapper {
 
                 String traener=res.getString("traener");
 
-                int fodselsaer=res.getInt("fodselaer");
+                int fodselsaer=res.getInt("fodselsaer");
 
                 String email=res.getString("email");
 
