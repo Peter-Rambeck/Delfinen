@@ -2,6 +2,8 @@ package model;
 
 import datamapper.MedlemMapper;
 
+import java.time.Year;
+
 public class Medlem {
 
 
@@ -44,6 +46,10 @@ public class Medlem {
 
     }
 
+    public int getAlder (){
+        Year y=Year.now();
+        return this.fodselsaer-y.getValue();
+    }
     public int getFodselsaer() {
         return fodselsaer;
     }
