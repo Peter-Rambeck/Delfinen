@@ -44,6 +44,13 @@ public class Medlem {
 
     }
 
+    public String getTraener() {
+        return traener;
+    }
+
+    public void setTraener(String traener) {
+        this.traener = traener;
+    }
 
     public String balanceToString(){
         String retVal=medlemID+" "+forNavn+" "+efterNavn+" "+balance+"\n";
