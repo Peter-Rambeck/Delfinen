@@ -18,6 +18,8 @@ public class KonkurrenceResultat {
     }
 */
 
+    int svoemmedisciplin;
+
 
     private int konkurrenceResultatID;
     private Medlem medlem;
@@ -26,7 +28,7 @@ public class KonkurrenceResultat {
     private int tid;
 
         //contructor
-    public KonkurrenceResultat(Medlem medlem, Konkurrence konkurrence, Svoemmediciplin svoemmediciplin, int tid) {
+    public KonkurrenceResultat(Medlem medlem, Konkurrence konkurrence, int svoemmediciplin, int tid) {
         this.medlem = medlem;
         this.konkurrence = konkurrence;
 
