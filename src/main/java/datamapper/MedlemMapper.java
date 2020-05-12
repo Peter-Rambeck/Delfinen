@@ -13,6 +13,7 @@ public class MedlemMapper {
 
     public static int createNewmedlem(Medlem medlem) {
 
+
         int medlemID = 0;
         String sqlQuery = "";
         Connection conn = DBConnector.getInstance().getConnection();
