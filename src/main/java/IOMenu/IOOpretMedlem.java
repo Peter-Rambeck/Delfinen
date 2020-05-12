@@ -3,113 +3,100 @@ package IOMenu;
 import datamapper.MedlemMapper;
 import model.KonkurrenceMedlemListe;
 import model.Medlem;
-import model.Medlem.*;
-import model.KonkurrrenceMedlem;
-
 import java.util.Scanner;
-
-import static model.Medlem.AldersKlasse.junior;
-import static model.Medlem.AldersKlasse.senior;
-import static model.Medlem.Koen.kvinde;
-import static model.Medlem.Koen.mand;
-import static model.Medlem.Status.aktiv;
-import static model.Medlem.Status.passiv;
-
 
 public class IOOpretMedlem {
 
     public static void opretMedlem() {
 
-            // Create Scanner object
+            // Scanner
             Scanner opretMedlemInput = new Scanner(System.in);
 
-            // Aktivitetsform, Motionist / Konkurrencesvoemmer
-            System.out.println("Aktivitetsform: ");
-            System.out.println("Konkurrencesvoemmer: 1 ");
-            System.out.println("Motionist: 2 ");
-            // Indput
-            int aktivitetsForm = opretMedlemInput.nextInt();
-            opretMedlemInput.nextLine();
-
-            // Aktiv eller passiv, Enum
+            // Aktiv eller passiv, Bool
             System.out.println("medlemstype: ");
-            System.out.println("aktiv: 1 ");
-            System.out.println("passiv: 2 ");
-            // Indput
-            int tmp = opretMedlemInput.nextInt();
-            Status status;
-            if ( tmp == 2 ) {
-                    status = passiv;
+            System.out.println("Aktiv: 1 ");
+            System.out.println("Passiv: 2 ");
+            int InputAktiv = opretMedlemInput.nextInt();
+            boolean aktiv;
+            if (InputAktiv == 1) {
+                    aktiv = true;
             } else {
-                    status = aktiv;
-            };
-            System.out.println();
+                    aktiv = false;
+            }
 
-            // Køn, Enum
-            System.out.println("køn: ");
-            System.out.println("mand: 1 ");
-            System.out.println("kvinde: 2 ");
-            // Indput
-            tmp = opretMedlemInput.nextInt();
-            Koen koen;
-            if ( tmp == 2 ) {
-                    koen = kvinde;
+            // Mand eller Kvinde, Bool
+            System.out.println("medlemstype: ");
+            System.out.println("Mand: 1 ");
+            System.out.println("Kvinde: 2 ");
+            int InputMand = opretMedlemInput.nextInt();
+            boolean mand;
+            if (InputAktiv == 1) {
+                    mand = true;
             } else {
-                    koen = mand;
-            };
-            System.out.println();
+                    mand = false;
+            }
 
-            // Aldersklasse, Enum
-            System.out.println("aldersklasse: ");
-            System.out.println("junior: 1 ");
-            System.out.println("senior: 2 ");
-            // Aktiv eller passiv
-            tmp = opretMedlemInput.nextInt();
-            AldersKlasse aldersKlasse;
-            if(tmp==2){
-                    aldersKlasse= senior;
-            }else {aldersKlasse=junior;};
-            System.out.println();
+            // Senior eller Junior, Bool
+            System.out.println("medlemstype: ");
+            System.out.println("Senior: 1 ");
+            System.out.println("Junior: 2 ");
+            int InputSenior = opretMedlemInput.nextInt();
+            boolean senior;
+            if (InputAktiv == 1) {
+                    senior = true;
+            } else {
+                    senior = false;
+            }
 
+            // Motionist eller Konkurrence medlem, Bool
+            System.out.println("medlemstype: ");
+            System.out.println("Motionist: 1 ");
+            System.out.println("Konkurrencemedlem: 2 ");
+            int InputMotionist = opretMedlemInput.nextInt();
+            boolean motionist;
+            if (InputAktiv == 1) {
+                    motionist = true;
+            } else {
+                    motionist = false;
+            }
+
+            // Fornavn, String
             System.out.println("Fornavn?: ");
-            //
             String forNavn = opretMedlemInput.nextLine();
-            forNavn = opretMedlemInput.nextLine();
+            // forNavn = opretMedlemInput.nextLine();
             System.out.println();
 
+            // Efternavn, String
             System.out.println("Efternavn?: ");
-            //
             String efterNavn = opretMedlemInput.nextLine();
             System.out.println();
 
-            System.out.println("Alder?: ");
-            //
-            int alder = opretMedlemInput.nextInt();
+            // Traener, String
+            // System.out.println("Efternavn?: ");
+            String traener = "Bruce Lee";
+            // System.out.println();
+
+            // Alder, int
+            System.out.println("Fødselsår?: ");
+            int fodselsaer = opretMedlemInput.nextInt();
             System.out.println();
             opretMedlemInput.nextLine();
 
+            // Email, String
             System.out.println("email?: ");
-            //
             String email = opretMedlemInput.nextLine();
             System.out.println();
 
+            // Telefon, String
             System.out.println("Telefon nr.?: ");
-            //
             String tlfNr = opretMedlemInput.nextLine();
 
+            // Balance, int
+            int balance = 0;
 
-            if ( aktivitetsForm == 1 ) {
-                    System.out.println("Valeg traener");
-                    String traener = "Tom";
-                    KonkurrrenceMedlem konkurrrenceMedlem = new KonkurrrenceMedlem(status, koen, aldersKlasse, forNavn, efterNavn, alder, email, tlfNr, traener);
-                    KonkurrrenceMedlem.gem();
-            } else {
-                    Medlem medlem = new Medlem(status, koen, aldersKlasse, forNavn, efterNavn, alder, email, tlfNr);
-                    medlem.gem();
-            }
 
-            //System.out.println(medlem);
-
+            Medlem medlem = new Medlem(aktiv, mand, senior, motionist, forNavn, efterNavn, traener, fodselsaer, email, tlfNr, balance);
+            medlem.gem();
 
         }
 
