@@ -10,18 +10,16 @@ CREATE TABLE `Delfin`.`medlem` (
   email VARCHAR(45) NULL,
   tlfnr VARCHAR(45) NULL,
   balance int NULL,
-  statu ENUM("aktiv","passiv"),
-  koen ENUM("mand","kvinde"),
-  aldersKlasse ENUM ("senior","junior"),
+  konkurrencemedlem BOOL,
+  statu BOOL,
+  koen BOOL,
+  aldersKlasse BOOL,
+  traener VARCHAR(45),
   PRIMARY KEY (`medlemID`));
- 
-  CREATE TABLE `Delfin`.`konkurrence` (
-  konkurrenceID INT NOT NULL AUTO_INCREMENT,
-  navn VARCHAR(45) NULL,
-  dato DATE,
-  PRIMARY KEY (`konkurrenceID`));
   
-  CREATE TABLE `Delfin`.`konkurrenceResultat` (
+ 
+  
+  CREATE TABLE `Delfin`.`Resultat` (
   resultatID INT NOT NULL AUTO_INCREMENT,
   medlemID INT NULL,
   konkurrenceID INT NULL,
