@@ -72,8 +72,13 @@ public class IOOpretMedlem {
 
             // Traener, String
             // System.out.println("Efternavn?: ");
-            String traener = "Bruce Lee";
-            // System.out.println();
+
+            String traener;
+            if ( motionist == true ) {
+                    traener = "Bruce Lee";
+            } else {
+                    traener = "";
+            }
 
             // Alder, int
             System.out.println("Fødselsår?: ");

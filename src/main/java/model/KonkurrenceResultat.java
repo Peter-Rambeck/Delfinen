@@ -7,9 +7,6 @@ import datamapper.ResultatMapper;
 public class KonkurrenceResultat {
 
 
-
-
-
     private int konkurrenceResultatID;
     private Medlem medlem;
     private Konkurrence konkurrence;

@@ -2,7 +2,13 @@ package model;
 
 import datamapper.MedlemMapper;
 
-import java.time.Year;
+import java.time.LocalTime;
+import java.time.temporal.TemporalField;
+import java.util.concurrent.TimeUnit;
+
+import static java.time.ZoneOffset.MIN;
+
+import static java.util.concurrent.TimeUnit.MILLISECONDS;
 
 public class Medlem {
 
@@ -46,10 +52,6 @@ public class Medlem {
 
     }
 
-    public int getAlder (){
-        Year y=Year.now();
-        return this.fodselsaer-y.getValue();
-    }
     public int getFodselsaer() {
         return fodselsaer;
     }
@@ -178,6 +180,9 @@ public class Medlem {
                 ", balance=" + balance +
                 '}';
     }
-}
+
+
+
+    }
 
 

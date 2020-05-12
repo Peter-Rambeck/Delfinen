@@ -1,7 +1,7 @@
 package model;
 
 public class Enum {
-
+/*
 
     public enum Status {
         aktiv,
@@ -25,5 +25,5 @@ public class Enum {
     }
 
 
-
+*/
 }

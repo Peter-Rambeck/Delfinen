@@ -1,12 +1,11 @@
 create table Delfin.`disciplin` (
-  disciplinID INT NOT NULL AUTO_INCREMENT,
   crawl int,
   brystsvoemning int,
   rygcrawl int,
   butterfly int,
   primary key (`disciplinID`));
   
-  insert into disciplin (crawl)
+  insert into disciplin (crawl, brystsvoemning, rygcrawl, butterfly )
   value (1);
   insert into disciplin (brystsvoemning)
   value (2);
