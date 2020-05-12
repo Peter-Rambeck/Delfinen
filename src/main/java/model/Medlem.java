@@ -17,7 +17,7 @@ public class Medlem {
     private String email;
     private String tlfNr;
     private int balance;
-            //constructor
+    //constructor
 
 
     public Medlem(boolean aktiv, boolean mand, boolean senior, boolean motionist, String forNavn, String efterNavn, String traener, int fodselsaer, String email, String tlfNr, int balance) {
@@ -35,12 +35,12 @@ public class Medlem {
     }
 
     //Opretter medlem i databasen, modtager id fra databasen og gemmer det i hashmap
-    public void gem(){
-        MedlemsLister medlemsLister=new MedlemsLister();
+    public void gem() {
+        MedlemsLister medlemsLister = new MedlemsLister();
         MedlemMapper medlemMapper = new MedlemMapper();
-        int medlemID=medlemMapper.createNewmedlem(this);
+        int medlemID = medlemMapper.createNewmedlem(this);
         this.setMedlemID(medlemID);
-        medlemsLister.medlemMap.put(medlemID,this);
+        medlemsLister.medlemMap.put(medlemID, this);
 
     }
 
@@ -60,8 +60,8 @@ public class Medlem {
         this.traener = traener;
     }
 
-    public String balanceToString(){
-        String retVal=medlemID+" "+forNavn+" "+efterNavn+" "+balance+"\n";
+    public String balanceToString() {
+        String retVal = medlemID + " " + forNavn + " " + efterNavn + " " + balance + "\n";
         return retVal;
     }
 
@@ -150,11 +150,10 @@ public class Medlem {
     //public void opretMedlem(boolean aktiv, boolean mand, boolean senior, String forNavn, String efterNavn, int alder, String email, String tlfNr) {
     // }
 
-    public String kortToString(){
-        String retVal=medlemID+" "+forNavn+" "+efterNavn;
+    public String kortToString() {
+        String retVal = medlemID + " " + forNavn + " " + efterNavn;
         return retVal;
     }
-    @Override
 
     @Override
     public String toString() {
@@ -166,7 +165,8 @@ public class Medlem {
                 ", medlemID=" + medlemID +
                 ", forNavn='" + forNavn + '\'' +
                 ", efterNavn='" + efterNavn + '\'' +
-                ", alder=" + alder +
+                ", traener='" + traener + '\'' +
+                ", fodselsaer=" + fodselsaer +
                 ", email='" + email + '\'' +
                 ", tlfNr='" + tlfNr + '\'' +
                 ", balance=" + balance +
