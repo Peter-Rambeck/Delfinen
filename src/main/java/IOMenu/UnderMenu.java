@@ -65,11 +65,11 @@ public class UnderMenu {
         System.out.println("Vælg ");
         System.out.println("1.\t"+kassererUnderMenu[0]);
         System.out.println("2.\t" +kassererUnderMenu[1]);
-        System.out.println("2.\t" +kassererUnderMenu[2]);
+        System.out.println("3.\t" +kassererUnderMenu[2]);
 
         if (input.hasNextInt()) {
             int menuLogin = input.nextInt();
-            if (menuLogin > 0 && menuLogin < 3) {
+            if (menuLogin > 0 && menuLogin < 4) {
                 switch (menuLogin) {
 
                     case 1:

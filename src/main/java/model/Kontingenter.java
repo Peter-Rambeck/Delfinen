@@ -61,7 +61,7 @@ public class Kontingenter {
         for ( Medlem km : medlemMap.values()) {
             kontingent = udregnKontingent(km);
             km.setBalance(km.getBalance()-kontingent);
-            System.out.println(km.getBalance());
+            // System.out.println(km.getBalance());
             mM.updateBalanceIDB(km);
 
             }

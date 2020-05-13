@@ -91,7 +91,8 @@ public class IOOpretResultat {
         int intTid = 0;
         while ( intTid == 0 ) {
             System.out.println("Indtast tid 'HH:mm:ss.SSS'");
-            //if (opretResultatInput.hasNextInt()) {
+
+            // if (opretResultatInput.) {
                 String tmpTid = opretResultatInput.nextLine();
                 tmpTid = opretResultatInput.nextLine();
 
