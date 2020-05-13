@@ -57,12 +57,51 @@ public class KonkurrenceResultat {
 
     @Override
     public String toString() {
+        String disciplinstr="";
+        switch (svoemmediciplin){
+            case 1:disciplinstr="Brystsvømning";
+                    break;
+            case 2:disciplinstr="Crawl";
+                break;
+            case 3:disciplinstr="Rygcrawl";
+                break;
+            case 4:disciplinstr="Butterfly";
+                break;
+
+        }
+
+
 
         return
                 "ResultatID:" + konkurrenceResultatID +
-                " Medlem: "+ medlem.getMedlemID()+" "+ medlem.getForNavn()+" "+medlem.getEfterNavn() +
-                " Konkurrence: " + konkurrence.getKonkurrenceID()+" "+konkurrence.getKonkurrenceNavn()+" " +
-                " Disciplin: " + svoemmediciplin +
-                " Tid:" + tid +"\n";
+                        " "+ " "+konkurrence.getKonkurrenceNavn()+
+                        " "+ medlem.getForNavn()+" "+medlem.getEfterNavn() +
+                        " "  + disciplinstr +
+                        " Tid:" + intToTimeString(tid) +"\n";
+    }
+
+    public String intToTimeString(int intTid){
+        String retVal="";
+        int minutes;
+        int seconds;
+        int milliseconds;
+        minutes=intTid/60000;intTid=intTid%60000;
+
+        seconds=intTid/1000;intTid=intTid%1000;
+
+        milliseconds=intTid;
+        retVal=minutes+":"+seconds+"."+milliseconds;
+        return retVal;
+
+
+    }
+    public boolean opfylderKriterie(int disciplin,boolean mand, boolean senior){
+        boolean sammeDisciplin=(this.svoemmediciplin==disciplin);
+        boolean sammeKoen=(this.getMedlem().isMand()==mand);
+        boolean sammeSenior=(this.getMedlem().isSenior()==senior);
+        System.out.println(sammeDisciplin);
+        System.out.println(sammeKoen);
+        System.out.println(sammeSenior);
+        return sammeDisciplin&&sammeKoen&&sammeSenior;
     }
 }

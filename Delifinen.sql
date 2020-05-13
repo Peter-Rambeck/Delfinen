@@ -23,16 +23,19 @@ CREATE TABLE `Delfin`.`medlem` (
   dato DATE,
   PRIMARY KEY (`konkurrenceID`));  
  
-  
   CREATE TABLE `Delfin`.`Resultat` (
   resultatID INT NOT NULL AUTO_INCREMENT,
   medlemID INT NULL,
-  konkurrenceID INT NULL,
+  konkurrenceID int NULL,
   disciplin INT,
   tid INT,
   FOREIGN KEY (medlemID) REFERENCES medlem(medlemID),
   FOREIGN KEY (konkurrenceID) REFERENCES konkurrence(konkurrenceID),
   PRIMARY KEY (resultatID));
+  
+  INSERT INTO konkurrence (navn,dato)
+  VALUES ("Træning",'1111-01-01'); 
+
     
     
   
