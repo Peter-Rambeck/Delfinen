@@ -20,7 +20,7 @@ public class KonkurrenceResultater {
         return retVal;
     }
     public void udskrivTop5(int disciplin,boolean mand, boolean senior){
-        String retVal="";
+        String retVal="Top5 Liste:\n";
         TreeMap<Integer, KonkurrenceResultat> sorteredeResultater
                 = new TreeMap<Integer, KonkurrenceResultat>();
         for (KonkurrenceResultat k:konkurrenceResultatMap.values()){
@@ -29,8 +29,10 @@ public class KonkurrenceResultater {
             }
 
         }
-        for(int i=0;i<5;i++){
-            System.out.print(sorteredeResultater.pollFirstEntry());
+        int antal=sorteredeResultater.size();
+        if (antal>5){antal=5;}
+        for(int i=0;i<antal;i++){
+            System.out.print(sorteredeResultater.pollFirstEntry().getValue());
         }
 
         return;

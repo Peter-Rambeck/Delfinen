@@ -28,16 +28,14 @@ public class Main {
         KonkurrenceResultater konkurrenceResultater=new KonkurrenceResultater();
         ResultatMapper rm=new ResultatMapper();
         rm.getResultaterFraDB();
-        System.out.println(konkurrencer);
-        System.out.println(konkurrenceResultater);
-        konkurrenceResultater.udskrivTop5(4,true,false);
-        System.out.println(konkurrenceResultater.konkurrenceResultatMap.get(1).opfylderKriterie(1,false,false));
+      //  System.out.println(konkurrencer);
+       // System.out.println(konkurrenceResultater);
+        //konkurrenceResultater.udskrivTop5(4,true,false);
+       // System.out.println(konkurrenceResultater.konkurrenceResultatMap.get(1).opfylderKriterie(1,false,false));
+
         Menu menu = new Menu();
         menu.hovedMenu();
-        /*
-       Menu menu = new Menu();
-        menu.hovedMenu();
-*/
+
         /*
         Konkurrencer konkurrencer=new Konkurrencer();
         KonkurrenceMapper km=new KonkurrenceMapper();

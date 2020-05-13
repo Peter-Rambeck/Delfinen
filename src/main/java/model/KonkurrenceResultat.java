@@ -69,14 +69,14 @@ public class KonkurrenceResultat {
                 break;
 
         }
-
-
-
+        String senior="Senior";
+        if (medlem.isSenior()==false){senior="junior";}
         return
                 "ResultatID:" + konkurrenceResultatID +
-                        " "+ " "+konkurrence.getKonkurrenceNavn()+
-                        " "+ medlem.getForNavn()+" "+medlem.getEfterNavn() +
-                        " "  + disciplinstr +
+                        ", "+ " "+konkurrence.getKonkurrenceNavn()+
+                        ", "+ medlem.getForNavn()+" "+medlem.getEfterNavn() +
+                        ", "+senior+
+                        ", "  + disciplinstr +
                         " Tid:" + intToTimeString(tid) +"\n";
     }
 
