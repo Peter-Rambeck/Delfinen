@@ -2,22 +2,20 @@ package datamapper;
 import Util.DBConnector;
 import model.Medlem;
 import model.MedlemsLister;
-
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
 
 public class MedlemMapper {
 
     public  int createNewmedlem(Medlem medlem) {
-
+    // opretter medlem i DB og returnerer IDvfra DB
         int medlemID = 0;
-        String sqlQuery = "";
+        String sqlQuery;
         Connection conn = DBConnector.getInstance().getConnection();
 
-        //laver ny ordre..
+        //Query der indsætter medlem i DB.
         sqlQuery = "Insert into medlem (forNavn,efterNavn,fodselsaer,email,tlfnr,balance,statu,konkurrencemedlem,koen,aldersklasse,traener) " +
                 "Values(\"" +
                 medlem.getForNavn()+"\",\"" +
@@ -31,13 +29,11 @@ public class MedlemMapper {
                 boolToSql(medlem.isMand())+"\",\"" +
                 boolToSql(medlem.isSenior())+"\",\"" +
                 medlem.getTraener()+"\"" +");";
-        System.out.println(sqlQuery);
-        // lave statement
         try {
             Statement stmt = conn.createStatement();
-            //opret i DB
+            //kør query...
             stmt.executeUpdate(sqlQuery, Statement.RETURN_GENERATED_KEYS);
-            // modtag ordreID fr DB
+            // modtag ID fra DB vha ResultSet
             ResultSet res = stmt.getGeneratedKeys();
             res.next();
             medlemID = res.getInt(1);
@@ -50,61 +46,48 @@ public class MedlemMapper {
 
     public void getMedlemmerFraDB(MedlemsLister medlemsLister) {
         String query = "";
-        Medlem tmpMedlem = null;
+        Medlem tmpMedlem;
 
-        // TODO: The JDBC-cycle
         Connection conn = DBConnector.getInstance().getConnection();
         try {
+            //query der vælger alle medlemmer i DB
             query = "SELECT * FROM medlem";
             Statement stmt = conn.createStatement();
+            //kør query og gem resultat i res
             ResultSet res = stmt.executeQuery(query);
 
             while(res.next()) {
                 // laver et medlem per iteration og gemmer i listen
                 int medlemID=res.getInt("medlemID");
-
                 String fornavn=res.getString("forNavn");
-
                 String efternavn=res.getString("efterNavn");
-
                 String traener=res.getString("traener");
-
                 int fodselsaer=res.getInt("fodselsaer");
-
                 String email=res.getString("email");
-
                 String tlfnr=res.getString("tlfnr");
-
                 int balance=res.getInt("balance");
 
+                //aktiv er boolean i java og 0/1 i db
                 int intstatus=res.getInt("statu");
-                boolean aktiv=true;
-                if (intstatus>0)
-                {aktiv= true;}else{aktiv=false;}
+                boolean aktiv=sqlToBool(intstatus);
 
+                 //koen er boolean i java og 0/1 i DB OBS hedder mand i java og koen i DB
                 int intkoen=res.getInt("koen");
-                boolean mand=true;
-                if (intkoen>0)
-                {mand= true;}else{mand=false;}
+                boolean mand=sqlToBool(intkoen);
 
+                //senior er boolean i java og 0/1 i DB OBS hedder senior i java og aldersklasse i DB
                 int intsenior=res.getInt("aldersklasse");
-                boolean senior=true;
-                if (intsenior>0)
-                {senior= true;}else{senior=false;}
-
+                boolean senior=sqlToBool(intsenior);
+                //motionist er boolean i java og 0/1 i DB OBS hedder motionist i java og konkurrncemedlem i DB
                 int intmotionist=res.getInt("konkurrencemedlem");
-                boolean motionist=true;
-                if (intmotionist>0)
-                {motionist= false;}else{motionist=true;}
+                boolean motionist=sqlToBool(intmotionist);
 
-                /*
-                Medlem(Status status, Koen koen, AldersKlasse aldersKlasse, String forNavn, String efterNavn, int alder, String email, String tlfNr)
-                */
-
+                // laver medlem udfra det hentede
                 tmpMedlem = new Medlem(aktiv,mand, senior,motionist,fornavn,efternavn,traener,fodselsaer,email,tlfnr,balance);
                 tmpMedlem.setMedlemID(medlemID);
+
+                //gemmer det hentde medlem i medlemsLister
                 medlemsLister.medlemMap.put(medlemID,tmpMedlem);
-                //medlemmer.add(tmpMedlem);
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -114,24 +97,36 @@ public class MedlemMapper {
 
 
     public void updateBalanceIDB(Medlem medlem){
-        String sqlQuery = "";
+        //Bruges til at opdatere balance i medlemmer iDB når kasseeren roder med kontinger
+        String sqlQuery;
         Connection conn = DBConnector.getInstance().getConnection();
+        //den balance der skal gemmes i DB
         int nyBalance=medlem.getBalance();
+        //medlemID på det medlem der skal ændres i
         int medlemID=medlem.getMedlemID();
+        //query der ænrer balancen i medlem med medlemID
         sqlQuery = "UPDATE medlem SET balance ="+nyBalance+" WHERE medlemID="+medlemID+";";
-        // lave statement
-        try {
+       try {
             Statement stmt = conn.createStatement();
+            //kør query
             stmt.executeUpdate(sqlQuery);
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
     }
     public int boolToSql(boolean bool) {
+        //udregner værdi af boolean til brug i DB
         int retVal = 0;
         if (bool == true) {
             retVal = 1;
         }
+        return retVal;
+    }
+    public boolean sqlToBool(int sqlint){
+        //udregner boolean udfra int fra DB
+        boolean retVal=true;
+        if (sqlint>0)
+        {retVal= false;}else{retVal=true;}
         return retVal;
     }
 

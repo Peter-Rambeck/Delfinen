@@ -2,34 +2,30 @@ package datamapper;
 
 import Util.DBConnector;
 import model.*;
-
 import java.sql.*;
-
-
 
 public class ResultatMapper {
     public int createKonkurrenceResultat(KonkurrenceResultat konkurrenceResultat) {
-
+    //opretter resultat i DB og returnerer det tildelte ID
         int konkurenceresultatID = 0;
         String sqlQuery = "";
         Connection conn = DBConnector.getInstance().getConnection();
 
-        //laver nyt resultat..
+        //query der insætter resultat i DB
         sqlQuery = "Insert into resultat (medlemID,konkurrenceID,disciplin,tid) " +
                 "Values(\"" +
                 konkurrenceResultat.getMedlem().getMedlemID()+"\",\"" +
                 konkurrenceResultat.getKonkurrence().getKonkurrenceID()+"\",\""+
                 konkurrenceResultat.getSvoemmediciplin()+"\",\""+
                 konkurrenceResultat.getTid()+"\"" +");";
-        System.out.println(sqlQuery);
-        // lave statement
         try {
             Statement stmt = conn.createStatement();
-            //opret i DB
+            //kør query der opretter i DB
             stmt.executeUpdate(sqlQuery, Statement.RETURN_GENERATED_KEYS);
             // modtag ordreID fr DB
             ResultSet res = stmt.getGeneratedKeys();
             res.next();
+            //gem ID i resultat
             konkurenceresultatID = res.getInt(1);
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -39,20 +35,26 @@ public class ResultatMapper {
 
 
 
-    public void getResultaterFraDB() {
+    public void getResultaterFraDB(KonkurrenceResultater resultatliste) {
+        //hent alle resultater fra DB og gem i konkurrenceResultater
         String query = "";
         Konkurrence tmpResultat = null;
-        KonkurrenceResultater konkurrenceResultater=new KonkurrenceResultater();
 
-        // TODO: The JDBC-cycle
         Connection conn = DBConnector.getInstance().getConnection();
         try {
+            //query der vælger alle resultater i DB
             query = "SELECT * FROM resultat";
             Statement stmt = conn.createStatement();
+
+            //kør query og gem resultat i res
             ResultSet res = stmt.executeQuery(query);
+
+            //konkurrence lister til at hente konkurrencer i
             Konkurrencer konkurrencer=new Konkurrencer();
+
+            //medlemsliste til at hente medlemmer
             MedlemsLister medlemsLister=new MedlemsLister();
-            KonkurrenceResultater resultatliste=new KonkurrenceResultater();
+
             int resultatID;
             while(res.next()) {
                 // laver et resultat per iteration og gemmer i listen
@@ -61,21 +63,16 @@ public class ResultatMapper {
                 int konkurrenceID=res.getInt("konkurrenceID");
                 int svoemmediciplin=res.getInt("disciplin");
                 int tid =res.getInt("tid");
+                //gem det hentede i tmpresultat, konkurrence og medlem hentes i lister udfraID
                 KonkurrenceResultat tmpKonkurrenceResultat=new KonkurrenceResultat(medlemsLister.medlemMap.get(medlemID),
                                                                                 konkurrencer.konkurrenceMap.get(konkurrenceID),
                                                                                 svoemmediciplin,
                                                                                 tid);
-
+                //sær ID på resultatet
                 tmpKonkurrenceResultat.setKonkurrenceResultatID(resultatID);
+                //gem resultatet i resultatlisten
                 resultatliste.konkurrenceResultatMap.put(resultatID,tmpKonkurrenceResultat);
-
-
                 }
-
-
-
-
-
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }

@@ -38,9 +38,8 @@ public class KonkurrenceMapper {
         return konkurenceID;
     }
 
-    public void getKonkurrencerFraDB() {
+    public void getKonkurrencerFraDB(Konkurrencer konkurrencer) {
         //hent alle konkurrencer fra DB og gem dem i Konkurrencer
-        Konkurrencer konkurrencer=new Konkurrencer();
         String query = "";
         Konkurrence tmpKonkurrence;
 
