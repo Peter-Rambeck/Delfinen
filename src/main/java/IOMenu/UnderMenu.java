@@ -7,8 +7,8 @@ import java.util.Scanner;
 public class UnderMenu {
 
 
-    String[] formandUnderMenu = {"Opret medlem", "Rediger medlem"};
-    String[] kassererUnderMenu = {"Kontingentbetaling", "Restanceliste"};
+    String[] formandUnderMenu = {"Opret medlem"};
+    String[] kassererUnderMenu = {"Kontingentbetaling", "Restanceliste", "Udskriv kontingent"};
     String[] trænerUnderMenu = {"Opret konkurrence", "Registrer resultat", "Vis Top 5 liste"};
 
 
@@ -18,7 +18,7 @@ public class UnderMenu {
 
         System.out.println("Vælg ");
         System.out.println("1.\t"+ formandUnderMenu[0]);
-        System.out.println("2.\t"+ formandUnderMenu[1]);
+        // System.out.println("2.\t"+ formandUnderMenu[1]);
 
         if (input.hasNextInt()) {
             int menuLogin = input.nextInt();
@@ -31,14 +31,20 @@ public class UnderMenu {
                         IOOpretMedlem.opretMedlem();
                         break;
 
+                        /*
+
                     case 2:
                         System.out.println(formandUnderMenu[1]);
                         // TODO call Rediger medlem method
                         break;
 
+                         */
+
                     default:
                         System.out.println("Funger ikke");
                         break;
+
+
 
                 }
             } else {
@@ -59,6 +65,7 @@ public class UnderMenu {
         System.out.println("Vælg ");
         System.out.println("1.\t"+kassererUnderMenu[0]);
         System.out.println("2.\t" +kassererUnderMenu[1]);
+        System.out.println("2.\t" +kassererUnderMenu[2]);
 
         if (input.hasNextInt()) {
             int menuLogin = input.nextInt();
@@ -80,6 +87,11 @@ public class UnderMenu {
                     case 2:
                         System.out.println("Vis restance medlemmer");
                          Kontingenter.udskrivRestanceListe();
+                        break;
+
+                    case 3:
+                        System.out.println("Udskrivkontingent");
+                        Kontingenter.udskrivKontingent();
                         break;
 
                     default:

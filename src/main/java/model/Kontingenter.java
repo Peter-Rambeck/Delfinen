@@ -13,7 +13,7 @@ public class Kontingenter {
     final int passivKontingent = 500;
 
         //udregner kontingent for medlemmer ud fra deres oprettede alder, og ovenstående kriterier
-     public int udregnKontingent(Medlem medlem) {
+     public static int udregnKontingent(Medlem medlem) {
         int kontingent = 0;
       if (!medlem.isSenior()) {
             kontingent = juniorKontingent;
@@ -55,7 +55,7 @@ public class Kontingenter {
 
     }
         //???
-    public  void udskrivKontingent() {
+    public static void udskrivKontingent() {
         int kontingent;
         MedlemMapper mM=new MedlemMapper();
         for ( Medlem km : medlemMap.values()) {
