@@ -1,18 +1,11 @@
 package IOMenu;
 
 import model.*;
-import model.Enum;
-
-import java.io.IOException;
-import java.sql.Time;
-import java.text.ParseException;
-import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 import static model.MedlemsLister.medlemMap;
-
 
 public class IOOpretResultat {
 
