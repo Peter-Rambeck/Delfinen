@@ -2,6 +2,7 @@ import IOMenu.Menu;
 //import datamapper.KonkurrenceMapper;
 import datamapper.KonkurrenceMapper;
 import datamapper.MedlemMapper;
+import datamapper.ResultatMapper;
 import model.*;
 //import datamapper.ResultatMapper;
 //import model.*;
@@ -24,10 +25,16 @@ public class Main {
          Konkurrencer konkurrencer=new Konkurrencer();
         KonkurrenceMapper km=new KonkurrenceMapper();
         km.getKonkurrenceFraDB();
+        KonkurrenceResultater konkurrenceResultater=new KonkurrenceResultater();
+        ResultatMapper rm=new ResultatMapper();
+        rm.getResultaterFraDB();
         System.out.println(konkurrencer);
+        System.out.println(konkurrenceResultater);
+        System.out.println(konkurrenceResultater.konkurrenceResultatMap.get(1).opfylderKriterie(1,false,false));
+       /*
        Menu menu = new Menu();
         menu.hovedMenu();
-
+*/
         /*
         Konkurrencer konkurrencer=new Konkurrencer();
         KonkurrenceMapper km=new KonkurrenceMapper();

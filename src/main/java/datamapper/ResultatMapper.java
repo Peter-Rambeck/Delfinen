@@ -47,18 +47,27 @@ public class ResultatMapper {
         // TODO: The JDBC-cycle
         Connection conn = DBConnector.getInstance().getConnection();
         try {
-            query = "SELECT * FROM konkurrenceresultat";
+            query = "SELECT * FROM resultat";
             Statement stmt = conn.createStatement();
             ResultSet res = stmt.executeQuery(query);
             Konkurrencer konkurrencer=new Konkurrencer();
             MedlemsLister medlemsLister=new MedlemsLister();
+            KonkurrenceResultater resultatliste=new KonkurrenceResultater();
             int resultatID;
             while(res.next()) {
                 // laver et resultat per iteration og gemmer i listen
                 resultatID=res.getInt("resultatID");
                 int medlemID=res.getInt("medlemID");
                 int konkurrenceID=res.getInt("konkurrenceID");
-                int svoemmediciplin=res.getInt("konkurrenceID");
+                int svoemmediciplin=res.getInt("disciplin");
+                int tid =res.getInt("tid");
+                KonkurrenceResultat tmpKonkurrenceResultat=new KonkurrenceResultat(medlemsLister.medlemMap.get(medlemID),
+                                                                                konkurrencer.konkurrenceMap.get(konkurrenceID),
+                                                                                svoemmediciplin,
+                                                                                tid);
+
+                tmpKonkurrenceResultat.setKonkurrenceResultatID(resultatID);
+                resultatliste.konkurrenceResultatMap.put(resultatID,tmpKonkurrenceResultat);
 
 
                 }

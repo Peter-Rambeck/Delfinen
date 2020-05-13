@@ -90,9 +90,18 @@ public class KonkurrenceResultat {
         seconds=intTid/1000;intTid=intTid%1000;
 
         milliseconds=intTid;
-        retVal=minutes+":"+seconds+":"+milliseconds;
+        retVal=minutes+":"+seconds+"."+milliseconds;
         return retVal;
 
 
+    }
+    public boolean opfylderKriterie(int disciplin,boolean mand, boolean senior){
+        boolean sammeDisciplin=(this.svoemmediciplin==disciplin);
+        boolean sammeKoen=(this.getMedlem().isMand()==mand);
+        boolean sammeSenior=(this.getMedlem().isSenior()==senior);
+        System.out.println(sammeDisciplin);
+        System.out.println(sammeKoen);
+        System.out.println(sammeSenior);
+        return sammeDisciplin&&sammeKoen&&sammeSenior;
     }
 }
