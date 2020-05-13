@@ -1,19 +1,9 @@
 package model;
 
 import datamapper.MedlemMapper;
-
-import java.time.LocalTime;
 import java.time.Year;
-import java.time.temporal.TemporalField;
-import java.util.concurrent.TimeUnit;
-
-import static java.time.ZoneOffset.MIN;
-
-import static java.util.concurrent.TimeUnit.MILLISECONDS;
 
 public class Medlem {
-
-
     private boolean aktiv;
     private boolean mand;
     private boolean senior;
@@ -26,10 +16,9 @@ public class Medlem {
     private String email;
     private String tlfNr;
     private int balance;
-    //constructor
-
 
     public Medlem(boolean aktiv, boolean mand, boolean senior, boolean motionist, String forNavn, String efterNavn, String traener, int fodselsaer, String email, String tlfNr, int balance) {
+        //constructor med alt undtagen ID, som skal komme fra DB
         this.aktiv = aktiv;
         this.mand = mand;
         this.senior = senior;
@@ -47,12 +36,16 @@ public class Medlem {
     public void gem() {
         MedlemsLister medlemsLister = new MedlemsLister();
         MedlemMapper medlemMapper = new MedlemMapper();
+        //opretter medlem i DB og modtager ID
         int medlemID = medlemMapper.createNewmedlem(this);
+        //gem ID i medelm
         this.setMedlemID(medlemID);
+        //tilføj medlem til hashmap, med id som nøgle
         medlemsLister.medlemMap.put(medlemID, this);
 
     }
     public int getAlder (){
+        //find alder udfra fødselsår (bruges af kontingent)
         Year y=Year.now();
         return this.fodselsaer-y.getValue();
     }
@@ -74,6 +67,7 @@ public class Medlem {
     }
 
     public String balanceToString() {
+        //toString der bruges af restance udskrivningen
         String retVal = medlemID + " " + forNavn + " " + efterNavn + " " + balance + "\n";
         return retVal;
     }
@@ -160,10 +154,10 @@ public class Medlem {
         this.medlemID = medlemID;
     }
 
-    //public void opretMedlem(boolean aktiv, boolean mand, boolean senior, String forNavn, String efterNavn, int alder, String email, String tlfNr) {
-    // }
+
 
     public String kortToString() {
+        //en toString som ikke indeholdr noget overflødigt, kunid og navn
         String retVal = medlemID + " " + forNavn + " " + efterNavn;
         return retVal;
     }
@@ -185,9 +179,6 @@ public class Medlem {
                 ", balance=" + balance +
                 '}';
     }
-
-
-
-    }
+}
 
 
