@@ -1,5 +1,5 @@
 package IOMenu;
-
+import IOMenu.Menu;
 import model.KonkurrenceResultater;
 import model.Kontingenter;
 
@@ -8,9 +8,10 @@ import java.util.Scanner;
 public class UnderMenu {
 
 
-    String[] formandUnderMenu = {"Opret medlem"};
-    String[] kassererUnderMenu = {"Kontingentbetaling", "Restanceliste", "Udskriv kontingent"};
-    String[] trænerUnderMenu = {"Opret konkurrence", "Registrer resultat", "Vis Top 5 liste"};
+    String[] formandUnderMenu = {"Opret medlem", "Hovedmenu"};
+    String[] kassererUnderMenu = {"Kontingentbetaling", "Restanceliste", "Udskriv kontingent", "Hovedmenu"};
+    String[] trænerUnderMenu = {"Opret konkurrence", "Registrer resultat", "Vis Top 5 liste", "Hovedmenu"};
+
 
 
     public void formandUnderMenu() {
@@ -32,21 +33,15 @@ public class UnderMenu {
                         IOOpretMedlem.opretMedlem();
                         break;
 
-                        /*
-
                     case 2:
                         System.out.println(formandUnderMenu[1]);
-                        // TODO call Rediger medlem method
+                        Menu menu = new Menu();
+                        menu.hovedMenu();
                         break;
-
-                         */
 
                     default:
                         System.out.println("Funger ikke");
                         break;
-
-
-
                 }
             } else {
                 System.out.println("Indtast et tal mellem 1 & 2");
@@ -67,10 +62,11 @@ public class UnderMenu {
         System.out.println("1.\t"+kassererUnderMenu[0]);
         System.out.println("2.\t" +kassererUnderMenu[1]);
         System.out.println("3.\t" +kassererUnderMenu[2]);
+        System.out.println("4.\t" +kassererUnderMenu[3]);
 
         if (input.hasNextInt()) {
             int menuLogin = input.nextInt();
-            if (menuLogin > 0 && menuLogin < 4) {
+            if (menuLogin > 0 && menuLogin < 5) {
                 switch (menuLogin) {
 
                     case 1:
@@ -95,17 +91,23 @@ public class UnderMenu {
                         Kontingenter.udskrivKontingent();
                         break;
 
+                    case 4:
+                        System.out.println(kassererUnderMenu[3]);
+                        Menu menu = new Menu();
+                        menu.hovedMenu();
+                        break;
+
                     default:
                         System.out.println("Funger ikke");
                         break;
 
                 }
             } else {
-                System.out.println("Indtast et tal mellem 1 & 2");
+                System.out.println("Indtast et tal mellem 1 & 5");
                 kassererUnderMenu();
             }
         } else {
-            System.out.println("Indtast et tal mellem 1 & 2");
+            System.out.println("Indtast et tal mellem 1 & 5");
             kassererUnderMenu();
         }
     }
@@ -118,6 +120,7 @@ public class UnderMenu {
         System.out.println("1.\t" +trænerUnderMenu[0]);
         System.out.println("2.\t" +trænerUnderMenu[1]);
         System.out.println("3.\t" +trænerUnderMenu[2]);
+        System.out.println("3.\t" +trænerUnderMenu[3]);
 
         if (input.hasNextInt()) {
             int menuLogin = input.nextInt();
@@ -140,6 +143,11 @@ public class UnderMenu {
                         top5UnderMenu();
                         break;
 
+                    case 4:
+                        System.out.println(trænerUnderMenu[3]);
+                        Menu menu = new Menu();
+                        menu.hovedMenu();
+                        break;
 
                     default:
                         System.out.println("Funger ikke");
