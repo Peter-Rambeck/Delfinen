@@ -2,8 +2,6 @@ package IOMenu;
 
 import datamapper.MedlemMapper;
 import model.Medlem;
-
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class IOOpretMedlem {
@@ -46,23 +44,24 @@ public class IOOpretMedlem {
                         System.out.println("medlemstype: ");
                         System.out.println("Mand: 1 ");
                         System.out.println("Kvinde: 2 ");
+
                         if (opretMedlemInput.hasNextInt()) {
                                 int inputMand = opretMedlemInput.nextInt();
                                 if (inputMand > 0 && inputMand < 3) {
-                        // boolean mand;
-                        if (inputMand == 1) {
-                                mand = true;
+                                        // boolean mand;
+                                        if (inputMand == 1) {
+                                                mand = true;
+                                        } else {
+                                                mand = false;
+                                                break;
+                                        }
+                                } else {
+                                        System.out.println("Fejltastning, 1 eller 2");
+                                        opretMedlemInput.reset();
+                                }
                         } else {
-                                mand = false;
-                                break;
-                        }
-                } else {
-                        System.out.println("Fejltastning, 1 eller 2");
-                        opretMedlemInput.reset();
-                }
-                        } else {
-                System.out.println("Fejltast");
-                opretMedlemInput.nextLine();
+                                System.out.println("Fejltast");
+                                opretMedlemInput.nextLine();
                         }
                 }
 
