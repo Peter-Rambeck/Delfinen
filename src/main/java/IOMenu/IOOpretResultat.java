@@ -2,6 +2,10 @@ package IOMenu;
 
 import model.*;
 import model.Enum;
+
+import java.io.IOException;
+import java.sql.Time;
+import java.text.ParseException;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
@@ -58,8 +62,7 @@ public class IOOpretResultat {
                         konkurrence = konkurrencer.konkurrenceMap.get(konkurrenceID);
 
                     }
-                }
-                else {
+                } else {
                     System.out.println("Fejltastning");
                     opretResultatInput.nextLine();
                 }
@@ -71,41 +74,40 @@ public class IOOpretResultat {
 
         // svoemmediciplin
         int svoemmediciplin = 0;
-        while ( svoemmediciplin == 0 ) {
+        while (svoemmediciplin == 0) {
             System.out.println("Vælg diciplin: ");
             System.out.println("brystsvoemning: 1 ");
             System.out.println("crawl: 2 ");
             System.out.println("rygcrawl: 3 ");
             System.out.println("butterfly: 4 ");
             if (opretResultatInput.hasNextInt()) {
-                // if (opretResultatInput.nextInt() <= 4) {
-                svoemmediciplin = opretResultatInput.nextInt();
-                } else {
-                    System.out.println("Fejltastning: 1 - 4");
-                    opretResultatInput.nextLine();
-                }
+                if (opretResultatInput.nextInt() <= 4) {
+                    svoemmediciplin = opretResultatInput.nextInt();
+                } } else {
+                System.out.println("Fejltastning: 1 - 4");
+                opretResultatInput.nextLine();
             }
+        }
 
             // Tid
             // System.out.println("Indtast tid: 00,00,00 ");
-        int intTid = 0;
-        while ( intTid == 0 ) {
-            System.out.println("Indtast tid 'HH:mm:ss.SSS'");
+            int intTid = 0;
+            while (intTid == 0) {
 
-            // if (opretResultatInput.) {
+                System.out.println("Indtast tid 'HH:mm:ss.SSS'");
+
                 String tmpTid = opretResultatInput.nextLine();
                 tmpTid = opretResultatInput.nextLine();
 
                 DateTimeFormatter myFormat = DateTimeFormatter.ofPattern("HH:mm:ss.SSS");
                 LocalTime tid = LocalTime.parse(tmpTid, myFormat);
                 intTid = omRegner(tid);
+
             }
             KonkurrenceResultat konkurrenceResultat = new KonkurrenceResultat(medlem, konkurrence, svoemmediciplin, intTid);
             konkurrenceResultat.gem();
             System.out.println(konkurrenceResultat);
         }
-
-
 
 
         public static int omRegner (LocalTime tid){
@@ -120,5 +122,6 @@ public class IOOpretResultat {
             return nanosekunder / 1000000 + sekunder * 1000 + minutter * 60000;
         }
     }
+
 
 
