@@ -11,6 +11,8 @@ import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
+import static model.MedlemsLister.medlemMap;
+
 
 public class IOOpretResultat {
 
@@ -26,12 +28,12 @@ public class IOOpretResultat {
         Medlem medlem = null;
         while (medlem == null) {
             System.out.println("Vælg medlem: ");
-            System.out.println(ml.KortToString());
+            System.out.println(ml.KortToStringkonkurrencemedlem());
             // Korrigerer for fejltastning
             if (opretResultatInput.hasNextInt()) {
                 int medlemID = opretResultatInput.nextInt();
                 // Korrigerer hvis medlemID ikke er på listen
-                if (medlemID < ml.medlemMap.size()) {
+                if ((medlemMap.containsKey(medlemID)&&(!medlemMap.get(medlemID).isMotionist()))) {
                     medlem = ml.medlemMap.get(medlemID);
                     ml.medlemMap.get(medlemID);
                 } else {
