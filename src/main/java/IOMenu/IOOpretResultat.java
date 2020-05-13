@@ -8,12 +8,6 @@ import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 
-/*
-Status
-Medlem: ok
-
- */
-
 public class IOOpretResultat {
 
     public static void opretResultat() {
@@ -45,26 +39,9 @@ public class IOOpretResultat {
             }
         }
 
-/*
-        // Konkurrence eller træningsresultat
-        System.out.println("Vælg konkurrence tast 1, ellers 2: ");
-        System.out.println("Vælg konkurrence: ");
-        int konkurrenceInput = opretResultatInput.nextInt();
-        Konkurrence konkurrence;
-        int konkurrenceID=1;
-        if (konkurrenceInput == 1) {
-            System.out.println(konkurrencer);
-            // TODO Test retur værdi
-            konkurrenceID = opretResultatInput.nextInt();
-        }
-        konkurrence = konkurrencer.konkurrenceMap.get(konkurrenceID);
-
- */
-
-
         // Konkurrence eller træningsresultat
         Konkurrence konkurrence = null;
-        // int konkurrenceID=1;
+
         while (konkurrence == null) {
             System.out.println("Træningsresultat tast: 1 \nkonkurrenceresultat tast 2: ");
             if (opretResultatInput.hasNextInt()) {
@@ -72,14 +49,15 @@ public class IOOpretResultat {
                 int konkurrenceInput = opretResultatInput.nextInt();
                 if (konkurrenceInput == 1) {
                     konkurrence = konkurrencer.konkurrenceMap.get(1);
-                    // System.out.println("Træningsresultat");
 
                 } else if (konkurrenceInput == 2) {
                     System.out.println(konkurrencer);
-                    int konkurrenceID = opretResultatInput.nextInt();
-                    konkurrence = konkurrencer.konkurrenceMap.get(konkurrenceID);
-                    // System.out.println("Midlertidigt konkurrence");
-                    // break;
+
+                    if (opretResultatInput.hasNextInt()) {
+                        int konkurrenceID = opretResultatInput.nextInt();
+                        konkurrence = konkurrencer.konkurrenceMap.get(konkurrenceID);
+
+                    }
                 }
                 else {
                     System.out.println("Fejltastning");
@@ -104,17 +82,9 @@ public class IOOpretResultat {
                 svoemmediciplin = opretResultatInput.nextInt();
                 } else {
                     System.out.println("Fejltastning: 1 - 4");
+                    opretResultatInput.nextLine();
                 }
             }
-        /*
-        else {
-                System.out.println("Fejltast, skal være et tal");
-                opretResultatInput.nextLine();
-            }
-
-         */
-
-
 
             // Tid
             // System.out.println("Indtast tid: 00,00,00 ");
@@ -129,48 +99,10 @@ public class IOOpretResultat {
                 LocalTime tid = LocalTime.parse(tmpTid, myFormat);
                 intTid = omRegner(tid);
             }
-        /*
-        else {
-                System.out.println("Fejltastning");
-        }
-
-         */
             KonkurrenceResultat konkurrenceResultat = new KonkurrenceResultat(medlem, konkurrence, svoemmediciplin, intTid);
             konkurrenceResultat.gem();
             System.out.println(konkurrenceResultat);
         }
-
-
-                /*
-                (ml.medlemMap.get(medlemID)
-                konkurrencer.konkurrenceMap.get(konkurrenceID),
-                svoemmediciplin,
-                tid);
-
-                 */
-
-
-
-
-
-/*
-        int tmp = opretResultatInput.nextInt();
-        KonkurrenceResultat.Svoemmediciplin svoemmediciplin = null;
-      
-            if (tmp == 1) {
-                svoemmediciplin = KonkurrenceResultat.Svoemmediciplin.brystsvoemning;
-            }
-            if (tmp == 2) {
-                svoemmediciplin = KonkurrenceResultat.Svoemmediciplin.crawl;
-            }
-            if (tmp == 3) {
-                svoemmediciplin = KonkurrenceResultat.Svoemmediciplin.rygcrawl;
-            }
-            if (tmp == 4) {
-                svoemmediciplin = KonkurrenceResultat.Svoemmediciplin.butterfly;
-            }
-
- */
 
 
 
