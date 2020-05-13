@@ -29,7 +29,14 @@ public class MedlemsLister {
         }
         return retVal;
     }
-
+    public String KortToStringkonkurrencemedlem() {
+        String retVal="Medlemmer\n";
+        for (Medlem medlem:medlemMap.values()) {
+            if((medlem!=null)&&(medlem.isMotionist())){
+            retVal=retVal+medlem.kortToString()+"\n";}
+        }
+        return retVal;
+    }
 
 
 // Subliste med konkurrencemedlemmer

@@ -26,7 +26,7 @@ public class MedlemMapper {
                 medlem.getEmail()+"\",\"" +
                 medlem.getTlfNr()+"\",\"" +
                 medlem.getBalance()+"\",\"" +
-                boolToSql(medlem.isMotionist())+"\",\"" +
+                boolToSql(!medlem.isMotionist())+"\",\"" +
                 boolToSql(medlem.isAktiv())+"\",\"" +
                 boolToSql(medlem.isMand())+"\",\"" +
                 boolToSql(medlem.isSenior())+"\",\"" +
