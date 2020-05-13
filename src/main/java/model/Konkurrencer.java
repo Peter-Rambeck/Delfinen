@@ -18,4 +18,5 @@ public class Konkurrencer {
         }
         return retVal;
     }
+
 }

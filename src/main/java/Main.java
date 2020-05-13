@@ -30,6 +30,7 @@ public class Main {
         rm.getResultaterFraDB();
         System.out.println(konkurrencer);
         System.out.println(konkurrenceResultater);
+        konkurrenceResultater.udskrivTop5(4,true,false);
         System.out.println(konkurrenceResultater.konkurrenceResultatMap.get(1).opfylderKriterie(1,false,false));
        /*
        Menu menu = new Menu();
