@@ -85,23 +85,30 @@ public class KonkurrenceResultat {
         int minutes;
         int seconds;
         int milliseconds;
-        minutes=intTid/60000;intTid=intTid%60000;
 
-        seconds=intTid/1000;intTid=intTid%1000;
+        minutes=intTid/60000;
+        intTid=intTid%60000;
+        String minutuesString=String.format("%2d",minutes);
+
+        seconds=intTid/1000;
+        intTid=intTid%1000;
+        String seconsString=String.format("%02d",seconds);
 
         milliseconds=intTid;
-        retVal=minutes+":"+seconds+"."+milliseconds;
+        String mSecondsString=String.format("%03d",milliseconds);
+
+        retVal=retVal+minutuesString+":"+seconsString+"."+mSecondsString;
         return retVal;
 
 
     }
+
     public boolean opfylderKriterie(int disciplin,boolean mand, boolean senior){
         boolean sammeDisciplin=(this.svoemmediciplin==disciplin);
         boolean sammeKoen=(this.getMedlem().isMand()==mand);
         boolean sammeSenior=(this.getMedlem().isSenior()==senior);
-        System.out.println(sammeDisciplin);
-        System.out.println(sammeKoen);
-        System.out.println(sammeSenior);
         return sammeDisciplin&&sammeKoen&&sammeSenior;
     }
+
+
 }

@@ -7,10 +7,10 @@ import static model.MedlemsLister.*;
 
 public class Kontingenter {
 
-    final int juniorKontingent = 1000;
-    final int seniorKontingent = 1600;
-    final int over60Kontingent = 1200;
-    final int passivKontingent = 500;
+    final static int juniorKontingent = 1000;
+    final static int seniorKontingent = 1600;
+    final static int over60Kontingent = 1200;
+    final static int passivKontingent = 500;
 
         //udregner kontingent for medlemmer ud fra deres oprettede alder, og ovenstående kriterier
      public static int udregnKontingent(Medlem medlem) {
