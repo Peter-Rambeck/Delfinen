@@ -8,7 +8,6 @@ import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 
-
 public class IOOpretKonkurrence {
 
     String konkurrenceNavn;
