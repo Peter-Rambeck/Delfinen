@@ -1,5 +1,6 @@
 package IOMenu;
 
+import model.KonkurrenceResultater;
 import model.Kontingenter;
 
 import java.util.Scanner;
@@ -136,7 +137,7 @@ public class UnderMenu {
 
                     case 3:
                         System.out.println(trænerUnderMenu[2]);
-                        // TODO call Vis Top 5 liste method
+                        top5UnderMenu();
                         break;
 
 
@@ -155,6 +156,58 @@ public class UnderMenu {
         }
     }
 
+    private void top5UnderMenu() {
+        Scanner input = new Scanner(System.in);
+        int svoemmediciplin = 0;
+        while ( svoemmediciplin == 0 ) {
+            System.out.println("Vælg diciplin: ");
+            System.out.println("brystsvoemning: 1 ");
+            System.out.println("crawl: 2 ");
+            System.out.println("rygcrawl: 3 ");
+            System.out.println("butterfly: 4 ");
+            if (input.hasNextInt()) {
+                // if (opretResultatInput.nextInt() <= 4) {
+                svoemmediciplin = input.nextInt();
+            } else {
+                System.out.println("Fejltastning: 1 - 4");
+                input.nextLine();
+            }
+        }
+        boolean senior = true;
+        int ok=-1;
+        while ( ok == -1 ) {
+            System.out.println("Vælg junior/senior: ");
+            System.out.println("junior: 1 ");
+            System.out.println("senior: 2 ");
+            if (input.hasNextInt()) {
+                // if (opretResultatInput.nextInt() <= 4) {
+                ok = input.nextInt();
+                if (ok==1){senior=false;}else{senior=true;}
+            } else {
+                System.out.println("Fejltastning: 1 eller 2");
+                input.nextLine();
+            }
+        }
+        boolean mand= true;
+        ok=-1;
+        while ( ok == -1 ) {
+            System.out.println("Vælg kvinde/mand: ");
+            System.out.println("kvinde: 1 ");
+            System.out.println("mand: 2 ");
+            if (input.hasNextInt()) {
+                // if (opretResultatInput.nextInt() <= 4) {
+                ok = input.nextInt();
+                if (ok==1){mand=false;}else{mand=true;}
+
+            } else {
+                System.out.println("Fejltastning: 1 eller 2");
+                input.nextLine();
+            }
+            KonkurrenceResultater konkurrenceResultater=new KonkurrenceResultater();
+            konkurrenceResultater.udskrivTop5(svoemmediciplin,mand,senior);
+        }
+
+    }
 
 
 }
