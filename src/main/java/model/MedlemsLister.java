@@ -5,15 +5,14 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 
 public class MedlemsLister {
+    //klasse der bare indeholder et static hashmap med medlemmer
+    // og 3 toString til at udskrive disse i forskellige situationer
 
-   // public static ArrayList<Medlem> medlemmer = new ArrayList<>();Medlem>();
     public static HashMap<Integer, Medlem> medlemMap = new HashMap<>();
-
-//    public static HashMap<Integer, Medlem> medlemMap = new HashMap<Integer, Medlem>();
-
 
     @Override
     public String toString() {
+        //den almindelige toString, et medlem per linje
         String retVal="Medlemmer";
         for (Medlem medlem:medlemMap.values()) {
             retVal=retVal+medlem.toString()+"\n";
@@ -23,6 +22,7 @@ public class MedlemsLister {
 
 
     public String KortToString() {
+        //den korte toString, kun id og navn, et medlem per linje
         String retVal="Medlemmer\n";
         for (Medlem medlem:medlemMap.values()) {
             retVal=retVal+medlem.kortToString()+"\n";
@@ -30,6 +30,8 @@ public class MedlemsLister {
         return retVal;
     }
     public String KortToStringkonkurrencemedlem() {
+        //den korte toString, kun id og navn, et medlem per linje
+        //udskriver kun konkurrencemedlemmer, bruges af træneren..
         String retVal="Medlemmer\n";
         for (Medlem medlem:medlemMap.values()) {
             if((medlem!=null)&&(!
@@ -38,24 +40,4 @@ public class MedlemsLister {
         }
         return retVal;
     }
-
-
-// Subliste med konkurrencemedlemmer
-   // public static ArrayList<Medlem> konkurrenceMedlemmer = new ArrayList<>();
-
-
-
-    //public MedlemsListe() {}
-/*
-    public ArrayList<Medlem> getMedlemmer() {
-        return medlemmer;
-    }
-*/
-    // Subliste
-  /*  public ArrayList<Medlem> getKonkurrenceMedlemmer() {
-        return konkurrenceMedlemmer;
-    }
-*/
-
-
 }

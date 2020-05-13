@@ -1,8 +1,6 @@
 package model;
 
-
 import datamapper.ResultatMapper;
-
 
 public class KonkurrenceResultat {
 
@@ -10,9 +8,12 @@ public class KonkurrenceResultat {
     private int konkurrenceResultatID;
     private Medlem medlem;
     private Konkurrence konkurrence;
+    //svømmedisciplin er int 1-4,som symboliserer 1:bryst 2:crawl 3:rygcrawl 4:butterfly
     public int svoemmediciplin;
+    //i resultat gemmes tid i en int, tid omregnes til millisekunder...
     private int tid;
-        //contructor
+
+        //contructor hvor alt undtagen id gemmes, det kommer fra DB
     public KonkurrenceResultat(Medlem medlem, Konkurrence konkurrence, int svoemmediciplin, int tid) {
         this.medlem = medlem;
         this.konkurrence = konkurrence;
@@ -20,6 +21,7 @@ public class KonkurrenceResultat {
         this.tid = tid;
     }
     public void gem(){
+        //gemmer resultat i DB og hashmap, tilføjer ID fra DB til resultatet
         KonkurrenceResultater konkurrenceResultater=new KonkurrenceResultater();
         ResultatMapper resultatMapper=new ResultatMapper();
         int resultatID=resultatMapper.createKonkurrenceResultat(this);
@@ -57,6 +59,7 @@ public class KonkurrenceResultat {
 
     @Override
     public String toString() {
+        //finder svømmedisciplin udfra int
         String disciplinstr="";
         switch (svoemmediciplin){
             case 1:disciplinstr="Brystsvømning";
@@ -69,6 +72,7 @@ public class KonkurrenceResultat {
                 break;
 
         }
+        //finder senio/junior udfra boolean
         String senior="Senior";
         if (medlem.isSenior()==false){senior="junior";}
         return
@@ -81,6 +85,7 @@ public class KonkurrenceResultat {
     }
 
     public String intToTimeString(int intTid){
+        //laver en string med tiden ud fra int med millisekunder
         String retVal="";
         int minutes;
         int seconds;
@@ -104,9 +109,18 @@ public class KonkurrenceResultat {
     }
 
     public boolean opfylderKriterie(int disciplin,boolean mand, boolean senior){
+        //metode der er true hvis resultat opfylder kriterie
+
+        // er disciplinen rigtig
         boolean sammeDisciplin=(this.svoemmediciplin==disciplin);
+
+        // er kønnet rigtig for det medlem der har sat resultatet
         boolean sammeKoen=(this.getMedlem().isMand()==mand);
+
+        //er junior/senior rigtig for medlemmet der satte resultatet
         boolean sammeSenior=(this.getMedlem().isSenior()==senior);
+
+        //returner kun true hvsi alle 3 er opfyldt
         return sammeDisciplin&&sammeKoen&&sammeSenior;
     }
 

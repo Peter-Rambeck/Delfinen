@@ -1,10 +1,10 @@
 package model;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Konkurrencer {
-    //public static ArrayList<Konkurrence> liste=new ArrayList<>();
+//klasse som kun indeholder hashmap med alle konkurrencer og en toString..
+
        public static HashMap<Integer, Konkurrence> konkurrenceMap = new HashMap<Integer, Konkurrence>();
 
     public Konkurrencer() {
