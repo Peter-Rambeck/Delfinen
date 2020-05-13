@@ -1,0 +1,306 @@
+package IOMenu;
+
+import model.*;
+import model.Enum;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Scanner;
+
+
+/*
+Status
+Medlem: ok
+
+ */
+
+public class IOOpretResultat {
+
+    public static void opretResultat() {
+        Konkurrencer konkurrencer = new Konkurrencer();
+        MedlemsLister ml = new MedlemsLister();
+        KonkurrenceResultater konkurrenceResultater = new KonkurrenceResultater();
+
+        // Create Scanner object
+        Scanner opretResultatInput = new Scanner(System.in);
+
+        // Medlem
+        Medlem medlem = null;
+        while (medlem == null) {
+            System.out.println("Vælg medlem: ");
+            System.out.println(ml.KortToString());
+            // Korrigerer for fejltastning
+            if (opretResultatInput.hasNextInt()) {
+                int medlemID = opretResultatInput.nextInt();
+                // Korrigerer hvis medlemID ikke er på listen
+                if (medlemID < ml.medlemMap.size()) {
+                    medlem = ml.medlemMap.get(medlemID);
+                    ml.medlemMap.get(medlemID);
+                } else {
+                    System.out.println("Indtast et nummer fra listen");
+                }
+            } else {
+                System.out.println("Fejltast");
+                opretResultatInput.nextLine();
+            }
+        }
+
+/*
+        // Konkurrence eller træningsresultat
+        System.out.println("Vælg konkurrence tast 1, ellers 2: ");
+        System.out.println("Vælg konkurrence: ");
+        int konkurrenceInput = opretResultatInput.nextInt();
+        Konkurrence konkurrence;
+        int konkurrenceID=1;
+        if (konkurrenceInput == 1) {
+            System.out.println(konkurrencer);
+            // TODO Test retur værdi
+            konkurrenceID = opretResultatInput.nextInt();
+        }
+        konkurrence = konkurrencer.konkurrenceMap.get(konkurrenceID);
+
+ */
+
+
+        // Konkurrence eller træningsresultat
+        Konkurrence konkurrence = null;
+        // int konkurrenceID=1;
+        while (konkurrence == null) {
+            System.out.println("Træningsresultat tast: 1 \nkonkurrenceresultat tast 2: ");
+            if (opretResultatInput.hasNextInt()) {
+
+                int konkurrenceInput = opretResultatInput.nextInt();
+                if (konkurrenceInput == 1) {
+                    konkurrence = konkurrencer.konkurrenceMap.get(1);
+                    // System.out.println("Træningsresultat");
+
+                } else if (konkurrenceInput == 2) {
+                    System.out.println(konkurrencer);
+                    int konkurrenceID = opretResultatInput.nextInt();
+                    konkurrence = konkurrencer.konkurrenceMap.get(konkurrenceID);
+                    // System.out.println("Midlertidigt konkurrence");
+                    // break;
+                }
+                else {
+                    System.out.println("Fejltastning");
+                    opretResultatInput.nextLine();
+                }
+            } else {
+                System.out.println("Fejltast, skal være et tal");
+                opretResultatInput.nextLine();
+            }
+        }
+
+        // svoemmediciplin
+        int svoemmediciplin = 0;
+        while ( svoemmediciplin == 0 ) {
+            System.out.println("Vælg diciplin: ");
+            System.out.println("brystsvoemning: 1 ");
+            System.out.println("crawl: 2 ");
+            System.out.println("rygcrawl: 3 ");
+            System.out.println("butterfly: 4 ");
+            if (opretResultatInput.hasNextInt()) {
+                // if (opretResultatInput.nextInt() <= 4) {
+                svoemmediciplin = opretResultatInput.nextInt();
+                } else {
+                    System.out.println("Fejltastning: 1 - 4");
+                }
+            }
+        /*
+        else {
+                System.out.println("Fejltast, skal være et tal");
+                opretResultatInput.nextLine();
+            }
+
+         */
+
+
+
+            // Tid
+            // System.out.println("Indtast tid: 00,00,00 ");
+        int intTid = 0;
+        while ( intTid == 0 ) {
+            System.out.println("Indtast tid 'HH:mm:ss.SSS'");
+            //if (opretResultatInput.hasNextInt()) {
+                String tmpTid = opretResultatInput.nextLine();
+                tmpTid = opretResultatInput.nextLine();
+
+                DateTimeFormatter myFormat = DateTimeFormatter.ofPattern("HH:mm:ss.SSS");
+                LocalTime tid = LocalTime.parse(tmpTid, myFormat);
+                intTid = omRegner(tid);
+            }
+        /*
+        else {
+                System.out.println("Fejltastning");
+        }
+
+         */
+            KonkurrenceResultat konkurrenceResultat = new KonkurrenceResultat(medlem, konkurrence, svoemmediciplin, intTid);
+            konkurrenceResultat.gem();
+            System.out.println(konkurrenceResultat);
+        }
+
+
+                /*
+                (ml.medlemMap.get(medlemID)
+                konkurrencer.konkurrenceMap.get(konkurrenceID),
+                svoemmediciplin,
+                tid);
+
+                 */
+
+
+
+
+
+/*
+        int tmp = opretResultatInput.nextInt();
+        KonkurrenceResultat.Svoemmediciplin svoemmediciplin = null;
+
+            if (tmp == 1) {
+                svoemmediciplin = KonkurrenceResultat.Svoemmediciplin.brystsvoemning;
+            }
+            if (tmp == 2) {
+                svoemmediciplin = KonkurrenceResultat.Svoemmediciplin.crawl;
+            }
+            if (tmp == 3) {
+                svoemmediciplin = KonkurrenceResultat.Svoemmediciplin.rygcrawl;
+            }
+            if (tmp == 4) {
+                svoemmediciplin = KonkurrenceResultat.Svoemmediciplin.butterfly;
+            }
+
+ */
+
+
+
+
+        public static int omRegner (LocalTime tid){
+            int sekunder;
+            int minutter;
+            int nanosekunder;
+
+            sekunder = tid.getSecond();
+            minutter = tid.getMinute();
+            nanosekunder = tid.getNano();
+
+            return nanosekunder / 1000000 + sekunder * 1000 + minutter * 60000;
+        }
+    }
+
+
+
+
+package IOMenu;
+
+import model.*;
+import model.Enum;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Scanner;
+
+
+public class IOOpretResultat {
+
+    public static void opretResultat() {
+        Konkurrencer konkurrencer = new Konkurrencer();
+        MedlemsLister ml = new MedlemsLister();
+        KonkurrenceResultater konkurrenceResultater = new KonkurrenceResultater();
+
+        // Create Scanner object
+        Scanner opretResultatInput = new Scanner(System.in);
+
+
+        // Medlem
+        System.out.println("Vælg Medlem: ");
+        System.out.println(ml.KortToString());
+        int medlemID = opretResultatInput.nextInt();
+        Medlem medlem = ml.medlemMap.get(medlemID);
+
+
+        // Konkurrence eller træningsresultat
+        System.out.println("Vælg konkurrence tast 1, ellers 2: ");
+        System.out.println("Vælg konkurrence: ");
+        int konkurrenceInput = opretResultatInput.nextInt();
+        Konkurrence konkurrence;
+        int konkurrenceID=1;
+        if (konkurrenceInput == 1) {
+            System.out.println(konkurrencer);
+            // TODO Test retur værdi
+            konkurrenceID = opretResultatInput.nextInt();
+        }
+        konkurrence = konkurrencer.konkurrenceMap.get(konkurrenceID);
+
+        // Konkurrence eller træningsresultat
+        System.out.println("Vælg diciplin: ");
+        System.out.println("brystsvoemning: 1 ");
+        System.out.println("crawl: 2 ");
+        System.out.println("rygcrawl: 3 ");
+        System.out.println("butterfly: 4 ");
+        // System.out.println("Slut diciplin: 0 ");
+        int svoemmediciplin = opretResultatInput.nextInt();
+
+
+        // Tid
+        // System.out.println("Indtast tid: 00,00,00 ");
+        System.out.println("Indtast tid 'HH:mm:ss.SSS'");
+        String tmpTid = opretResultatInput.nextLine();
+         tmpTid = opretResultatInput.nextLine();
+        DateTimeFormatter myFormat = DateTimeFormatter.ofPattern("HH:mm:ss.SSS");
+        LocalTime tid = LocalTime.parse(tmpTid, myFormat);
+        int intTid = omRegner(tid);
+
+
+
+
+        KonkurrenceResultat konkurrenceResultat = new KonkurrenceResultat(medlem, konkurrence, svoemmediciplin, intTid);
+        konkurrenceResultat.gem();
+        System.out.println(konkurrenceResultat);
+
+
+                /*
+                (ml.medlemMap.get(medlemID)
+                konkurrencer.konkurrenceMap.get(konkurrenceID),
+                svoemmediciplin,
+                tid);
+                 */
+
+
+
+
+
+/*
+        int tmp = opretResultatInput.nextInt();
+        KonkurrenceResultat.Svoemmediciplin svoemmediciplin = null;
+
+            if (tmp == 1) {
+                svoemmediciplin = KonkurrenceResultat.Svoemmediciplin.brystsvoemning;
+            }
+            if (tmp == 2) {
+                svoemmediciplin = KonkurrenceResultat.Svoemmediciplin.crawl;
+            }
+            if (tmp == 3) {
+                svoemmediciplin = KonkurrenceResultat.Svoemmediciplin.rygcrawl;
+            }
+            if (tmp == 4) {
+                svoemmediciplin = KonkurrenceResultat.Svoemmediciplin.butterfly;
+            }
+ */
+
+
+    }
+
+    public static int omRegner(LocalTime tid) {
+        int sekunder;
+        int minutter;
+        int nanosekunder;
+
+        sekunder = tid.getSecond();
+        minutter = tid.getMinute();
+        nanosekunder = tid.getNano();
+
+        return nanosekunder / 1000000 + sekunder * 1000 + minutter * 60000;
+    }
+}
+
