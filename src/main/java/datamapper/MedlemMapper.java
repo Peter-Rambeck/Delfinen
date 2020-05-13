@@ -95,7 +95,7 @@ public class MedlemMapper {
                 int intmotionist=res.getInt("konkurrencemedlem");
                 boolean motionist=true;
                 if (intmotionist>0)
-                {motionist= true;}else{motionist=false;}
+                {motionist= false;}else{motionist=true;}
 
                 /*
                 Medlem(Status status, Koen koen, AldersKlasse aldersKlasse, String forNavn, String efterNavn, int alder, String email, String tlfNr)
