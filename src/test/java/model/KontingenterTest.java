@@ -37,6 +37,6 @@ public class KontingenterTest {
 
     @Test
     public void udregnKontingent() {
-        Medlem
+
     }
 }
