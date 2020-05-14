@@ -79,8 +79,8 @@ public class MedlemMapper {
                 int intsenior=res.getInt("aldersklasse");
                 boolean senior=sqlToBool(intsenior);
                 //motionist er boolean i java og 0/1 i DB OBS hedder motionist i java og konkurrncemedlem i DB
-                int intmotionist=res.getInt("konkurrencemedlem");
-                boolean motionist=sqlToBool(intmotionist);
+                int konkurrencemedlem=res.getInt("konkurrencemedlem");
+                boolean motionist=!sqlToBool(konkurrencemedlem);
 
                 // laver medlem udfra det hentede
                 tmpMedlem = new Medlem(aktiv,mand, senior,motionist,fornavn,efternavn,traener,fodselsaer,email,tlfnr,balance);

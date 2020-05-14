@@ -77,8 +77,9 @@ public class IOOpretResultat {
             System.out.println("rygcrawl: 3 ");
             System.out.println("butterfly: 4 ");
             if (opretResultatInput.hasNextInt()) {
-                if (opretResultatInput.nextInt() <= 4) {
-                    svoemmediciplin = opretResultatInput.nextInt();
+                svoemmediciplin=opretResultatInput.nextInt();
+                if (svoemmediciplin <= 4) {
+
                 } } else {
                 System.out.println("Fejltastning: 1 - 4");
                 opretResultatInput.nextLine();

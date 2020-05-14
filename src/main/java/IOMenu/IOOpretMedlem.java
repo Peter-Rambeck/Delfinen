@@ -101,7 +101,6 @@ public class IOOpretMedlem {
                         if (opretMedlemInput.hasNextInt()) {
                                 int inputMotionist = opretMedlemInput.nextInt();
                                 if (inputMotionist > 0 && inputMotionist < 3) {
-                                        inputMotionist = opretMedlemInput.nextInt();
 
                                         if (inputMotionist == 1) {
                                                 motionist = true;
