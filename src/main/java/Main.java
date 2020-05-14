@@ -18,10 +18,12 @@ import static model.MedlemsLister.medlemMap;
 public class Main {
 
     public static void main(String[] args) {
+
         //indlæs medlemmer fra DB
          MedlemMapper mm = new MedlemMapper();
          MedlemsLister ml=new MedlemsLister();
          mm.getMedlemmerFraDB(ml);
+
 
          //indlæs konkurrencer fra DB
         KonkurrenceMapper km=new KonkurrenceMapper();

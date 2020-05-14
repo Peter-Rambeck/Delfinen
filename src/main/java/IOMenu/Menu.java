@@ -11,9 +11,9 @@ public class Menu {
 
         Scanner input = new Scanner(System.in);
 
-        int fLogIn = 123;
-        int kLogIn = 456;
-        int tLogIn = 456;
+        int fLogIn = 1;
+        int kLogIn = 2;
+        int tLogIn = 3;
 
 
         System.out.println("Vælg login");
