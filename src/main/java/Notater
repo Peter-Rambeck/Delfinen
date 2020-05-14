@@ -5,13 +5,15 @@ opretMedlem.
 
 kontigent:
 1
-indbetalKontigent.
+indbetalKontigent. = ok,
 2.
 udregnKontigent
 
 ________
 
 Mapper'ne
+KonkurrenceMapper = ok
+MedlemMapper
 ________
 
 1.

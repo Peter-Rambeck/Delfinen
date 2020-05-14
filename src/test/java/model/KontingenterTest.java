@@ -1,19 +1,42 @@
 package model;
 
-import junit.framework.TestCase;
+import datamapper.MedlemMapper;
+import org.junit.Before;
+import org.junit.Test;
 
-public class KontingenterTest extends TestCase {
+import static org.junit.Assert.*;
 
+public class KontingenterTest {
+
+
+    @Before
     public void setUp() throws Exception {
-        super.setUp();
+        MedlemMapper mm = new MedlemMapper();
+        MedlemsLister ml=new MedlemsLister();
+        mm.getMedlemmerFraDB(ml);
     }
 
-    public void tearDown() throws Exception {
+    @Test
+    public void indbetalKontingent() {
+
+        MedlemsLister medlemsLister=new MedlemsLister();
+        Medlem medlem;
+        medlem = medlemsLister.medlemMap.get(15);
+        int balanceFor =  medlem.getBalance();
+
+        Kontingenter.indbetalKontingent(15, 100);
+        //henter medlem i medlemsliste
+        int actual = medlem.getBalance();
+        int expected = balanceFor +100;
+
+        assertEquals(expected, actual);
+
+        Kontingenter.indbetalKontingent(15, -100);
+
     }
 
-    public void testUdregnKontingent() {
-    }
+    @Test
+    public void udregnKontingent() {
 
-    public void testIndbetalKontingent() {
     }
 }
