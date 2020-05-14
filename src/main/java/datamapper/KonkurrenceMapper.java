@@ -31,7 +31,7 @@ public class KonkurrenceMapper {
             ResultSet res = stmt.getGeneratedKeys();
             res.next();
             //giv det modtagene id til objektet
-            // konkurenceID = res.getInt(1);
+            konkurenceID = res.getInt(1);
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }

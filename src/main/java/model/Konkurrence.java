@@ -55,6 +55,7 @@ public class Konkurrence {
         KonkurrenceMapper konkurrenceMapper = new KonkurrenceMapper();
         //gem i DB
         int konkurrenceID=konkurrenceMapper.createKonkurrence(this);
+        //gem det modtagne ID
         this.setKonkurrenceID(konkurrenceID);
         //gem i map
         Konkurrencer.konkurrenceMap.put(konkurrenceID,this);
