@@ -15,7 +15,7 @@ public class Menu {
         int kLogIn = 2;
         int tLogIn = 3;
 
-
+        System.out.println("passwords: formand 1,kassere 2 og træner 3");
         System.out.println("Vælg login");
         System.out.println("1.\t" + hovedMenu[0]);
         System.out.println("2.\t" + hovedMenu[1]);
