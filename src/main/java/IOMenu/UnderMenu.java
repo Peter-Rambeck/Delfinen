@@ -20,7 +20,7 @@ public class UnderMenu {
 
         System.out.println("Vælg ");
         System.out.println("1.\t"+ formandUnderMenu[0]);
-        // System.out.println("2.\t"+ formandUnderMenu[1]);
+        System.out.println("2.\t"+ formandUnderMenu[1]);
 
         if (input.hasNextInt()) {
             int menuLogin = input.nextInt();
@@ -174,8 +174,8 @@ public class UnderMenu {
             System.out.println("rygcrawl: 3 ");
             System.out.println("butterfly: 4 ");
             if (input.hasNextInt()) {
+                // if (opretResultatInput.nextInt() <= 4) {
                 svoemmediciplin = input.nextInt();
-                if ((svoemmediciplin>2)||(svoemmediciplin<1)){svoemmediciplin=0;}
             } else {
                 System.out.println("Fejltastning: 1 - 4");
                 input.nextLine();
@@ -188,9 +188,9 @@ public class UnderMenu {
             System.out.println("junior: 1 ");
             System.out.println("senior: 2 ");
             if (input.hasNextInt()) {
+                // if (opretResultatInput.nextInt() <= 4) {
                 ok = input.nextInt();
                 if (ok==1){senior=false;}else{senior=true;}
-                if ((ok>2)||(ok<1)){ok=-1;}
             } else {
                 System.out.println("Fejltastning: 1 eller 2");
                 input.nextLine();
@@ -203,9 +203,10 @@ public class UnderMenu {
             System.out.println("kvinde: 1 ");
             System.out.println("mand: 2 ");
             if (input.hasNextInt()) {
+                // if (opretResultatInput.nextInt() <= 4) {
                 ok = input.nextInt();
                 if (ok==1){mand=false;}else{mand=true;}
-                if ((ok>2)||(ok<1)){ok=-1;}
+
             } else {
                 System.out.println("Fejltastning: 1 eller 2");
                 input.nextLine();
