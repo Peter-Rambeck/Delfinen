@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Menu {
 
-    String[] hovedMenu = {"Formand", "Kasserer", "Træner"};
+    String[] hovedMenu = {"Formand", "Kasserer", "Træner", "Afslut program"};
     UnderMenu underMenu = new UnderMenu();
 
     public void hovedMenu() {
@@ -20,6 +20,7 @@ public class Menu {
         System.out.println("1.\t" + hovedMenu[0]);
         System.out.println("2.\t" + hovedMenu[1]);
         System.out.println("3.\t" + hovedMenu[2]);
+        System.out.println("4.\t" + hovedMenu[3]);
 
 
         if (input.hasNextInt())  {
@@ -76,6 +77,23 @@ public class Menu {
                                 hovedMenu();
                             }
                             break;
+
+                        case 4:
+                            System.out.println(hovedMenu[3] + " Tast 0");
+                            if (input.hasNextInt()) {
+                                int afslut = input.nextInt();
+                                if (afslut == 0) {
+                                    Runtime.getRuntime().exit(-1);
+                                } else {
+                                    System.out.println("Fejltastning");
+                                    hovedMenu();
+                                }
+                                break;
+                            }
+
+                            default:
+                                System.out.println("Funger ikke");
+                                break;
                     }
                     // Switch end
 
