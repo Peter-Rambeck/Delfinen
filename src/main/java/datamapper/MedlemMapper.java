@@ -124,9 +124,9 @@ public class MedlemMapper {
     }
     public boolean sqlToBool(int sqlint){
         //udregner boolean udfra int fra DB
-        boolean retVal=true;
+        boolean retVal=false;
         if (sqlint>0)
-        {retVal= false;}else{retVal=true;}
+        {retVal= true;}else{retVal=false;}
         return retVal;
     }
 
