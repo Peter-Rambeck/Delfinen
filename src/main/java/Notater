@@ -1,5 +1,16 @@
 
-IOOpretMedlem
-Scannerbug
+IOOpretMedlem:
+1.
+Scannerbug - skal taste samme værdi 2 gange
 // Motionist eller Konkurrence medlem, Bool
 Lj 95
+
+IOOpretResultat:
+1.
+Scannerbug - skal taste samme værdi 2 gange
+// svoemmediciplin, int
+Lj 71
+2.
+// Tid
+Lj 88
+Ikke lykkes med fejlhåndtering

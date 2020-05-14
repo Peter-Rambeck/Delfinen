@@ -50,6 +50,7 @@ public class IOOpretResultat {
                     konkurrence = konkurrencer.konkurrenceMap.get(1);
 
                 } else if (konkurrenceInput == 2) {
+                    System.out.println("Vælg konkurrence");
                     System.out.println(konkurrencer);
 
                     if (opretResultatInput.hasNextInt()) {
@@ -67,7 +68,7 @@ public class IOOpretResultat {
             }
         }
 
-        // svoemmediciplin
+        // svoemmediciplin, int
         int svoemmediciplin = 0;
         while (svoemmediciplin == 0) {
             System.out.println("Vælg diciplin: ");
