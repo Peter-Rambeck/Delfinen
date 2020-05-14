@@ -1,4 +1,38 @@
 
+Test.
+_____
+1.
+opretMedlem.
+
+kontigent:
+1
+indbetalKontigent.
+2.
+udregnKontigent
+
+Mapper'ne
+________
+
+1.
+opretKonkurrence
+2.
+konkurrenceResultat
+
+________
+Main:
+Opstart,
+refak. til metode.
+lj 21 - 34.
+
+_________
+Opstartdata
+Tjek, resultater så vi har 5 i hver Top 5 udskrivListe
+
+_________
+Menu:
+Menu i Loop
+
+_________
 IOOpretMedlem:
 1.
 Scannerbug - skal taste samme værdi 2 gange
@@ -14,3 +48,5 @@ Lj 71
 // Tid
 Lj 88
 Ikke lykkes med fejlhåndtering
+
+

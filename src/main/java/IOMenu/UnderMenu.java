@@ -120,7 +120,7 @@ public class UnderMenu {
         System.out.println("1.\t" +trænerUnderMenu[0]);
         System.out.println("2.\t" +trænerUnderMenu[1]);
         System.out.println("3.\t" +trænerUnderMenu[2]);
-        System.out.println("3.\t" +trænerUnderMenu[3]);
+        System.out.println("4.\t" +trænerUnderMenu[3]);
 
         if (input.hasNextInt()) {
             int menuLogin = input.nextInt();

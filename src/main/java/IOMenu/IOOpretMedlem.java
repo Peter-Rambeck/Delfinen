@@ -102,6 +102,7 @@ public class IOOpretMedlem {
                                 int inputMotionist = opretMedlemInput.nextInt();
                                 if (inputMotionist > 0 && inputMotionist < 3) {
                                         inputMotionist = opretMedlemInput.nextInt();
+
                                         if (inputMotionist == 1) {
                                                 motionist = true;
                                                 // opretMedlemInput.nextLine();
@@ -110,6 +111,7 @@ public class IOOpretMedlem {
                                                 // opretMedlemInput.nextLine();
                                                 break;
                                         }
+
                                 } else {
                                         System.out.println("Fejltastning, 1 eller 2");
                                         //opretMedlemInput.nextLine();
@@ -119,6 +121,7 @@ public class IOOpretMedlem {
                                 //opretMedlemInput.nextLine();
                         }
                 }
+                // String var = opretMedlemInput.nextLine();
 
                 // Fornavn, String
                 String forNavn = null;
