@@ -25,7 +25,7 @@ public class Menu {
 
         if (input.hasNextInt())  {
                 int menuLogin = input.nextInt();
-                if (menuLogin > 0 && menuLogin < 4) {
+                if (menuLogin > 0 && menuLogin < 5) {
 
                     switch (menuLogin) {
 
