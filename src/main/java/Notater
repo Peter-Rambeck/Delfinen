@@ -1,6 +1,5 @@
 
 Test.
-_____
 1.
 opretMedlem.
 
@@ -9,6 +8,8 @@ kontigent:
 indbetalKontigent.
 2.
 udregnKontigent
+
+________
 
 Mapper'ne
 ________
@@ -19,20 +20,26 @@ opretKonkurrence
 konkurrenceResultat
 
 ________
+
 Main:
 Opstart,
 refak. til metode.
 lj 21 - 34.
 
 _________
+
 Opstartdata
 Tjek, resultater så vi har 5 i hver Top 5 udskrivListe
-
+Tjek Træner
+Klasse diagram
+DB Diagram
 _________
+
 Menu:
 Menu i Loop
 
 _________
+
 IOOpretMedlem:
 1.
 Scannerbug - skal taste samme værdi 2 gange
